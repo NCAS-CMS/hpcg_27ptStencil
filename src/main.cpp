@@ -49,7 +49,7 @@ using std::endl;
 #include "ReportResults.hpp"
 #include "mytimer.hpp"
 #include "ComputeSPMV_ref.hpp"
-#include "ComputeMG_ref.hpp"
+//#include "ComputeMG_ref.hpp"
 #include "ComputeResidual.hpp"
 #include "CG.hpp"
 #include "CG_ref.hpp"
@@ -105,7 +105,7 @@ int main(int argc, char * argv[]) {
   nz = (local_int_t)params.nz;
   int ierr = 0;  // Used to check return codes on function calls
 
-  ierr = CheckAspectRatio(0.125, nx, ny, nz, "local problem", rank==0);
+  ierr = CheckAspectRatio(0.125, nx, ny, nz, "local problem", rank==0); // Not defined x or y, so not a concern - dhc
   if (ierr)
     return ierr;
 
@@ -121,7 +121,7 @@ int main(int argc, char * argv[]) {
   Geometry * geom = new Geometry;
   GenerateGeometry(size, rank, params.numThreads, params.pz, params.zl, params.zu, nx, ny, nz, params.npx, params.npy, params.npz, geom);
 
-  ierr = CheckAspectRatio(0.125, geom->npx, geom->npy, geom->npz, "process grid", rank==0);
+  ierr = CheckAspectRatio(0.125, geom->npx, geom->npy, geom->npz, "process grid", rank==0); // again - not defined in LFRic grid
   if (ierr)
     return ierr;
 
@@ -131,12 +131,12 @@ int main(int argc, char * argv[]) {
   double setup_time = mytimer();
 
   SparseMatrix A;
-  InitializeSparseMatrix(A, geom);
+  InitializeSparseMatrix(A, geom); // Should I modify this routine or correct afterwards? - dhc
 
   Vector b, x, xexact;
   GenerateProblem(A, &b, &x, &xexact);
   SetupHalo(A);
-  int numberOfMgLevels = 4; // Number of levels including first
+  int numberOfMgLevels = 1; // 4; // Number of levels including first // Don't know how this will work at this stage - dhc
   SparseMatrix * curLevelMatrix = &A;
   for (int level = 1; level< numberOfMgLevels; ++level) {
     GenerateCoarseProblem(*curLevelMatrix);
@@ -146,6 +146,8 @@ int main(int argc, char * argv[]) {
   setup_time = mytimer() - setup_time; // Capture total time of setup
   times[9] = setup_time; // Save it for reporting
 
+  // dont need this atm - dhc
+/*
   curLevelMatrix = &A;
   Vector * curb = &b;
   Vector * curx = &x;
@@ -157,7 +159,7 @@ int main(int argc, char * argv[]) {
      curx = 0;
      curxexact = 0;
   }
-
+*/
 
   CGData data;
   InitializeSparseCGData(A, data);
@@ -188,8 +190,8 @@ int main(int argc, char * argv[]) {
   for (int i=0; i< numberOfCalls; ++i) {
     ierr = ComputeSPMV_ref(A, x_overlap, b_computed); // b_computed = A*x_overlap
     if (ierr) HPCG_fout << "Error in call to SpMV: " << ierr << ".\n" << endl;
-    ierr = ComputeMG_ref(A, b_computed, x_overlap); // b_computed = Minv*y_overlap
-    if (ierr) HPCG_fout << "Error in call to MG: " << ierr << ".\n" << endl;
+    //ierr = ComputeMG_ref(A, b_computed, x_overlap); // b_computed = Minv*y_overlap //what happens if turn this off - dhc?
+    //if (ierr) HPCG_fout << "Error in call to MG: " << ierr << ".\n" << endl;
   }
   times[8] = (mytimer() - t_begin)/((double) numberOfCalls);  // Total time divided by number of calls.
 #ifdef HPCG_DEBUG
@@ -213,12 +215,13 @@ int main(int argc, char * argv[]) {
   numberOfCalls = 1; // Only need to run the residual reduction analysis once
 
   // Compute the residual reduction for the natural ordering and reference kernels
+  // dhc - natural ordering and new are going to be the same in this case, as overwriting
   std::vector< double > ref_times(9,0.0);
   double tolerance = 0.0; // Set tolerance to zero to make all runs do maxIters iterations
   int err_count = 0;
   for (int i=0; i< numberOfCalls; ++i) {
     ZeroVector(x);
-    ierr = CG_ref( A, data, b, x, refMaxIters, tolerance, niters, normr, normr0, &ref_times[0], true);
+    ierr = CG_ref( A, data, b, x, refMaxIters, tolerance, niters, normr, normr0, &ref_times[0], false); // dhc - set MG to false
     if (ierr) ++err_count; // count the number of errors in CG
     totalNiters_ref += niters;
   }
@@ -246,6 +249,7 @@ int main(int argc, char * argv[]) {
 #ifdef HPCG_DEBUG
   t1 = mytimer();
 #endif
+  // dhc - look at these tests -- surely cant pass? - diagonal etc??
   TestCGData testcg_data;
   testcg_data.count_pass = testcg_data.count_fail = 0;
   TestCG(A, data, b, x, testcg_data);
@@ -281,7 +285,7 @@ int main(int argc, char * argv[]) {
   for (int i=0; i< numberOfCalls; ++i) {
     ZeroVector(x); // start x at all zeros
     double last_cummulative_time = opt_times[0];
-    ierr = CG( A, data, b, x, optMaxIters, refTolerance, niters, normr, normr0, &opt_times[0], true);
+    ierr = CG( A, data, b, x, optMaxIters, refTolerance, niters, normr, normr0, &opt_times[0], false); // dhc - set MG false
     if (ierr) ++err_count; // count the number of errors in CG
     // Convergence check accepts an error of no more than 6 significant digits of relTolerance
     if (normr / normr0 > refTolerance * (1.0 + 1.0e-6)) ++tolerance_failures; // the number of failures to reduce residual
