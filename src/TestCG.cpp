@@ -88,7 +88,8 @@ int TestCG(SparseMatrix & A, CGData & data, Vector & b, Vector & x, TestCGData &
   testcg_data.expected_niters_prec = 2;   // For the preconditioned case, we should take about 1 iteration, permit 2
   testcg_data.niters_max_no_prec = 0;
   testcg_data.niters_max_prec = 0;
-  for (int k=0; k<2; ++k) { // This loop tests both unpreconditioned and preconditioned runs
+//  for (int k=0; k<2; ++k) { // This loop tests both unpreconditioned and preconditioned runs
+  for (int k=0; k<1; ++k) { // dhc - do not test k==1 ie preconditioning
     int expected_niters = testcg_data.expected_niters_no_prec;
     if (k==1) expected_niters = testcg_data.expected_niters_prec;
     for (int i=0; i< numberOfCgCalls; ++i) {

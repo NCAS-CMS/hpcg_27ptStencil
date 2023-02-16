@@ -73,6 +73,16 @@ struct SparseMatrix_STRUCT {
   local_int_t * sendLength; //!< lenghts of messages sent to neighboring processes
   double * sendBuffer; //!< send buffer for non-blocking sends
 #endif
+  // DHC Stuff
+  double * op1;// Coefficients for stencil
+  double * op2;// Coefficients for stencil
+  double * op3;// Coefficients for stencil
+  double * op4;// Coefficients for stencil
+  double * op5;// Coefficients for stencil
+  double * op6;// Coefficients for stencil
+  double * op7;// Coefficients for stencil
+  double * op8;// Coefficients for stencil
+  double * op9;// Coefficients for stencil
 };
 typedef struct SparseMatrix_STRUCT SparseMatrix;
 

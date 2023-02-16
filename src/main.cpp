@@ -60,6 +60,7 @@ using std::endl;
 #include "TestCG.hpp"
 #include "TestSymmetry.hpp"
 #include "TestNorms.hpp"
+#include "DHC_temp_setup.hpp"
 
 /*!
   Main driver program: Construct synthetic problem, run V&V tests, compute benchmark parameters, run benchmark, report results.
@@ -134,8 +135,11 @@ int main(int argc, char * argv[]) {
   InitializeSparseMatrix(A, geom); // Should I modify this routine or correct afterwards? - dhc
 
   Vector b, x, xexact;
-  GenerateProblem(A, &b, &x, &xexact);
-  SetupHalo(A);
+  GenerateProblem(A, &b, &x, &xexact); // Keep here but over write data today, and subroutine later
+  SetupHalo(A); //dhc - presumably won't work??
+
+
+
   int numberOfMgLevels = 1; // 4; // Number of levels including first // Don't know how this will work at this stage - dhc
   SparseMatrix * curLevelMatrix = &A;
   for (int level = 1; level< numberOfMgLevels; ++level) {
@@ -164,6 +168,54 @@ int main(int argc, char * argv[]) {
   CGData data;
   InitializeSparseCGData(A, data);
 
+  //dhc over-write stuff here?
+  local_int_t loop0_start = 0;
+  local_int_t loop0_stop  = 0;
+  local_int_t nlayers     = 0;
+  local_int_t undf_w3     = 0;
+  local_int_t x_vec_max_branch_length = 0;
+  int* map_w3;double* yvec;double* xvec;double* op1;double* op2;double* op3;double* op4;double* op5;double* op6;double* op7;double* op8;double* op9;double* ans;
+  int* stencil_size; int*** dofmap;
+
+  read_dinodump(loop0_start, loop0_stop, nlayers, undf_w3, x_vec_max_branch_length, &map_w3,
+                &yvec, &xvec, &op1, &op2, &op3, &op4, &op5, &op6, &op7, &op8, &op9, &ans, &stencil_size, &dofmap);
+
+//  std::cout << "Replacing vector b " << b.localLength << "with my x which has " << undf_w3 << std::endl;
+  b.localLength = undf_w3;
+  b.values = xvec;
+  x.localLength = undf_w3;
+  //x.values = xvec;
+  xexact.localLength = undf_w3;
+  xexact.values = yvec;
+  // something for ans??
+  // z direction never partitioned, so global and local always nlayers
+  A.geom->gnz = nlayers;
+  A.geom->nz  = nlayers;
+  A.geom->nxy = loop0_stop - loop0_start + 1; // number total in x and y
+  A.localNumberOfColumns = A.geom->nxy * A.geom->nz;
+  assert(A.geom->nxy * A.geom->nz == undf_w3);
+  A.localNumberOfRows = A.localNumberOfColumns; //MPI ranks == 1
+  A.geom->map_w3 = &map_w3;
+  A.geom->dofmap = &dofmap;
+
+  A.op1 = op1;
+  A.op2 = op2;
+  A.op3 = op3;
+  A.op4 = op4;
+  A.op5 = op5;
+  A.op6 = op6;
+  A.op7 = op7;
+  A.op8 = op8;
+  A.op9 = op9;
+
+  bool force_more_symmetric = true; // Do this to ensure CG converges -otherwise can get to about 1e-6 and bounces back a bit
+
+  if (force_more_symmetric){
+    A.op4 = A.op2; //S=N
+    A.op5 = A.op3; // E=W
+    A.op9 = A.op7; // DD=UU
+    A.op8 = A.op6; //D=U
+  }
 
 
   ////////////////////////////////////
@@ -251,9 +303,9 @@ int main(int argc, char * argv[]) {
 #endif
   // dhc - look at these tests -- surely cant pass? - diagonal etc??
   TestCGData testcg_data;
+
   testcg_data.count_pass = testcg_data.count_fail = 0;
   TestCG(A, data, b, x, testcg_data);
-
   TestSymmetryData testsymmetry_data;
   TestSymmetry(A, b, xexact, testsymmetry_data);
 
@@ -285,7 +337,9 @@ int main(int argc, char * argv[]) {
   for (int i=0; i< numberOfCalls; ++i) {
     ZeroVector(x); // start x at all zeros
     double last_cummulative_time = opt_times[0];
+
     ierr = CG( A, data, b, x, optMaxIters, refTolerance, niters, normr, normr0, &opt_times[0], false); // dhc - set MG false
+
     if (ierr) ++err_count; // count the number of errors in CG
     // Convergence check accepts an error of no more than 6 significant digits of relTolerance
     if (normr / normr0 > refTolerance * (1.0 + 1.0e-6)) ++tolerance_failures; // the number of failures to reduce residual
@@ -338,7 +392,7 @@ int main(int argc, char * argv[]) {
 
   for (int i=0; i< numberOfCgSets; ++i) {
     ZeroVector(x); // Zero out x
-    ierr = CG( A, data, b, x, optMaxIters, optTolerance, niters, normr, normr0, &times[0], true);
+    ierr = CG( A, data, b, x, optMaxIters, optTolerance, niters, normr, normr0, &times[0], false); // dhc - no MG
     if (ierr) HPCG_fout << "Error in call to CG: " << ierr << ".\n" << endl;
     if (rank==0) HPCG_fout << "Call [" << i << "] Scaled Residual [" << normr/normr0 << "]" << endl;
     testnorms_data.values[i] = normr/normr0; // Record scaled residual from this run

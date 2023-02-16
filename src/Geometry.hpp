@@ -70,7 +70,10 @@ struct Geometry_STRUCT {
   global_int_t gix0;  //!< Base global x index for this rank in the npx by npy by npz processor grid
   global_int_t giy0;  //!< Base global y index for this rank in the npx by npy by npz processor grid
   global_int_t giz0;  //!< Base global z index for this rank in the npx by npy by npz processor grid
-
+  // DHC add some stuff here
+  local_int_t nxy; //! local number of grid pts distributed over x and y (cannot separate)
+  int** map_w3;
+  int**** dofmap;
 };
 typedef struct Geometry_STRUCT Geometry;
 
