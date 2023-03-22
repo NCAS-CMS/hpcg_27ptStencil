@@ -136,7 +136,8 @@ int main(int argc, char * argv[]) {
   Vector b, x, xexact;
   GenerateProblem(A, &b, &x, &xexact);
   SetupHalo(A);
-  int numberOfMgLevels = 4; // Number of levels including first
+  int numberOfMgLevels = 1; // Number of levels including first
+  std::cout << "DHC hard coded no mg levels = 1" << std::endl;
   SparseMatrix * curLevelMatrix = &A;
   for (int level = 1; level< numberOfMgLevels; ++level) {
     GenerateCoarseProblem(*curLevelMatrix);
@@ -238,7 +239,15 @@ int main(int argc, char * argv[]) {
   if (geom->size == 1) WriteProblem(*geom, A, b, x, xexact);
 #endif
 
+  // dhc - temp write out info needed
+  std::cout << "rank and size geom " << geom->rank << " " << geom->size << endl;
+  std::cout << "positions in grid  " << geom->rank << " " << geom->ipx << " " << geom->ipy << " " << geom->ipz << std::endl;
+  std::cout << "processors in grid " << geom->rank << " " << geom->npx << " " << geom->npy << " " << geom->npz << std::endl;
+//#ifndef HPCG_NO_MPI
+//  MPI_Finalize();
+//#endif
 
+// return 0;
   //////////////////////////////
   // Validation Testing Phase //
   //////////////////////////////

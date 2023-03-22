@@ -111,6 +111,11 @@ HPCG_Init(int * argc_p, char ** *argv_p, HPCG_Params & params) {
       iparams[i] = 16;
   }
 
+  std::cout << "DHC hard coded shrunk dimensions" << std::endl;
+  for (i = 0; i < 3; ++i) {
+    iparams[i] = 4;
+    //iparams[i] = 8+i;
+  }
 // Broadcast values of iparams to all MPI processes
 #ifndef HPCG_NO_MPI
   if (broadcastParams) {

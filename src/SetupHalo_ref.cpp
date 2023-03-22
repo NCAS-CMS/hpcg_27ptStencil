@@ -124,6 +124,9 @@ void SetupHalo_ref(SparseMatrix & A) {
   int neighborCount = 0;
   local_int_t receiveEntryCount = 0;
   local_int_t sendEntryCount = 0;
+  int printRank=13;
+  if (A.geom->rank == printRank) std::cout << "external to local map rank "<< printRank<< std::endl;
+//  std::cout <<
   for (map_iter curNeighbor = receiveList.begin(); curNeighbor != receiveList.end(); ++curNeighbor, ++neighborCount) {
     int neighborId = curNeighbor->first; // rank of current neighbor we are processing
     neighbors[neighborCount] = neighborId; // store rank ID of current neighbor
@@ -131,26 +134,38 @@ void SetupHalo_ref(SparseMatrix & A) {
     sendLength[neighborCount] = sendList[neighborId].size(); // Get count if sends/receives
     for (set_iter i = receiveList[neighborId].begin(); i != receiveList[neighborId].end(); ++i, ++receiveEntryCount) {
       externalToLocalMap[*i] = localNumberOfRows + receiveEntryCount; // The remote columns are indexed at end of internals
+//      if(A.geom->rank == printRank)  std::cout << A.geom->rank << "etolmap " << localNumberOfRows << " " << receiveEntryCount << " " << *i << std::endl;
+          //externals are in global grid
+      if(A.geom->rank == printRank)  std::cout << A.geom->rank <<" etolmap " << localNumberOfRows+receiveEntryCount<<" " << *i <<std::endl;//globaltolocalmap[*i]=0
     }
     for (set_iter i = sendList[neighborId].begin(); i != sendList[neighborId].end(); ++i, ++sendEntryCount) {
       //if (geom.rank==1) HPCG_fout << "*i, globalToLocalMap[*i], sendEntryCount = " << *i << " " << A.globalToLocalMap[*i] << " " << sendEntryCount << endl;
       elementsToSend[sendEntryCount] = A.globalToLocalMap[*i]; // store local ids of entry to send
+    //  if(A.geom->rank == printRank) std::cout<<"etosend "<<sendEntryCount<<" "<<elementsToSend[sendEntryCount] << " " << A.globalToLocalMap[*i] <<" "<<*i<<std::endl;
     }
   }
+
+//  if(A.geom->rank == 1)
+//  {
+//  }
+  //}
 
   // Convert matrix indices to local IDs
 #ifndef HPCG_NO_OPENMP
   #pragma omp parallel for
 #endif
+  int temp_rank = 0;
   for (local_int_t i=0; i< localNumberOfRows; i++) {
     for (int j=0; j<nonzerosInRow[i]; j++) {
       global_int_t curIndex = mtxIndG[i][j];
       int rankIdOfColumnEntry = ComputeRankOfMatrixRow(*(A.geom), curIndex);
       if (A.geom->rank==rankIdOfColumnEntry) { // My column index, so convert to local index
         mtxIndL[i][j] = A.globalToLocalMap[curIndex];
+//        if(A.geom->rank==temp_rank){std::cout << A.geom->rank << " " << temp_rank << " "<< i<< " "<<j<<" " << mtxIndL[i][j] << std::endl;}
       } else { // If column index is not a row index, then it comes from another processor
         mtxIndL[i][j] = externalToLocalMap[curIndex];
-      }
+//        if(A.geom->rank==temp_rank){std::cout << A.geom->rank << " " << temp_rank << " "<< i<< " "<<j<<" " << mtxIndL[i][j] << std::endl;}
+        }
     }
   }
 
@@ -165,14 +180,20 @@ void SetupHalo_ref(SparseMatrix & A) {
   A.sendLength = sendLength;
   A.sendBuffer = sendBuffer;
 
-#ifdef HPCG_DETAILED_DEBUG
-  HPCG_fout << " For rank " << A.geom->rank << " of " << A.geom->size << ", number of neighbors = " << A.numberOfSendNeighbors << endl;
+  if (A.geom->rank == printRank)
+{
+
+
+  std::cout << "DHC - temp print detailed debug " << printRank<< std::endl;
+//#ifdef HPCG_DETAILED_DEBUG
+  std::cout << " For rank " << A.geom->rank << " of " << A.geom->size << ", number of neighbors = " << A.numberOfSendNeighbors << std::endl;
   for (int i = 0; i < A.numberOfSendNeighbors; i++) {
-    HPCG_fout << "     rank " << A.geom->rank << " neighbor " << neighbors[i] << " send/recv length = " << sendLength[i] << "/" << receiveLength[i] << endl;
+    std::cout << "     rank " << A.geom->rank << " neighbor " << neighbors[i] << " send/recv length = " << sendLength[i] << "/" << receiveLength[i] << std::endl;
     for (local_int_t j = 0; j<sendLength[i]; ++j)
-      HPCG_fout << "       rank " << A.geom->rank << " elementsToSend[" << j << "] = " << elementsToSend[j] << endl;
+      std::cout << "       rank " << A.geom->rank << " elementsToSend[" << j << "] = " << elementsToSend[j] << std::endl;
   }
-#endif
+}
+//#endif
 
 #endif
 // ifdef HPCG_NO_MPI
