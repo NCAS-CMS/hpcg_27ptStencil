@@ -610,7 +610,7 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 ;
 
 
-  if (nex*ney*nez == 0) return 0;
+//  if (nex*ney*nez == 0) return 0;
 
 
 
@@ -626,68 +626,340 @@ if(ipx > 0)
 {
             if(ipz < npz - 1)
 {
-ix = 0;
+std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<-1<<" "<<1<<" "<<-1<<" "<<1<<std::endl;ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz]
+-xv[nlocal+0+1+nx+1]
+-xv[nlocal+0+1+nx+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny]
 -xv[nlocal+0+1]
 -xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+1]
+-xv[nlocal+0+1+nx+1+ny]
+-xv[nlocal+0+1+nx+1+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx]
+-xv[nlocal+0+1+nx+1+ny+nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx]
 ;
 ix = 0;
 iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz]
+-xv[nlocal+0+1+nx+1]
+-xv[nlocal+0+1+nx+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*(nz-2)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*(nz-2)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*(nz-1)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*(nz-1)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1]
+-xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*(nz-2)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*(nz-2)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*(nz-1)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*(nz-1)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz]
+-xv[nlocal+0+1+nx+1+ny-2]
+-xv[nlocal+0+1+nx+1+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+2*ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+2*ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1]
+-xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-2)]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-2)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-1)]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-1)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz]
+-xv[nlocal+0+1+nx+1+ny-2]
+-xv[nlocal+0+1+nx+1+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*(nz-1)-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*(nz-1)-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*(ny-2)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*(ny-2)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*(ny-1)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*(ny-1)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-2)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-2)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-1)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-1)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz]
+-xv[nlocal+0+1+nx+1]
+-xv[nlocal+0+1+nx+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1+nx-2]
+-xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+2*nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+2*nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx-1]
+-xv[nlocal+0+1+nx+1+ny+2*nx-2]
+-xv[nlocal+0+1+nx+1+ny+2*nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx-1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1+nx-2]
+-xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*(nz-1)-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*(nz-1)-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+2*nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+2*nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx-1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*(nz-2)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*(nz-2)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*(nz-1)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*(nz-1)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny-2]
+-xv[nlocal+0+1+nx+1+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1+nx-2]
+-xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-1)-2]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-1)-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+2*nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+2*nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx-1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+2*ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+2*ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx]
+;
+ix = nx-1;
+iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+1]
-;
-ix = 0;
-iy = ny-1;
-iz = 0;
-yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+1]
-;
-ix = 0;
-iy = ny-1;
-iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+1]
-;
-ix = nx-1;
-iy = 0;
-iz = 0;
-yv[ix+iy*nx+iz*ny*nx] += 
--xv[nlocal+0+1+nx-2]
--xv[nlocal+0+1+nx-1]
--xv[nlocal+0+1+nx]
-;
-ix = nx-1;
-iy = 0;
-iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx-2]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx-1]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx]
-;
-ix = nx-1;
-iy = ny-1;
-iz = 0;
-yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*(ny-1)-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*(ny-1)-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx-2]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx-1]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx]
-;
-ix = nx-1;
-iy = ny-1;
-iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-1)-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-1)-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx-2]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx-1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*(nz-1)-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*(nz-1)-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx]
 ;
 iy=0;
@@ -1170,37 +1442,249 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-ix = 0;
+std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<-1<<" "<<1<<" "<<-1<<" "<<0<<std::endl;ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+1]
+-xv[nlocal+0+1+nx+1]
+-xv[nlocal+0+1+nx+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+1]
 -xv[nlocal+0+1]
 -xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx+1]
+-xv[nlocal+0+1+nx+1+ny]
+-xv[nlocal+0+1+nx+1+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx]
+-xv[nlocal+0+1+nx+1+ny+nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz-1]
+-xv[nlocal+0+1+nx+1]
+-xv[nlocal+0+1+nx+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*(nz-2)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*(nz-2)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*(nz-1)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*(nz-1)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz-1]
+-xv[nlocal+0+1]
+-xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*(nz-2)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*(nz-2)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*(nz-1)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*(nz-1)+1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz-1]
 ;
 ix = 0;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+1]
+-xv[nlocal+0+1+nx+1+ny-2]
+-xv[nlocal+0+1+nx+1+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+2*ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+2*ny-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+1]
+-xv[nlocal+0+1]
+-xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-2)]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-2)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-1)]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-1)+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx+1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz-1]
+-xv[nlocal+0+1+nx+1+ny-2]
+-xv[nlocal+0+1+nx+1+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*(nz-1)-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*(nz-1)-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-2)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-2)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-1)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-1)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-1]
 ;
 ix = nx-1;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+1]
+-xv[nlocal+0+1+nx+1]
+-xv[nlocal+0+1+nx+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny]
 -xv[nlocal+0+1+nx-2]
 -xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+2*nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+2*nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx-1]
+-xv[nlocal+0+1+nx+1+ny+2*nx-2]
+-xv[nlocal+0+1+nx+1+ny+2*nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx-1]
 -xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz-1]
+-xv[nlocal+0+1+nx-2]
+-xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*(nz-1)-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*(nz-1)-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz-1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*(nz-2)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*(nz-2)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*(nz-1)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*(nz-1)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-1]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny-2]
+-xv[nlocal+0+1+nx+1+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+1]
+-xv[nlocal+0+1+nx-2]
+-xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-1)-2]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-1)-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx-2]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+2*nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+2*nx-1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+2*ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+2*ny-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-1)-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-1)-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz-1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*(nz-1)-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*(nz-1)-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-1]
 ;
 iy=0;
 iz=0;
@@ -1588,36 +2072,248 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
+std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<-1<<" "<<1<<" "<<0<<" "<<1<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz]
+-xv[nlocal+0+nz+nx*nz+nz]
+-xv[nlocal+0+nz+nx*nz+nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny]
+-xv[nlocal+0+nz+nx*nz+nz+ny+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+nz]
+-xv[nlocal+0+nz+1]
+-xv[nlocal+0+nz+nx]
+-xv[nlocal+0+nz+nx+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+1]
+-xv[nlocal+0+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx]
+;
 ix = 0;
 iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-2)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-2)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+nz+nx*(nz-2)]
+-xv[nlocal+0+nz+nx*(nz-2)+1]
+-xv[nlocal+0+nz+nx*(nz-1)]
+-xv[nlocal+0+nz+nx*(nz-1)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+nz+nx*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+2*ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+2*ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*(ny-2)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*(ny-2)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*(ny-1)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*(ny-1)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-2)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-2)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-1)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-1)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz]
+-xv[nlocal+0+nz+nx-2]
+-xv[nlocal+0+nz+nx-1]
+-xv[nlocal+0+nz+2*nx-2]
+-xv[nlocal+0+nz+2*nx-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx-1]
+-xv[nlocal+0+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+nz+nx*(nz-1)-2]
+-xv[nlocal+0+nz+nx*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz-2]
+-xv[nlocal+0+nz+nx*nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+2*nx-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+2*nx-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx-1]
+-xv[nlocal+0+nz+nx*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-2)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-2)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-1)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-1)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+2*nx-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+2*nx-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx-1]
+-xv[nlocal+0+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+2*ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+2*ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx]
+;
+ix = nx-1;
+iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz]
--xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1]
--xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+1]
-;
-ix = 0;
-iy = ny-1;
-iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz-1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny]
--xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1]
--xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+1]
-;
-ix = nx-1;
-iy = 0;
-iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx-2]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx-1]
--xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx]
-;
-ix = nx-1;
-iy = ny-1;
-iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*(ny-1)-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*(ny-1)-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-1)-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz-1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx-2]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx-1]
+-xv[nlocal+0+nz+nx*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-1)-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny+ny+1+nx]
 ;
 iy=0;
@@ -2003,6 +2699,158 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<-1<<" "<<1<<" "<<0<<" "<<0<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx*nz+nz]
+-xv[nlocal+0+nz+nx*nz+nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny]
+-xv[nlocal+0+nz+nx*nz+nz+ny+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1]
+-xv[nlocal+0+nz]
+-xv[nlocal+0+nz+1]
+-xv[nlocal+0+nz+nx]
+-xv[nlocal+0+nz+nx+1]
+-xv[nlocal+0+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-2)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-2)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz-1]
+-xv[nlocal+0+nz+nx*(nz-2)]
+-xv[nlocal+0+nz+nx*(nz-2)+1]
+-xv[nlocal+0+nz+nx*(nz-1)]
+-xv[nlocal+0+nz+nx*(nz-1)+1]
+-xv[nlocal+0+nz+nx*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz-1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+2*ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+2*ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-2)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-2)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-1)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-1)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx-2]
+-xv[nlocal+0+nz+nx-1]
+-xv[nlocal+0+nz+2*nx-2]
+-xv[nlocal+0+nz+2*nx-1]
+-xv[nlocal+0+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
+-xv[nlocal+0+nz+nx*(nz-1)-2]
+-xv[nlocal+0+nz+nx*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz-2]
+-xv[nlocal+0+nz+nx*nz-1]
+-xv[nlocal+0+nz+nx*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-2)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-2)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-1)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-1)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+2*nx-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+2*nx-1]
+-xv[nlocal+0+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+2*ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+2*ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-1)-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz-1]
+-xv[nlocal+0+nz+nx*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-1)-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz-1]
+;
 iy=0;
 iz=0;
 for (ix=1; ix<nx-1;ix++)
@@ -2295,37 +3143,249 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-ix = 0;
+std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<-1<<" "<<0<<" "<<-1<<" "<<1<<std::endl;ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+1+nx+1]
+-xv[nlocal+0+1+nx+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+1]
 -xv[nlocal+0+1]
 -xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+1]
+-xv[nlocal+0+1+nx+1+ny]
+-xv[nlocal+0+1+nx+1+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx]
+-xv[nlocal+0+1+nx+1+ny+nx+1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+1]
 ;
 ix = 0;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+1+nx+1]
+-xv[nlocal+0+1+nx+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*(nz-2)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*(nz-2)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*(nz-1)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*(nz-1)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+1]
+-xv[nlocal+0+1]
+-xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*(nz-2)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*(nz-2)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*(nz-1)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*(nz-1)+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx+1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+1+nx+1+ny-2]
+-xv[nlocal+0+1+nx+1+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+2*ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+2*ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny-1]
+-xv[nlocal+0+1]
+-xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-2)]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-2)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-1)]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-1)+1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+1+nx+1+ny-2]
+-xv[nlocal+0+1+nx+1+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*(nz-1)-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*(nz-1)-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*(ny-2)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*(ny-2)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*(ny-1)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*(ny-1)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny+ny-1]
 ;
 ix = nx-1;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+1+nx+1]
+-xv[nlocal+0+1+nx+1+1]
 -xv[nlocal+0+1+nx-2]
 -xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+2*nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+2*nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx-1]
+-xv[nlocal+0+1+nx+1+ny+2*nx-2]
+-xv[nlocal+0+1+nx+1+ny+2*nx-1]
 -xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny+1]
 ;
 ix = nx-1;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+1]
+-xv[nlocal+0+1+nx-2]
+-xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*(nz-1)-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*(nz-1)-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx-2]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+2*nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+2*nx-1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*(nz-2)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*(nz-2)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*(nz-1)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*(nz-1)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny-2]
+-xv[nlocal+0+1+nx+1+ny-1]
+-xv[nlocal+0+1+nx-2]
+-xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-1)-2]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-1)-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny-1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+2*ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+2*ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny+ny-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*(ny-1)-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*(ny-1)-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny-1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*(nz-1)-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*(nz-1)-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny+ny-1]
 ;
 iy=0;
 iz=0;
@@ -2710,21 +3770,183 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-ix = 0;
+std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<-1<<" "<<0<<" "<<-1<<" "<<0<<std::endl;ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1]
+-xv[nlocal+0+1+nx+1]
+-xv[nlocal+0+1+nx+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny+1]
 -xv[nlocal+0+1]
 -xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx+1]
+-xv[nlocal+0+1+nx+1+ny]
+-xv[nlocal+0+1+nx+1+ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx]
+-xv[nlocal+0+1+nx+1+ny+nx+1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz-1]
+-xv[nlocal+0+1+nx+1]
+-xv[nlocal+0+1+nx+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*(nz-2)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*(nz-2)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*(nz-1)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*(nz-1)+1]
+-xv[nlocal+0+1]
+-xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*(nz-2)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*(nz-2)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*(nz-1)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*(nz-1)+1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz-1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1]
+-xv[nlocal+0+1+nx+1+ny-2]
+-xv[nlocal+0+1+nx+1+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+2*ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+2*ny-1]
+-xv[nlocal+0+1]
+-xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-2)]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-2)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-1)]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-1)+1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz-1]
+-xv[nlocal+0+1+nx+1+ny-2]
+-xv[nlocal+0+1+nx+1+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*(nz-1)-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*(nz-1)-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz-1]
 ;
 ix = nx-1;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1]
+-xv[nlocal+0+1+nx+1]
+-xv[nlocal+0+1+nx+1+1]
 -xv[nlocal+0+1+nx-2]
 -xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+2*nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+2*nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx-2]
+-xv[nlocal+0+1+nx+1+ny+nx-1]
+-xv[nlocal+0+1+nx+1+ny+2*nx-2]
+-xv[nlocal+0+1+nx+1+ny+2*nx-1]
 -xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz-1]
+-xv[nlocal+0+1+nx-2]
+-xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*(nz-1)-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*(nz-1)-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz-1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*(nz-2)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*(nz-2)+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*(nz-1)]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*(nz-1)+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+1+ny-2]
+-xv[nlocal+0+1+nx+1+ny-1]
+-xv[nlocal+0+1+nx-2]
+-xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-1)-2]
+-xv[nlocal+0+1+nx+1+ny+nx*(ny-1)-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny-1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+2*ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+2*ny-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*(nz-1)-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*(nz-1)-1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz-2]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz-1]
 ;
 iy=0;
 iz=0;
@@ -3024,21 +4246,183 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
+std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<-1<<" "<<0<<" "<<0<<" "<<1<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+nz]
+-xv[nlocal+0+nz+nx*nz+nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny]
+-xv[nlocal+0+nz+nx*nz+nz+ny+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+1]
+-xv[nlocal+0+nz]
+-xv[nlocal+0+nz+1]
+-xv[nlocal+0+nz+nx]
+-xv[nlocal+0+nz+nx+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+1]
+-xv[nlocal+0+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx]
+;
 ix = 0;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-2)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-2)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+1]
+-xv[nlocal+0+nz+nx*(nz-2)]
+-xv[nlocal+0+nz+nx*(nz-2)+1]
+-xv[nlocal+0+nz+nx*(nz-1)]
+-xv[nlocal+0+nz+nx*(nz-1)+1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx+1]
+-xv[nlocal+0+nz+nx*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+2*ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+2*ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny-1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*(ny-2)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*(ny-2)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*(ny-1)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*(ny-1)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny+ny-1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+nz+nx-2]
+-xv[nlocal+0+nz+nx-1]
+-xv[nlocal+0+nz+2*nx-2]
+-xv[nlocal+0+nz+2*nx-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx-1]
+-xv[nlocal+0+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny+1]
 ;
 ix = nx-1;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+1]
+-xv[nlocal+0+nz+nx*(nz-1)-2]
+-xv[nlocal+0+nz+nx*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz-2]
+-xv[nlocal+0+nz+nx*nz-1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx-2]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+2*nx-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+2*nx-1]
+-xv[nlocal+0+nz+nx*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz-1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-2)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-2)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-1)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-1)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+2*ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+2*ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny+ny-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*(ny-1)-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*(ny-1)-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny-1]
+-xv[nlocal+0+nz+nx*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-1)-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny+ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny+ny-1]
 ;
 iy=0;
 iz=0;
@@ -3335,6 +4719,118 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<-1<<" "<<0<<" "<<0<<" "<<0<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx*nz+nz]
+-xv[nlocal+0+nz+nx*nz+nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny]
+-xv[nlocal+0+nz+nx*nz+nz+ny+1]
+-xv[nlocal+0+nz]
+-xv[nlocal+0+nz+1]
+-xv[nlocal+0+nz+nx]
+-xv[nlocal+0+nz+nx+1]
+-xv[nlocal+0+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-2)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-2)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)+1]
+-xv[nlocal+0+nz+nx*(nz-2)]
+-xv[nlocal+0+nz+nx*(nz-2)+1]
+-xv[nlocal+0+nz+nx*(nz-1)]
+-xv[nlocal+0+nz+nx*(nz-1)+1]
+-xv[nlocal+0+nz+nx*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz-1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+2*ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+2*ny-1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz-1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx-2]
+-xv[nlocal+0+nz+nx-1]
+-xv[nlocal+0+nz+2*nx-2]
+-xv[nlocal+0+nz+2*nx-1]
+-xv[nlocal+0+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
+-xv[nlocal+0+nz+nx*(nz-1)-2]
+-xv[nlocal+0+nz+nx*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz-2]
+-xv[nlocal+0+nz+nx*nz-1]
+-xv[nlocal+0+nz+nx*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-2)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-2)+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-1)]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-1)+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+2*ny-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+2*ny-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz+nx*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+nz-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-1)-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz-2]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz-1]
+;
 iy=0;
 iz=0;
 for (ix=1; ix<nx-1;ix++)
@@ -3551,36 +5047,248 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-ix = 0;
-iy = ny-1;
+std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<0<<" "<<1<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+1]
 -xv[nlocal+0+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny]
+-xv[nlocal+0+ny]
+-xv[nlocal+0+ny+1]
+-xv[nlocal+0+ny+nx]
+-xv[nlocal+0+ny+nx+1]
 -xv[nlocal+0+ny+nx*ny+ny+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*(nz-2)]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*(nz-2)+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*(nz-1)]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*(nz-1)+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+1]
+-xv[nlocal+0+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+2*ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+2*ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx*(ny-2)]
+-xv[nlocal+0+ny+nx*(ny-2)+1]
+-xv[nlocal+0+ny+nx*(ny-1)]
+-xv[nlocal+0+ny+nx*(ny-1)+1]
+-xv[nlocal+0+ny+nx*ny+ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx]
 ;
 ix = 0;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*(nz-1)-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*(nz-1)-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz-1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*(ny-2)]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*(ny-2)+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*(ny-1)]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*(ny-1)+1]
+-xv[nlocal+0+ny+nx*ny+ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*(nz-2)]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*(nz-2)+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*(nz-1)]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*(nz-1)+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx-2]
+-xv[nlocal+0+ny+nx-1]
+-xv[nlocal+0+ny+2*nx-2]
+-xv[nlocal+0+ny+2*nx-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx-1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+2*nx-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+2*nx-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx-1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*(nz-2)]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*(nz-2)+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*(nz-1)]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*(nz-1)+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx*(ny-1)-2]
+-xv[nlocal+0+ny+nx*(ny-1)-1]
+-xv[nlocal+0+ny+nx*ny-2]
+-xv[nlocal+0+ny+nx*ny-1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx-2]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+2*nx-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+2*nx-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx-1]
+-xv[nlocal+0+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+2*ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+2*ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny-1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*(ny-1)-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*(ny-1)-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*(nz-1)-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*(nz-1)-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz-1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx-2]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx-1]
+-xv[nlocal+0+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*(nz-1)-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*(nz-1)-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz-1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx]
 ;
 iz=0;
@@ -3966,21 +5674,183 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<0<<" "<<1<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny+1]
+-xv[nlocal+0+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+1]
+-xv[nlocal+0+ny]
+-xv[nlocal+0+ny+1]
+-xv[nlocal+0+ny+nx]
+-xv[nlocal+0+ny+nx+1]
+-xv[nlocal+0+ny+nx*ny+ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*(nz-2)]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*(nz-2)+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*(nz-1)]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*(nz-1)+1]
+-xv[nlocal+0+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz-1]
+;
 ix = 0;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+2*ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+2*ny-1]
 -xv[nlocal+0+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+1]
+-xv[nlocal+0+ny+nx*(ny-2)]
+-xv[nlocal+0+ny+nx*(ny-2)+1]
+-xv[nlocal+0+ny+nx*(ny-1)]
+-xv[nlocal+0+ny+nx*(ny-1)+1]
 -xv[nlocal+0+ny+nx*ny+ny+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx+1]
+-xv[nlocal+0+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*(nz-1)-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*(nz-1)-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz-1]
+-xv[nlocal+0+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz-1]
+-xv[nlocal+0+ny+nx*ny+ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*(nz-2)]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*(nz-2)+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*(nz-1)]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*(nz-1)+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz-1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx-2]
+-xv[nlocal+0+ny+nx-1]
+-xv[nlocal+0+ny+2*nx-2]
+-xv[nlocal+0+ny+2*nx-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx-1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*(nz-2)]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*(nz-2)+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*(nz-1)]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*(nz-1)+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz-1]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+1]
+-xv[nlocal+0+ny+nx*(ny-1)-2]
+-xv[nlocal+0+ny+nx*(ny-1)-1]
+-xv[nlocal+0+ny+nx*ny-2]
+-xv[nlocal+0+ny+nx*ny-1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx-2]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+2*nx-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+2*nx-1]
+-xv[nlocal+0+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+2*ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+2*ny-1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*(nz-1)-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*(nz-1)-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz-1]
+-xv[nlocal+0+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*(nz-1)-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*(nz-1)-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz-1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz-1]
 ;
 iz=0;
 iy=0;
@@ -4280,20 +6150,182 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
+std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<0<<" "<<1<<" "<<0<<" "<<1<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny]
+-xv[nlocal+0+ny+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+1]
+-xv[nlocal+0+ny*nz+ny*nz]
+-xv[nlocal+0+ny*nz+ny*nz+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*(nz-2)]
+-xv[nlocal+0+ny*(nz-2)+1]
+-xv[nlocal+0+ny*(nz-1)]
+-xv[nlocal+0+ny*(nz-1)+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+2*ny-2]
+-xv[nlocal+0+2*ny-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny-1]
+-xv[nlocal+0+ny*nz+ny*nz]
+-xv[nlocal+0+ny*nz+ny*nz+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny]
+-xv[nlocal+0+ny*nz+ny*nz+nz]
+-xv[nlocal+0+ny*nz+ny*nz+nz+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx]
+;
 ix = 0;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*(nz-1)-2]
+-xv[nlocal+0+ny*(nz-1)-1]
+-xv[nlocal+0+ny*nz-2]
+-xv[nlocal+0+ny*nz-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz-1]
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*(ny-2)]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*(ny-2)+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*(ny-1)]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*(ny-1)+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*(nz-2)]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*(nz-2)+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*(nz-1)]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*(nz-1)+1]
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1]
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz]
+-xv[nlocal+0+ny*nz+1]
+-xv[nlocal+0+ny*nz+ny]
+-xv[nlocal+0+ny*nz+ny+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+2*nx-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+2*nx-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx-1]
+-xv[nlocal+0+ny*nz+ny*(nz-2)]
+-xv[nlocal+0+ny*nz+ny*(nz-2)+1]
+-xv[nlocal+0+ny*nz+ny*(nz-1)]
+-xv[nlocal+0+ny*nz+ny*(nz-1)+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+ny*nz]
+-xv[nlocal+0+ny*nz+ny*nz+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+2*nx-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+2*nx-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx-1]
+-xv[nlocal+0+ny*nz+ny-2]
+-xv[nlocal+0+ny*nz+ny-1]
+-xv[nlocal+0+ny*nz+2*ny-2]
+-xv[nlocal+0+ny*nz+2*ny-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*(ny-1)-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*(ny-1)-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*(nz-1)-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*(nz-1)-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz-1]
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx-2]
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx-1]
+-xv[nlocal+0+ny*nz+ny*(nz-1)-2]
+-xv[nlocal+0+ny*nz+ny*(nz-1)-1]
+-xv[nlocal+0+ny*nz+ny*nz-2]
+-xv[nlocal+0+ny*nz+ny*nz-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz-1]
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny+ny+1+nx]
 ;
 iz=nz-1;
@@ -4591,6 +6623,118 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<0<<" "<<1<<" "<<0<<" "<<0<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny]
+-xv[nlocal+0+ny+1]
+-xv[nlocal+0+ny*nz+ny*nz]
+-xv[nlocal+0+ny*nz+ny*nz+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*(nz-2)]
+-xv[nlocal+0+ny*(nz-2)+1]
+-xv[nlocal+0+ny*(nz-1)]
+-xv[nlocal+0+ny*(nz-1)+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz-1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+2*ny-2]
+-xv[nlocal+0+2*ny-1]
+-xv[nlocal+0+ny*nz+ny*nz]
+-xv[nlocal+0+ny*nz+ny*nz+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz]
+-xv[nlocal+0+ny*nz+ny*nz+nz+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*(nz-1)-2]
+-xv[nlocal+0+ny*(nz-1)-1]
+-xv[nlocal+0+ny*nz-2]
+-xv[nlocal+0+ny*nz-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*(nz-2)]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*(nz-2)+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*(nz-1)]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*(nz-1)+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz-1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz]
+-xv[nlocal+0+ny*nz+1]
+-xv[nlocal+0+ny*nz+ny]
+-xv[nlocal+0+ny*nz+ny+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+ny*(nz-2)]
+-xv[nlocal+0+ny*nz+ny*(nz-2)+1]
+-xv[nlocal+0+ny*nz+ny*(nz-1)]
+-xv[nlocal+0+ny*nz+ny*(nz-1)+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+ny*nz]
+-xv[nlocal+0+ny*nz+ny*nz+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+2*nx-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+2*nx-1]
+-xv[nlocal+0+ny*nz+ny-2]
+-xv[nlocal+0+ny*nz+ny-1]
+-xv[nlocal+0+ny*nz+2*ny-2]
+-xv[nlocal+0+ny*nz+2*ny-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+ny*nz+nz-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*(nz-1)-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*(nz-1)-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz-1]
+-xv[nlocal+0+ny*nz+ny*(nz-1)-2]
+-xv[nlocal+0+ny*nz+ny*(nz-1)-1]
+-xv[nlocal+0+ny*nz+ny*nz-2]
+-xv[nlocal+0+ny*nz+ny*nz-1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz-2]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz-1]
+;
 iy=ny-1;
 iz=0;
 for (ix=1; ix<nx-1;ix++)
@@ -4804,6 +6948,158 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
+std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<0<<" "<<0<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny]
+-xv[nlocal+0+ny+nx*ny+ny+ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+1]
+-xv[nlocal+0+ny]
+-xv[nlocal+0+ny+1]
+-xv[nlocal+0+ny+nx]
+-xv[nlocal+0+ny+nx+1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*(nz-2)]
+-xv[nlocal+0+ny+nx*ny+ny+ny*(nz-2)+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*(nz-1)]
+-xv[nlocal+0+ny+nx*ny+ny+ny*(nz-1)+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*ny+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+2*ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+2*ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny-1]
+-xv[nlocal+0+ny+nx*(ny-2)]
+-xv[nlocal+0+ny+nx*(ny-2)+1]
+-xv[nlocal+0+ny+nx*(ny-1)]
+-xv[nlocal+0+ny+nx*(ny-1)+1]
+-xv[nlocal+0+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny-1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*(nz-1)-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny*(nz-1)-1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz-1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*(ny-2)]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*(ny-2)+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*(ny-1)]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*(ny-1)+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*ny+ny-1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx-2]
+-xv[nlocal+0+ny+nx-1]
+-xv[nlocal+0+ny+2*nx-2]
+-xv[nlocal+0+ny+2*nx-1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*ny+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx-1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+2*nx-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+2*nx-1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*(nz-2)]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*(nz-2)+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*(nz-1)]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*(nz-1)+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*ny+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*(ny-1)-2]
+-xv[nlocal+0+ny+nx*(ny-1)-1]
+-xv[nlocal+0+ny+nx*ny-2]
+-xv[nlocal+0+ny+nx*ny-1]
+-xv[nlocal+0+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+2*ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+2*ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*ny+ny-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*(ny-1)-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*(ny-1)-1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*ny-1]
+-xv[nlocal+0+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*(nz-1)-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*(nz-1)-1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz-1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*ny+ny-1]
+;
 iz=0;
 iy=0;
 for (ix=1; ix<nx-1;ix++)
@@ -5090,6 +7386,118 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<0<<" "<<0<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny]
+-xv[nlocal+0+ny+nx*ny+ny+ny+1]
+-xv[nlocal+0+ny]
+-xv[nlocal+0+ny+1]
+-xv[nlocal+0+ny+nx]
+-xv[nlocal+0+ny+nx+1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*(nz-2)]
+-xv[nlocal+0+ny+nx*ny+ny+ny*(nz-2)+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*(nz-1)]
+-xv[nlocal+0+ny+nx*ny+ny+ny*(nz-1)+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+2*ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+2*ny-1]
+-xv[nlocal+0+ny+nx*(ny-2)]
+-xv[nlocal+0+ny+nx*(ny-2)+1]
+-xv[nlocal+0+ny+nx*(ny-1)]
+-xv[nlocal+0+ny+nx*(ny-1)+1]
+-xv[nlocal+0+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny-1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*(nz-1)-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny*(nz-1)-1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz-1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx-2]
+-xv[nlocal+0+ny+nx-1]
+-xv[nlocal+0+ny+2*nx-2]
+-xv[nlocal+0+ny+2*nx-1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*(nz-2)]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*(nz-2)+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*(nz-1)]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*(nz-1)+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*(ny-1)-2]
+-xv[nlocal+0+ny+nx*(ny-1)-1]
+-xv[nlocal+0+ny+nx*ny-2]
+-xv[nlocal+0+ny+nx*ny-1]
+-xv[nlocal+0+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+2*ny-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+2*ny-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*(nz-1)-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*(nz-1)-1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz-2]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz-1]
+;
 iz=0;
 iy=0;
 for (ix=1; ix<nx-1;ix++)
@@ -5300,6 +7708,118 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
+std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<0<<" "<<0<<" "<<0<<" "<<1<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny]
+-xv[nlocal+0+ny+1]
+-xv[nlocal+0+ny*nz+ny*nz]
+-xv[nlocal+0+ny*nz+ny*nz+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*(nz-2)]
+-xv[nlocal+0+ny*(nz-2)+1]
+-xv[nlocal+0+ny*(nz-1)]
+-xv[nlocal+0+ny*(nz-1)+1]
+-xv[nlocal+0+ny*nz+ny*nz]
+-xv[nlocal+0+ny*nz+ny*nz+1]
+-xv[nlocal+0+ny*nz+ny*nz+ny]
+-xv[nlocal+0+ny*nz+ny*nz+ny+1]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx+1]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx*ny]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx*ny+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+2*ny-2]
+-xv[nlocal+0+2*ny-1]
+-xv[nlocal+0+ny*nz+ny*nz+ny-2]
+-xv[nlocal+0+ny*nz+ny*nz+ny-1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*(nz-1)-2]
+-xv[nlocal+0+ny*(nz-1)-1]
+-xv[nlocal+0+ny*nz-2]
+-xv[nlocal+0+ny*nz-1]
+-xv[nlocal+0+ny*nz+ny*nz+ny-2]
+-xv[nlocal+0+ny*nz+ny*nz+ny-1]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx*(ny-2)]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx*(ny-2)+1]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx*(ny-1)]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx*(ny-1)+1]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx*ny+ny-1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz]
+-xv[nlocal+0+ny*nz+1]
+-xv[nlocal+0+ny*nz+ny]
+-xv[nlocal+0+ny*nz+ny+1]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx*ny]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx*ny+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+ny*nz]
+-xv[nlocal+0+ny*nz+ny*nz+1]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx-2]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx-1]
+-xv[nlocal+0+ny*nz+ny*nz+ny+2*nx-2]
+-xv[nlocal+0+ny*nz+ny*nz+ny+2*nx-1]
+-xv[nlocal+0+ny*nz+ny*(nz-2)]
+-xv[nlocal+0+ny*nz+ny*(nz-2)+1]
+-xv[nlocal+0+ny*nz+ny*(nz-1)]
+-xv[nlocal+0+ny*nz+ny*(nz-1)+1]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx*ny]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx*ny+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+ny-2]
+-xv[nlocal+0+ny*nz+ny-1]
+-xv[nlocal+0+ny*nz+2*ny-2]
+-xv[nlocal+0+ny*nz+2*ny-1]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx*ny+ny-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+ny*nz+ny-2]
+-xv[nlocal+0+ny*nz+ny*nz+ny-1]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx*(ny-1)-2]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx*(ny-1)-1]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx*ny-2]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx*ny-1]
+-xv[nlocal+0+ny*nz+ny*(nz-1)-2]
+-xv[nlocal+0+ny*nz+ny*(nz-1)-1]
+-xv[nlocal+0+ny*nz+ny*nz-2]
+-xv[nlocal+0+ny*nz+ny*nz-1]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny*nz+ny*nz+ny+nx*ny+ny-1]
+;
 iz=nz-1;
 iy=0;
 for (ix=1; ix<nx-1;ix++)
@@ -5507,6 +8027,78 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny]
+-xv[nlocal+0+ny+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*(nz-2)]
+-xv[nlocal+0+ny*(nz-2)+1]
+-xv[nlocal+0+ny*(nz-1)]
+-xv[nlocal+0+ny*(nz-1)+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+2*ny-2]
+-xv[nlocal+0+2*ny-1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*(nz-1)-2]
+-xv[nlocal+0+ny*(nz-1)-1]
+-xv[nlocal+0+ny*nz-2]
+-xv[nlocal+0+ny*nz-1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz]
+-xv[nlocal+0+ny*nz+1]
+-xv[nlocal+0+ny*nz+ny]
+-xv[nlocal+0+ny*nz+ny+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+ny*(nz-2)]
+-xv[nlocal+0+ny*nz+ny*(nz-2)+1]
+-xv[nlocal+0+ny*nz+ny*(nz-1)]
+-xv[nlocal+0+ny*nz+ny*(nz-1)+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+ny-2]
+-xv[nlocal+0+ny*nz+ny-1]
+-xv[nlocal+0+ny*nz+2*ny-2]
+-xv[nlocal+0+ny*nz+2*ny-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+ny*(nz-1)-2]
+-xv[nlocal+0+ny*nz+ny*(nz-1)-1]
+-xv[nlocal+0+ny*nz+ny*nz-2]
+-xv[nlocal+0+ny*nz+ny*nz-1]
+;
 ;
 ix=0;
 iz=0;
@@ -5647,35 +8239,143 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-ix = 0;
+std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<-1<<" "<<1<<" "<<-1<<" "<<1<<std::endl;ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny]
 -xv[nlocal+0+1]
 -xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+1]
+-xv[nlocal+0+1+nx+ny]
+-xv[nlocal+0+1+nx+ny+1]
+-xv[nlocal+0+1+nx+ny+nx]
+-xv[nlocal+0+1+nx+ny+nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+1]
 ;
 ix = 0;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*(nz-2)]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*(nz-2)+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*(nz-1)]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*(nz-1)+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny]
+-xv[nlocal+0+1]
+-xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*(nz-2)]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*(nz-2)+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*(nz-1)]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*(nz-1)+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1+1]
 ;
 ix = 0;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+1+nx+ny-2]
+-xv[nlocal+0+1+nx+ny-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+2*ny-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+2*ny-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny-1]
 -xv[nlocal+0+1+nx+ny+nx*ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny]
+-xv[nlocal+0+1]
+-xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+ny+nx*(ny-2)]
+-xv[nlocal+0+1+nx+ny+nx*(ny-2)+1]
+-xv[nlocal+0+1+nx+ny+nx*(ny-1)]
+-xv[nlocal+0+1+nx+ny+nx*(ny-1)+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1+1]
 ;
 ix = 0;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+1+nx+ny-2]
+-xv[nlocal+0+1+nx+ny-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*(nz-1)-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*(nz-1)-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny-1]
+-xv[nlocal+0+1+nx+ny+nx*ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*(ny-2)]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*(ny-2)+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*(ny-1)]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*(ny-1)+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*(nz-2)]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*(nz-2)+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*(nz-1)]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*(nz-1)+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1+1]
 ;
@@ -5683,27 +8383,103 @@ ix = nx-1;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny]
 -xv[nlocal+0+1+nx-2]
 -xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+2*nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+2*nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx-1]
+-xv[nlocal+0+1+nx+ny+nx-2]
+-xv[nlocal+0+1+nx+ny+nx-1]
+-xv[nlocal+0+1+nx+ny+2*nx-2]
+-xv[nlocal+0+1+nx+ny+2*nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx-1]
 ;
 ix = nx-1;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny]
+-xv[nlocal+0+1+nx-2]
+-xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*(nz-1)-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*(nz-1)-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx-2]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+2*nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+2*nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1+nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1+nx-1]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny-2]
+-xv[nlocal+0+1+nx+ny-1]
+-xv[nlocal+0+1+nx+ny+nx*ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny]
+-xv[nlocal+0+1+nx-2]
+-xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*(ny-1)-2]
+-xv[nlocal+0+1+nx+ny+nx*(ny-1)-1]
+-xv[nlocal+0+1+nx+ny+nx*ny-2]
+-xv[nlocal+0+1+nx+ny+nx*ny-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx-2]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+2*nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+2*nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1+nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1+nx-1]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny-1]
+-xv[nlocal+0+1+nx+ny+nx*ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*(ny-1)-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*(ny-1)-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*(nz-1)-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*(nz-1)-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1+nx-2]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1+nx-1]
 ;
@@ -6090,35 +8866,183 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-ix = 0;
+std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<-1<<" "<<1<<" "<<-1<<" "<<0<<std::endl;ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny+1]
+-xv[nlocal+0+1+nx+ny+nx*ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+1]
 -xv[nlocal+0+1]
 -xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx+1]
+-xv[nlocal+0+1+nx+ny]
+-xv[nlocal+0+1+nx+ny+1]
+-xv[nlocal+0+1+nx+ny+nx]
+-xv[nlocal+0+1+nx+ny+nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz-1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*(nz-2)]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*(nz-2)+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*(nz-1)]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*(nz-1)+1]
+-xv[nlocal+0+1+nx+ny+nx*ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz-1]
+-xv[nlocal+0+1]
+-xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*(nz-2)]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*(nz-2)+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*(nz-1)]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*(nz-1)+1]
 ;
 ix = 0;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+1]
+-xv[nlocal+0+1+nx+ny-2]
+-xv[nlocal+0+1+nx+ny-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+2*ny-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+2*ny-1]
 -xv[nlocal+0+1+nx+ny+nx*ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+1]
+-xv[nlocal+0+1]
+-xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+ny+nx*(ny-2)]
+-xv[nlocal+0+1+nx+ny+nx*(ny-2)+1]
+-xv[nlocal+0+1+nx+ny+nx*(ny-1)]
+-xv[nlocal+0+1+nx+ny+nx*(ny-1)+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz-1]
+-xv[nlocal+0+1+nx+ny-2]
+-xv[nlocal+0+1+nx+ny-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*(nz-1)-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*(nz-1)-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz-1]
+-xv[nlocal+0+1+nx+ny+nx*ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*(nz-2)]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*(nz-2)+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*(nz-1)]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*(nz-1)+1]
 ;
 ix = nx-1;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny]
 -xv[nlocal+0+1+nx-2]
 -xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+2*nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+2*nx-1]
+-xv[nlocal+0+1+nx+ny+nx-2]
+-xv[nlocal+0+1+nx+ny+nx-1]
+-xv[nlocal+0+1+nx+ny+2*nx-2]
+-xv[nlocal+0+1+nx+ny+2*nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx-1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz-1]
+-xv[nlocal+0+1+nx-2]
+-xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*(nz-1)-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*(nz-1)-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz-1]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny-2]
+-xv[nlocal+0+1+nx+ny-1]
+-xv[nlocal+0+1+nx+ny+nx*ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+1]
+-xv[nlocal+0+1+nx-2]
+-xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*(ny-1)-2]
+-xv[nlocal+0+1+nx+ny+nx*(ny-1)-1]
+-xv[nlocal+0+1+nx+ny+nx*ny-2]
+-xv[nlocal+0+1+nx+ny+nx*ny-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx-2]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+2*nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+2*nx-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+1+nx+ny+nx*ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*(nz-1)-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*(nz-1)-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz-1]
 ;
 iy=0;
 iz=0;
@@ -6418,33 +9342,181 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
+std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<-1<<" "<<1<<" "<<0<<" "<<1<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+1]
+-xv[nlocal+0+nz+nx*nz+ny]
+-xv[nlocal+0+nz+nx*nz+ny+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny]
+-xv[nlocal+0+nz]
+-xv[nlocal+0+nz+1]
+-xv[nlocal+0+nz+nx]
+-xv[nlocal+0+nz+nx+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+1]
+;
 ix = 0;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-2)]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-2)+1]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-1)]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-1)+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny]
+-xv[nlocal+0+nz+nx*(nz-2)]
+-xv[nlocal+0+nz+nx*(nz-2)+1]
+-xv[nlocal+0+nz+nx*(nz-1)]
+-xv[nlocal+0+nz+nx*(nz-1)+1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+ny-2]
+-xv[nlocal+0+nz+nx*nz+ny-1]
+-xv[nlocal+0+nz+nx*nz+2*ny-2]
+-xv[nlocal+0+nz+nx*nz+2*ny-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1+1]
 ;
 ix = 0;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-1)-2]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz-1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*(ny-2)]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*(ny-2)+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*(ny-1)]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*(ny-1)+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*(nz-2)]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*(nz-2)+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*(nz-1)]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*(nz-1)+1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1+1]
 ;
 ix = nx-1;
 iy = 0;
-iz = nz-1;
+iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+nz+nx-2]
+-xv[nlocal+0+nz+nx-1]
+-xv[nlocal+0+nz+2*nx-2]
+-xv[nlocal+0+nz+2*nx-1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx-2]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx-1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny]
+-xv[nlocal+0+nz+nx*(nz-1)-2]
+-xv[nlocal+0+nz+nx*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz-2]
+-xv[nlocal+0+nz+nx*nz-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+2*nx-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+2*nx-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1+nx-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1+nx-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz+nx*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+2*nx-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+2*nx-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1+nx-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1+nx-1]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*(ny-1)-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*(ny-1)-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*(nz-1)-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz-1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1+nx-2]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny+1+nx-1]
 ;
@@ -6743,6 +9815,118 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<-1<<" "<<1<<" "<<0<<" "<<0<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+1]
+-xv[nlocal+0+nz+nx*nz+ny]
+-xv[nlocal+0+nz+nx*nz+ny+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1]
+-xv[nlocal+0+nz]
+-xv[nlocal+0+nz+1]
+-xv[nlocal+0+nz+nx]
+-xv[nlocal+0+nz+nx+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-2)]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-2)+1]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-1)]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-1)+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz-1]
+-xv[nlocal+0+nz+nx*(nz-2)]
+-xv[nlocal+0+nz+nx*(nz-2)+1]
+-xv[nlocal+0+nz+nx*(nz-1)]
+-xv[nlocal+0+nz+nx*(nz-1)+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx*nz+ny-2]
+-xv[nlocal+0+nz+nx*nz+ny-1]
+-xv[nlocal+0+nz+nx*nz+2*ny-2]
+-xv[nlocal+0+nz+nx*nz+2*ny-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-1)-2]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*(nz-2)]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*(nz-2)+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*(nz-1)]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*(nz-1)+1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx-2]
+-xv[nlocal+0+nz+nx-1]
+-xv[nlocal+0+nz+2*nx-2]
+-xv[nlocal+0+nz+2*nx-1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
+-xv[nlocal+0+nz+nx*(nz-1)-2]
+-xv[nlocal+0+nz+nx*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz-2]
+-xv[nlocal+0+nz+nx*nz-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz+nx*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+2*nx-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+2*nx-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*(nz-1)-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz-1]
+;
 iy=0;
 iz=0;
 for (ix=1; ix<nx-1;ix++)
@@ -6956,35 +10140,183 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-ix = 0;
+std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<-1<<" "<<0<<" "<<-1<<" "<<1<<std::endl;ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+1]
 -xv[nlocal+0+1]
 -xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+1]
+-xv[nlocal+0+1+nx+ny]
+-xv[nlocal+0+1+nx+ny+1]
+-xv[nlocal+0+1+nx+ny+nx]
+-xv[nlocal+0+1+nx+ny+nx+1]
 ;
 ix = 0;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*(nz-2)]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*(nz-2)+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*(nz-1)]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*(nz-1)+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+1]
+-xv[nlocal+0+1]
+-xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*(nz-2)]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*(nz-2)+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*(nz-1)]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*(nz-1)+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+nx]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+nx+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz]
+-xv[nlocal+0+1+nx+ny-2]
+-xv[nlocal+0+1+nx+ny-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+2*ny-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+2*ny-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny-1]
+-xv[nlocal+0+1]
+-xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+ny+nx*(ny-2)]
+-xv[nlocal+0+1+nx+ny+nx*(ny-2)+1]
+-xv[nlocal+0+1+nx+ny+nx*(ny-1)]
+-xv[nlocal+0+1+nx+ny+nx*(ny-1)+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz]
+-xv[nlocal+0+1+nx+ny-2]
+-xv[nlocal+0+1+nx+ny-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*(nz-1)-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*(nz-1)-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+nx*(ny-2)]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+nx*(ny-2)+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+nx*(ny-1)]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+nx*(ny-1)+1]
 ;
 ix = nx-1;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1]
 -xv[nlocal+0+1+nx-2]
 -xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+2*nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+2*nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx-1]
+-xv[nlocal+0+1+nx+ny+nx-2]
+-xv[nlocal+0+1+nx+ny+nx-1]
+-xv[nlocal+0+1+nx+ny+2*nx-2]
+-xv[nlocal+0+1+nx+ny+2*nx-1]
 ;
 ix = nx-1;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+1]
+-xv[nlocal+0+1+nx-2]
+-xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*(nz-1)-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*(nz-1)-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx-2]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+2*nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+2*nx-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny-2]
+-xv[nlocal+0+1+nx+ny-1]
+-xv[nlocal+0+1+nx-2]
+-xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*(ny-1)-2]
+-xv[nlocal+0+1+nx+ny+nx*(ny-1)-1]
+-xv[nlocal+0+1+nx+ny+nx*ny-2]
+-xv[nlocal+0+1+nx+ny+nx*ny-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+nx*(ny-1)-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+nx*(ny-1)-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+nx*ny-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+nx*ny-1]
 ;
 iy=0;
 iz=0;
@@ -7281,20 +10613,131 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-ix = 0;
+std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<-1<<" "<<0<<" "<<-1<<" "<<0<<std::endl;ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny+1]
 -xv[nlocal+0+1]
 -xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx+1]
+-xv[nlocal+0+1+nx+ny]
+-xv[nlocal+0+1+nx+ny+1]
+-xv[nlocal+0+1+nx+ny+nx]
+-xv[nlocal+0+1+nx+ny+nx+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz-1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*(nz-2)]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*(nz-2)+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*(nz-1)]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*(nz-1)+1]
+-xv[nlocal+0+1]
+-xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*(nz-2)]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*(nz-2)+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*(nz-1)]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*(nz-1)+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1]
+-xv[nlocal+0+1+nx+ny-2]
+-xv[nlocal+0+1+nx+ny-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+2*ny-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+2*ny-1]
+-xv[nlocal+0+1]
+-xv[nlocal+0+1+1]
+-xv[nlocal+0+1+nx+ny+nx*(ny-2)]
+-xv[nlocal+0+1+nx+ny+nx*(ny-2)+1]
+-xv[nlocal+0+1+nx+ny+nx*(ny-1)]
+-xv[nlocal+0+1+nx+ny+nx*(ny-1)+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz-1]
+-xv[nlocal+0+1+nx+ny-2]
+-xv[nlocal+0+1+nx+ny-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*(nz-1)-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*(nz-1)-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz-1]
 ;
 ix = nx-1;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny]
+-xv[nlocal+0+1+nx+ny+nx*ny+1]
+-xv[nlocal+0+1+nx]
+-xv[nlocal+0+1+nx+1]
 -xv[nlocal+0+1+nx-2]
 -xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+2*nx-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+2*nx-1]
+-xv[nlocal+0+1+nx+ny+nx-2]
+-xv[nlocal+0+1+nx+ny+nx-1]
+-xv[nlocal+0+1+nx+ny+2*nx-2]
+-xv[nlocal+0+1+nx+ny+2*nx-1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz-1]
+-xv[nlocal+0+1+nx-2]
+-xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*(nz-1)-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*(nz-1)-1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz-2]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1+nx+ny-2]
+-xv[nlocal+0+1+nx+ny-1]
+-xv[nlocal+0+1+nx-2]
+-xv[nlocal+0+1+nx-1]
+-xv[nlocal+0+1+nx+ny+nx*(ny-1)-2]
+-xv[nlocal+0+1+nx+ny+nx*(ny-1)-1]
+-xv[nlocal+0+1+nx+ny+nx*ny-2]
+-xv[nlocal+0+1+nx+ny+nx*ny-1]
 ;
 iy=0;
 iz=0;
@@ -7515,20 +10958,131 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
+std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<-1<<" "<<0<<" "<<0<<" "<<1<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+1]
+-xv[nlocal+0+nz+nx*nz+ny]
+-xv[nlocal+0+nz+nx*nz+ny+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+1]
+-xv[nlocal+0+nz]
+-xv[nlocal+0+nz+1]
+-xv[nlocal+0+nz+nx]
+-xv[nlocal+0+nz+nx+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+1]
+;
 ix = 0;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
 -xv[nlocal+0+nz+nx*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-2)]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-2)+1]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-1)]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-1)+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+1]
+-xv[nlocal+0+nz+nx*(nz-2)]
+-xv[nlocal+0+nz+nx*(nz-2)+1]
+-xv[nlocal+0+nz+nx*(nz-1)]
+-xv[nlocal+0+nz+nx*(nz-1)+1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+1+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+nx]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+nx+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+ny-2]
+-xv[nlocal+0+nz+nx*nz+ny-1]
+-xv[nlocal+0+nz+nx*nz+2*ny-2]
+-xv[nlocal+0+nz+nx*nz+2*ny-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny-1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-1)-2]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+nx*(ny-2)]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+nx*(ny-2)+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+nx*(ny-1)]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+nx*(ny-1)+1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz]
+-xv[nlocal+0+nz+nx-2]
+-xv[nlocal+0+nz+nx-1]
+-xv[nlocal+0+nz+2*nx-2]
+-xv[nlocal+0+nz+2*nx-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx-1]
 ;
 ix = nx-1;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+1]
+-xv[nlocal+0+nz+nx*(nz-1)-2]
+-xv[nlocal+0+nz+nx*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz-2]
+-xv[nlocal+0+nz+nx*nz-1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+1+nx-2]
 -xv[nlocal+0+nz+nx*nz+ny*nz+1+nx-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+nx-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+nx-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+2*nx-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+2*nx-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz+nx*nz+ny*nz]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+nx*(ny-1)-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+nx*(ny-1)-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+nx*ny-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+nx*ny-1]
 ;
 iy=0;
 iz=0;
@@ -7746,6 +11300,80 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<-1<<" "<<0<<" "<<0<<" "<<0<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx*nz]
+-xv[nlocal+0+nz+nx*nz+1]
+-xv[nlocal+0+nz+nx*nz+ny]
+-xv[nlocal+0+nz+nx*nz+ny+1]
+-xv[nlocal+0+nz]
+-xv[nlocal+0+nz+1]
+-xv[nlocal+0+nz+nx]
+-xv[nlocal+0+nz+nx+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-2)]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-2)+1]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-1)]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-1)+1]
+-xv[nlocal+0+nz+nx*(nz-2)]
+-xv[nlocal+0+nz+nx*(nz-2)+1]
+-xv[nlocal+0+nz+nx*(nz-1)]
+-xv[nlocal+0+nz+nx*(nz-1)+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx*nz+ny-2]
+-xv[nlocal+0+nz+nx*nz+ny-1]
+-xv[nlocal+0+nz+nx*nz+2*ny-2]
+-xv[nlocal+0+nz+nx*nz+2*ny-1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-1)-2]
+-xv[nlocal+0+nz+nx*nz+ny*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz+ny*nz-2]
+-xv[nlocal+0+nz+nx*nz+ny*nz-1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nz+nx-2]
+-xv[nlocal+0+nz+nx-1]
+-xv[nlocal+0+nz+2*nx-2]
+-xv[nlocal+0+nz+2*nx-1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nz-2]
+-xv[nlocal+0+nz-1]
+-xv[nlocal+0+nz+nx*(nz-1)-2]
+-xv[nlocal+0+nz+nx*(nz-1)-1]
+-xv[nlocal+0+nz+nx*nz-2]
+-xv[nlocal+0+nz+nx*nz-1]
+;
 iy=0;
 iz=0;
 for (ix=1; ix<nx-1;ix++)
@@ -7892,33 +11520,181 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-ix = 0;
-iy = ny-1;
+std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<0<<" "<<1<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx*ny+1+nx]
+-xv[nlocal+0+ny+nx*ny+1+nx+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+1]
 -xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*ny]
+-xv[nlocal+0+ny]
+-xv[nlocal+0+ny+1]
+-xv[nlocal+0+ny+nx]
+-xv[nlocal+0+ny+nx+1]
 -xv[nlocal+0+ny+nx*ny+1]
 -xv[nlocal+0+ny+nx*ny+1+1]
 ;
 ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*(nz-2)]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*(nz-2)+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*(nz-1)]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*(nz-1)+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*ny+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*ny+1+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+2*ny-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+2*ny-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny-1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*ny]
+-xv[nlocal+0+ny+nx*(ny-2)]
+-xv[nlocal+0+ny+nx*(ny-2)+1]
+-xv[nlocal+0+ny+nx*(ny-1)]
+-xv[nlocal+0+ny+nx*(ny-1)+1]
+-xv[nlocal+0+ny+nx*ny+1]
+-xv[nlocal+0+ny+nx*ny+1+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*ny+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*ny+1+1]
+;
+ix = 0;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*(nz-1)-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*(nz-1)-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny-1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz-1]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*(ny-2)]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*(ny-2)+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*(ny-1)]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*(ny-1)+1]
+-xv[nlocal+0+ny+nx*ny+1]
+-xv[nlocal+0+ny+nx*ny+1+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*(nz-2)]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*(nz-2)+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*(nz-1)]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*(nz-1)+1]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*ny+1]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*ny+1+1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx-2]
+-xv[nlocal+0+ny+nx-1]
+-xv[nlocal+0+ny+2*nx-2]
+-xv[nlocal+0+ny+2*nx-1]
+-xv[nlocal+0+ny+nx*ny+1+nx-2]
+-xv[nlocal+0+ny+nx*ny+1+nx-1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+2*nx-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+2*nx-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*ny+1+nx-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*ny+1+nx-1]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*ny]
+-xv[nlocal+0+ny+nx*(ny-1)-2]
+-xv[nlocal+0+ny+nx*(ny-1)-1]
+-xv[nlocal+0+ny+nx*ny-2]
+-xv[nlocal+0+ny+nx*ny-1]
 -xv[nlocal+0+ny+nx*ny+1+nx-2]
 -xv[nlocal+0+ny+nx*ny+1+nx-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+2*nx-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+2*nx-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*ny+1+nx-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*ny+1+nx-1]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny-1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*(ny-1)-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*(ny-1)-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*ny-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*ny-1]
+-xv[nlocal+0+ny+nx*ny+1+nx-2]
+-xv[nlocal+0+ny+nx*ny+1+nx-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*(nz-1)-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*(nz-1)-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz-1]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*ny+1+nx-2]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*ny+1+nx-1]
 ;
@@ -8217,20 +11993,131 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<0<<" "<<1<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx*ny+1+nx]
+-xv[nlocal+0+ny+nx*ny+1+nx+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny+1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+1]
+-xv[nlocal+0+ny]
+-xv[nlocal+0+ny+1]
+-xv[nlocal+0+ny+nx]
+-xv[nlocal+0+ny+nx+1]
+-xv[nlocal+0+ny+nx*ny+1]
+-xv[nlocal+0+ny+nx*ny+1+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*(nz-2)]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*(nz-2)+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*(nz-1)]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*(nz-1)+1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz-1]
+;
 ix = 0;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+2*ny-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+2*ny-1]
 -xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+1]
+-xv[nlocal+0+ny+nx*(ny-2)]
+-xv[nlocal+0+ny+nx*(ny-2)+1]
+-xv[nlocal+0+ny+nx*(ny-1)]
+-xv[nlocal+0+ny+nx*(ny-1)+1]
 -xv[nlocal+0+ny+nx*ny+1]
 -xv[nlocal+0+ny+nx*ny+1+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*(nz-1)-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*(nz-1)-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz-1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz-1]
+-xv[nlocal+0+ny+nx*ny+1]
+-xv[nlocal+0+ny+nx*ny+1+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*(nz-2)]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*(nz-2)+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*(nz-1)]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*(nz-1)+1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx-2]
+-xv[nlocal+0+ny+nx-1]
+-xv[nlocal+0+ny+2*nx-2]
+-xv[nlocal+0+ny+2*nx-1]
+-xv[nlocal+0+ny+nx*ny+1+nx-2]
+-xv[nlocal+0+ny+nx*ny+1+nx-1]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+1]
+-xv[nlocal+0+ny+nx*(ny-1)-2]
+-xv[nlocal+0+ny+nx*(ny-1)-1]
+-xv[nlocal+0+ny+nx*ny-2]
+-xv[nlocal+0+ny+nx*ny-1]
 -xv[nlocal+0+ny+nx*ny+1+nx-2]
 -xv[nlocal+0+ny+nx*ny+1+nx-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+2*nx-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+2*nx-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz-1]
+-xv[nlocal+0+ny+nx*ny+1+nx-2]
+-xv[nlocal+0+ny+nx*ny+1+nx-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*(nz-1)-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*(nz-1)-1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz-2]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz-1]
 ;
 iz=0;
 iy=0;
@@ -8451,18 +12338,129 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
+std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<0<<" "<<1<<" "<<0<<" "<<1<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny]
+-xv[nlocal+0+ny+1]
+-xv[nlocal+0+ny*nz+nz+nx*nz]
+-xv[nlocal+0+ny*nz+nz+nx*nz+1]
+-xv[nlocal+0+ny*nz]
+-xv[nlocal+0+ny*nz+1]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*ny]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*(nz-2)]
+-xv[nlocal+0+ny*(nz-2)+1]
+-xv[nlocal+0+ny*(nz-1)]
+-xv[nlocal+0+ny*(nz-1)+1]
+-xv[nlocal+0+ny*nz+nz+nx*nz]
+-xv[nlocal+0+ny*nz+nz+nx*nz+1]
+-xv[nlocal+0+ny*nz+nz-2]
+-xv[nlocal+0+ny*nz+nz-1]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*ny]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+1]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx+1]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*ny+1]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*ny+1+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+2*ny-2]
+-xv[nlocal+0+2*ny-1]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny-2]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny-1]
+-xv[nlocal+0+ny*nz]
+-xv[nlocal+0+ny*nz+1]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*ny]
+-xv[nlocal+0+ny*nz+nz]
+-xv[nlocal+0+ny*nz+nz+1]
+-xv[nlocal+0+ny*nz+nz+nx]
+-xv[nlocal+0+ny*nz+nz+nx+1]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*ny+1]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*ny+1+1]
+;
 ix = 0;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*(nz-1)-2]
+-xv[nlocal+0+ny*(nz-1)-1]
+-xv[nlocal+0+ny*nz-2]
+-xv[nlocal+0+ny*nz-1]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny-2]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny-1]
+-xv[nlocal+0+ny*nz+nz-2]
+-xv[nlocal+0+ny*nz+nz-1]
 -xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*ny]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*(ny-2)]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*(ny-2)+1]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*(ny-1)]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*(ny-1)+1]
+-xv[nlocal+0+ny*nz+nz+nx*(nz-2)]
+-xv[nlocal+0+ny*nz+nz+nx*(nz-2)+1]
+-xv[nlocal+0+ny*nz+nz+nx*(nz-1)]
+-xv[nlocal+0+ny*nz+nz+nx*(nz-1)+1]
 -xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*ny+1]
 -xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*ny+1+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+nz+nx*nz]
+-xv[nlocal+0+ny*nz+nz+nx*nz+1]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*ny]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx-2]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx-1]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+2*nx-2]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+2*nx-1]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*ny+1+nx-2]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*ny+1+nx-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz]
+-xv[nlocal+0+ny*nz+1]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*ny]
+-xv[nlocal+0+ny*nz+nz+nx-2]
+-xv[nlocal+0+ny*nz+nz+nx-1]
+-xv[nlocal+0+ny*nz+nz+2*nx-2]
+-xv[nlocal+0+ny*nz+nz+2*nx-1]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*ny+1+nx-2]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*ny+1+nx-1]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny-2]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny-1]
+-xv[nlocal+0+ny*nz+nz-2]
+-xv[nlocal+0+ny*nz+nz-1]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*ny]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*(ny-1)-2]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*(ny-1)-1]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*ny-2]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*ny-1]
+-xv[nlocal+0+ny*nz+nz+nx*(nz-1)-2]
+-xv[nlocal+0+ny*nz+nz+nx*(nz-1)-1]
+-xv[nlocal+0+ny*nz+nz+nx*nz-2]
+-xv[nlocal+0+ny*nz+nz+nx*nz-1]
 -xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*ny+1+nx-2]
 -xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*ny+1+nx-1]
 ;
@@ -8682,6 +12680,80 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<0<<" "<<1<<" "<<0<<" "<<0<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny]
+-xv[nlocal+0+ny+1]
+-xv[nlocal+0+ny*nz]
+-xv[nlocal+0+ny*nz+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*(nz-2)]
+-xv[nlocal+0+ny*(nz-2)+1]
+-xv[nlocal+0+ny*(nz-1)]
+-xv[nlocal+0+ny*(nz-1)+1]
+-xv[nlocal+0+ny*nz+nz-2]
+-xv[nlocal+0+ny*nz+nz-1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+2*ny-2]
+-xv[nlocal+0+2*ny-1]
+-xv[nlocal+0+ny*nz]
+-xv[nlocal+0+ny*nz+1]
+-xv[nlocal+0+ny*nz+nz]
+-xv[nlocal+0+ny*nz+nz+1]
+-xv[nlocal+0+ny*nz+nz+nx]
+-xv[nlocal+0+ny*nz+nz+nx+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*(nz-1)-2]
+-xv[nlocal+0+ny*(nz-1)-1]
+-xv[nlocal+0+ny*nz-2]
+-xv[nlocal+0+ny*nz-1]
+-xv[nlocal+0+ny*nz+nz-2]
+-xv[nlocal+0+ny*nz+nz-1]
+-xv[nlocal+0+ny*nz+nz+nx*(nz-2)]
+-xv[nlocal+0+ny*nz+nz+nx*(nz-2)+1]
+-xv[nlocal+0+ny*nz+nz+nx*(nz-1)]
+-xv[nlocal+0+ny*nz+nz+nx*(nz-1)+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz]
+-xv[nlocal+0+ny*nz+1]
+-xv[nlocal+0+ny*nz+nz+nx-2]
+-xv[nlocal+0+ny*nz+nz+nx-1]
+-xv[nlocal+0+ny*nz+nz+2*nx-2]
+-xv[nlocal+0+ny*nz+nz+2*nx-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+nz-2]
+-xv[nlocal+0+ny*nz+nz-1]
+-xv[nlocal+0+ny*nz+nz+nx*(nz-1)-2]
+-xv[nlocal+0+ny*nz+nz+nx*(nz-1)-1]
+-xv[nlocal+0+ny*nz+nz+nx*nz-2]
+-xv[nlocal+0+ny*nz+nz+nx*nz-1]
+;
 iy=ny-1;
 iz=0;
 for (ix=1; ix<nx-1;ix++)
@@ -8825,6 +12897,118 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
+std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<0<<" "<<0<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1]
+-xv[nlocal+0+ny+nx*ny+ny*nz]
+-xv[nlocal+0+ny+nx*ny+ny*nz+1]
+-xv[nlocal+0+ny]
+-xv[nlocal+0+ny+1]
+-xv[nlocal+0+ny+nx]
+-xv[nlocal+0+ny+nx+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx*ny+ny*(nz-2)]
+-xv[nlocal+0+ny+nx*ny+ny*(nz-2)+1]
+-xv[nlocal+0+ny+nx*ny+ny*(nz-1)]
+-xv[nlocal+0+ny+nx*ny+ny*(nz-1)+1]
+-xv[nlocal+0+ny+nx*ny+ny*nz]
+-xv[nlocal+0+ny+nx*ny+ny*nz+1]
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny]
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny+1]
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny+nx]
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny+nx+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny-1]
+-xv[nlocal+0+ny+nx*ny+2*ny-2]
+-xv[nlocal+0+ny+nx*ny+2*ny-1]
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny-1]
+-xv[nlocal+0+ny+nx*(ny-2)]
+-xv[nlocal+0+ny+nx*(ny-2)+1]
+-xv[nlocal+0+ny+nx*(ny-1)]
+-xv[nlocal+0+ny+nx*(ny-1)+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny*(nz-1)-2]
+-xv[nlocal+0+ny+nx*ny+ny*(nz-1)-1]
+-xv[nlocal+0+ny+nx*ny+ny*nz-2]
+-xv[nlocal+0+ny+nx*ny+ny*nz-1]
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny+nx*(ny-2)]
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny+nx*(ny-2)+1]
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny+nx*(ny-1)]
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny+nx*(ny-1)+1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx-2]
+-xv[nlocal+0+ny+nx-1]
+-xv[nlocal+0+ny+2*nx-2]
+-xv[nlocal+0+ny+2*nx-1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny+nx*ny+ny*nz]
+-xv[nlocal+0+ny+nx*ny+ny*nz+1]
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny+nx-2]
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny+nx-1]
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny+2*nx-2]
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny+2*nx-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*(ny-1)-2]
+-xv[nlocal+0+ny+nx*(ny-1)-1]
+-xv[nlocal+0+ny+nx*ny-2]
+-xv[nlocal+0+ny+nx*ny-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny+nx*(ny-1)-2]
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny+nx*(ny-1)-1]
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny+nx*ny-2]
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny+nx*ny-1]
+;
 iz=0;
 iy=0;
 for (ix=1; ix<nx-1;ix++)
@@ -9032,6 +13216,80 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<0<<" "<<0<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx*ny]
+-xv[nlocal+0+ny+nx*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny]
+-xv[nlocal+0+ny+nx*ny+ny+1]
+-xv[nlocal+0+ny]
+-xv[nlocal+0+ny+1]
+-xv[nlocal+0+ny+nx]
+-xv[nlocal+0+ny+nx+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx*ny+ny*(nz-2)]
+-xv[nlocal+0+ny+nx*ny+ny*(nz-2)+1]
+-xv[nlocal+0+ny+nx*ny+ny*(nz-1)]
+-xv[nlocal+0+ny+nx*ny+ny*(nz-1)+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny-2]
+-xv[nlocal+0+ny+nx*ny+ny-1]
+-xv[nlocal+0+ny+nx*ny+2*ny-2]
+-xv[nlocal+0+ny+nx*ny+2*ny-1]
+-xv[nlocal+0+ny+nx*(ny-2)]
+-xv[nlocal+0+ny+nx*(ny-2)+1]
+-xv[nlocal+0+ny+nx*(ny-1)]
+-xv[nlocal+0+ny+nx*(ny-1)+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*ny+ny*(nz-1)-2]
+-xv[nlocal+0+ny+nx*ny+ny*(nz-1)-1]
+-xv[nlocal+0+ny+nx*ny+ny*nz-2]
+-xv[nlocal+0+ny+nx*ny+ny*nz-1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny+nx-2]
+-xv[nlocal+0+ny+nx-1]
+-xv[nlocal+0+ny+2*nx-2]
+-xv[nlocal+0+ny+2*nx-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+ny+nx*(ny-1)-2]
+-xv[nlocal+0+ny+nx*(ny-1)-1]
+-xv[nlocal+0+ny+nx*ny-2]
+-xv[nlocal+0+ny+nx*ny-1]
+;
 iz=0;
 iy=0;
 for (ix=1; ix<nx-1;ix++)
@@ -9172,6 +13430,80 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
+std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<" "<<1<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny]
+-xv[nlocal+0+ny+1]
+-xv[nlocal+0+ny*nz]
+-xv[nlocal+0+ny*nz+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*(nz-2)]
+-xv[nlocal+0+ny*(nz-2)+1]
+-xv[nlocal+0+ny*(nz-1)]
+-xv[nlocal+0+ny*(nz-1)+1]
+-xv[nlocal+0+ny*nz]
+-xv[nlocal+0+ny*nz+1]
+-xv[nlocal+0+ny*nz+ny]
+-xv[nlocal+0+ny*nz+ny+1]
+-xv[nlocal+0+ny*nz+ny+nx]
+-xv[nlocal+0+ny*nz+ny+nx+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+2*ny-2]
+-xv[nlocal+0+2*ny-1]
+-xv[nlocal+0+ny*nz+ny-2]
+-xv[nlocal+0+ny*nz+ny-1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*(nz-1)-2]
+-xv[nlocal+0+ny*(nz-1)-1]
+-xv[nlocal+0+ny*nz-2]
+-xv[nlocal+0+ny*nz-1]
+-xv[nlocal+0+ny*nz+ny-2]
+-xv[nlocal+0+ny*nz+ny-1]
+-xv[nlocal+0+ny*nz+ny+nx*(ny-2)]
+-xv[nlocal+0+ny*nz+ny+nx*(ny-2)+1]
+-xv[nlocal+0+ny*nz+ny+nx*(ny-1)]
+-xv[nlocal+0+ny*nz+ny+nx*(ny-1)+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz]
+-xv[nlocal+0+ny*nz+1]
+-xv[nlocal+0+ny*nz+ny+nx-2]
+-xv[nlocal+0+ny*nz+ny+nx-1]
+-xv[nlocal+0+ny*nz+ny+2*nx-2]
+-xv[nlocal+0+ny*nz+ny+2*nx-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+ny-2]
+-xv[nlocal+0+ny*nz+ny-1]
+-xv[nlocal+0+ny*nz+ny+nx*(ny-1)-2]
+-xv[nlocal+0+ny*nz+ny+nx*(ny-1)-1]
+-xv[nlocal+0+ny*nz+ny+nx*ny-2]
+-xv[nlocal+0+ny*nz+ny+nx*ny-1]
+;
 iz=nz-1;
 iy=0;
 for (ix=1; ix<nx-1;ix++)
@@ -9309,6 +13641,42 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny]
+-xv[nlocal+0+ny+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*(nz-2)]
+-xv[nlocal+0+ny*(nz-2)+1]
+-xv[nlocal+0+ny*(nz-1)]
+-xv[nlocal+0+ny*(nz-1)+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+2*ny-2]
+-xv[nlocal+0+2*ny-1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*(nz-1)-2]
+-xv[nlocal+0+ny*(nz-1)-1]
+-xv[nlocal+0+ny*nz-2]
+-xv[nlocal+0+ny*nz-1]
+;
 ;
 ix=0;
 iz=0;
@@ -9391,33 +13759,109 @@ else
 {
             if(ipz < npz - 1)
 {
-ix = 0;
+std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<-1<<" "<<1<<" "<<-1<<" "<<1<<std::endl;ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+1]
+-xv[nlocal+0+nx+1]
+-xv[nlocal+0+nx+1+1]
+-xv[nlocal+0+nx+1+nx]
+-xv[nlocal+0+nx+1+nx+1]
+-xv[nlocal+0+nx+1+nx*ny+ny]
+-xv[nlocal+0+nx+1+nx*ny+ny+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx]
+-xv[nlocal+0+nx+1+nx*ny]
+-xv[nlocal+0+nx+1+nx*ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx]
 ;
 ix = 0;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*(nz-2)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*(nz-2)+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*(nz-1)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*(nz-1)+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx]
 ;
 ix = 0;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx+1+nx*(ny-2)]
+-xv[nlocal+0+nx+1+nx*(ny-2)+1]
+-xv[nlocal+0+nx+1+nx*(ny-1)]
+-xv[nlocal+0+nx+1+nx*(ny-1)+1]
 -xv[nlocal+0+nx+1+nx*ny+ny]
 -xv[nlocal+0+nx+1+nx*ny+ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx]
 ;
 ix = 0;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*(ny-2)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*(ny-2)+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*(ny-1)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*(ny-1)+1]
+-xv[nlocal+0+nx+1+nx*ny+ny]
+-xv[nlocal+0+nx+1+nx*ny+ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*(nz-2)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*(nz-2)+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*(nz-1)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*(nz-1)+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx]
 ;
 ix = nx-1;
 iy = 0;
@@ -9425,30 +13869,138 @@ iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+2*nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+2*nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx-1]
+-xv[nlocal+0+nx+1+nx-2]
+-xv[nlocal+0+nx+1+nx-1]
+-xv[nlocal+0+nx+1+2*nx-2]
+-xv[nlocal+0+nx+1+2*nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx-1]
 -xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx]
+-xv[nlocal+0+nx+1+nx*ny]
+-xv[nlocal+0+nx+1+nx*ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx]
 ;
 ix = nx-1;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*(nz-1)-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*(nz-1)-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz-1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx-2]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+2*nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+2*nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx-1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz-1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx]
+-xv[nlocal+0+nx+1+nx*ny]
+-xv[nlocal+0+nx+1+nx*ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*(nz-2)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*(nz-2)+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*(nz-1)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*(nz-1)+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+1+nx*(ny-1)-2]
+-xv[nlocal+0+nx+1+nx*(ny-1)-1]
+-xv[nlocal+0+nx+1+nx*ny-2]
+-xv[nlocal+0+nx+1+nx*ny-1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx-2]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+2*nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+2*nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx-1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+2*ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+2*ny-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny-1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*(ny-1)-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*(ny-1)-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*(nz-1)-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*(nz-1)-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz-1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx-2]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx-1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*(nz-1)-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*(nz-1)-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz-1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx]
 ;
 iy=0;
@@ -9834,19 +14386,79 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-ix = 0;
+std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<-1<<" "<<1<<" "<<-1<<" "<<0<<std::endl;ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx+1]
+-xv[nlocal+0+nx+1]
+-xv[nlocal+0+nx+1+1]
+-xv[nlocal+0+nx+1+nx]
+-xv[nlocal+0+nx+1+nx+1]
+-xv[nlocal+0+nx+1+nx*ny+ny]
+-xv[nlocal+0+nx+1+nx*ny+ny+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+1]
+-xv[nlocal+0+nx+1+nx*ny]
+-xv[nlocal+0+nx+1+nx*ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*(nz-2)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*(nz-2)+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*(nz-1)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*(nz-1)+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz-1]
 ;
 ix = 0;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx+1+nx*(ny-2)]
+-xv[nlocal+0+nx+1+nx*(ny-2)+1]
+-xv[nlocal+0+nx+1+nx*(ny-1)]
+-xv[nlocal+0+nx+1+nx*(ny-1)+1]
 -xv[nlocal+0+nx+1+nx*ny+ny]
 -xv[nlocal+0+nx+1+nx*ny+ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx+1+nx*ny+ny]
+-xv[nlocal+0+nx+1+nx*ny+ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*(nz-2)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*(nz-2)+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*(nz-1)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*(nz-1)+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz-1]
 ;
 ix = nx-1;
 iy = 0;
@@ -9854,15 +14466,103 @@ iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+2*nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+2*nx-1]
+-xv[nlocal+0+nx+1+nx-2]
+-xv[nlocal+0+nx+1+nx-1]
+-xv[nlocal+0+nx+1+2*nx-2]
+-xv[nlocal+0+nx+1+2*nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx-1]
 -xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+1]
+-xv[nlocal+0+nx+1+nx*ny]
+-xv[nlocal+0+nx+1+nx*ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*(nz-1)-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*(nz-1)-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz-1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz-1]
+-xv[nlocal+0+nx+1+nx*ny]
+-xv[nlocal+0+nx+1+nx*ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*(nz-2)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*(nz-2)+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*(nz-1)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*(nz-1)+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz-1]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+1+nx*(ny-1)-2]
+-xv[nlocal+0+nx+1+nx*(ny-1)-1]
+-xv[nlocal+0+nx+1+nx*ny-2]
+-xv[nlocal+0+nx+1+nx*ny-1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx-2]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+2*nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+2*nx-1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+1]
+-xv[nlocal+0+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+2*ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+2*ny-1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx+1+nx*ny+ny+nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*(nz-1)-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*(nz-1)-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz-1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz-1]
+-xv[nlocal+0+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*(nz-1)-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*(nz-1)-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz-1]
 ;
 iy=0;
 iz=0;
@@ -10162,34 +14862,182 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
+std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<-1<<" "<<1<<" "<<0<<" "<<1<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+1]
+-xv[nlocal+0+nx*nz]
+-xv[nlocal+0+nx*nz+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx]
+;
 ix = 0;
 iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(nz-2)]
+-xv[nlocal+0+nx*(nz-2)+1]
+-xv[nlocal+0+nx*(nz-1)]
+-xv[nlocal+0+nx*(nz-1)+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+1]
+-xv[nlocal+0+nx*nz+nz-2]
+-xv[nlocal+0+nx*nz+nz-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz+nz+ny*nz]
+-xv[nlocal+0+nx*nz+nz+ny*nz+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx]
+;
+ix = 0;
+iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+1]
-;
-ix = 0;
-iy = ny-1;
-iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*(ny-2)]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*(ny-2)+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*(ny-1)]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*(ny-1)+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*(nz-2)]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*(nz-2)+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*(nz-1)]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*(nz-1)+1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+2*nx-2]
+-xv[nlocal+0+2*nx-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx-1]
+-xv[nlocal+0+nx*nz]
+-xv[nlocal+0+nx*nz+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx]
+-xv[nlocal+0+nx*nz+nz]
+-xv[nlocal+0+nx*nz+nz+1]
+-xv[nlocal+0+nx*nz+nz+ny]
+-xv[nlocal+0+nx*nz+nz+ny+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx]
 ;
 ix = nx-1;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(nz-1)-2]
+-xv[nlocal+0+nx*(nz-1)-1]
+-xv[nlocal+0+nx*nz-2]
+-xv[nlocal+0+nx*nz-1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx-2]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+2*nx-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+2*nx-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx-1]
+-xv[nlocal+0+nx*nz+nz-2]
+-xv[nlocal+0+nx*nz+nz-1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-2)]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-2)+1]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-1)]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-1)+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+2*nx-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+2*nx-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx-1]
+-xv[nlocal+0+nx*nz]
+-xv[nlocal+0+nx*nz+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx]
+-xv[nlocal+0+nx*nz+nz+ny-2]
+-xv[nlocal+0+nx*nz+nz+ny-1]
+-xv[nlocal+0+nx*nz+nz+2*ny-2]
+-xv[nlocal+0+nx*nz+nz+2*ny-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*(ny-1)-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*(ny-1)-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*(nz-1)-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*(nz-1)-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz-1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx-2]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx-1]
+-xv[nlocal+0+nx*nz+nz-2]
+-xv[nlocal+0+nx*nz+nz-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-1)-2]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-1)-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz-1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny+ny+nx]
 ;
 iy=0;
@@ -10487,6 +15335,118 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<-1<<" "<<1<<" "<<0<<" "<<0<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
+-xv[nlocal+0+nx*nz]
+-xv[nlocal+0+nx*nz+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(nz-2)]
+-xv[nlocal+0+nx*(nz-2)+1]
+-xv[nlocal+0+nx*(nz-1)]
+-xv[nlocal+0+nx*(nz-1)+1]
+-xv[nlocal+0+nx*nz+nz-2]
+-xv[nlocal+0+nx*nz+nz-1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz+nz+ny*nz]
+-xv[nlocal+0+nx*nz+nz+ny*nz+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*(nz-2)]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*(nz-2)+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*(nz-1)]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*(nz-1)+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz-1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+2*nx-2]
+-xv[nlocal+0+2*nx-1]
+-xv[nlocal+0+nx*nz]
+-xv[nlocal+0+nx*nz+1]
+-xv[nlocal+0+nx*nz+nz]
+-xv[nlocal+0+nx*nz+nz+1]
+-xv[nlocal+0+nx*nz+nz+ny]
+-xv[nlocal+0+nx*nz+nz+ny+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(nz-1)-2]
+-xv[nlocal+0+nx*(nz-1)-1]
+-xv[nlocal+0+nx*nz-2]
+-xv[nlocal+0+nx*nz-1]
+-xv[nlocal+0+nx*nz+nz-2]
+-xv[nlocal+0+nx*nz+nz-1]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-2)]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-2)+1]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-1)]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-1)+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+2*nx-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+2*nx-1]
+-xv[nlocal+0+nx*nz]
+-xv[nlocal+0+nx*nz+1]
+-xv[nlocal+0+nx*nz+nz+ny-2]
+-xv[nlocal+0+nx*nz+nz+ny-1]
+-xv[nlocal+0+nx*nz+nz+2*ny-2]
+-xv[nlocal+0+nx*nz+nz+2*ny-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*(nz-1)-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*(nz-1)-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz-1]
+-xv[nlocal+0+nx*nz+nz-2]
+-xv[nlocal+0+nx*nz+nz-1]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-1)-2]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-1)-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz-1]
+;
 iy=0;
 iz=0;
 for (ix=1; ix<nx-1;ix++)
@@ -10700,19 +15660,79 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-ix = 0;
+std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<-1<<" "<<0<<" "<<-1<<" "<<1<<std::endl;ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
+-xv[nlocal+0+nx+1+nx*ny+ny]
+-xv[nlocal+0+nx+1+nx*ny+ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+1]
+-xv[nlocal+0+nx+1]
+-xv[nlocal+0+nx+1+1]
+-xv[nlocal+0+nx+1+nx]
+-xv[nlocal+0+nx+1+nx+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx]
+-xv[nlocal+0+nx+1+nx*ny]
+-xv[nlocal+0+nx+1+nx*ny+1]
 ;
 ix = 0;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*(nz-2)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*(nz-2)+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*(nz-1)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*(nz-1)+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*ny]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*ny+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx+1+nx*(ny-2)]
+-xv[nlocal+0+nx+1+nx*(ny-2)+1]
+-xv[nlocal+0+nx+1+nx*(ny-1)]
+-xv[nlocal+0+nx+1+nx*(ny-1)+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny-1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*(ny-2)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*(ny-2)+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*(ny-1)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*(ny-1)+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*ny+ny-1]
 ;
 ix = nx-1;
 iy = 0;
@@ -10720,15 +15740,103 @@ iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+2*nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+2*nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx-1]
+-xv[nlocal+0+nx+1+nx-2]
+-xv[nlocal+0+nx+1+nx-1]
+-xv[nlocal+0+nx+1+2*nx-2]
+-xv[nlocal+0+nx+1+2*nx-1]
 -xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx]
+-xv[nlocal+0+nx+1+nx*ny]
+-xv[nlocal+0+nx+1+nx*ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*ny]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*ny+1]
 ;
 ix = nx-1;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*(nz-1)-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*(nz-1)-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz-1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx-2]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+2*nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+2*nx-1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz-1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx]
+-xv[nlocal+0+nx+1+nx*ny]
+-xv[nlocal+0+nx+1+nx*ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*(nz-2)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*(nz-2)+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*(nz-1)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*(nz-1)+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*ny]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*ny+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+1+nx*(ny-1)-2]
+-xv[nlocal+0+nx+1+nx*(ny-1)-1]
+-xv[nlocal+0+nx+1+nx*ny-2]
+-xv[nlocal+0+nx+1+nx*ny-1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+2*ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+2*ny-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*ny+ny-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*(ny-1)-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*(ny-1)-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*ny-1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*(nz-1)-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*(nz-1)-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*ny+ny-1]
 ;
 iy=0;
 iz=0;
@@ -11025,12 +16133,53 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-ix = 0;
+std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<-1<<" "<<0<<" "<<-1<<" "<<0<<std::endl;ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
+-xv[nlocal+0+nx+1+nx*ny+ny]
+-xv[nlocal+0+nx+1+nx*ny+ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1]
+-xv[nlocal+0+nx+1]
+-xv[nlocal+0+nx+1+1]
+-xv[nlocal+0+nx+1+nx]
+-xv[nlocal+0+nx+1+nx+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+1]
+-xv[nlocal+0+nx+1+nx*ny]
+-xv[nlocal+0+nx+1+nx*ny+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*(nz-2)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*(nz-2)+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*(nz-1)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*(nz-1)+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz-1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx+1+nx*(ny-2)]
+-xv[nlocal+0+nx+1+nx*(ny-2)+1]
+-xv[nlocal+0+nx+1+nx*(ny-1)]
+-xv[nlocal+0+nx+1+nx*(ny-1)+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny-1]
 ;
 ix = nx-1;
 iy = 0;
@@ -11038,7 +16187,77 @@ iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+2*nx-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+2*nx-1]
+-xv[nlocal+0+nx+1+nx-2]
+-xv[nlocal+0+nx+1+nx-1]
+-xv[nlocal+0+nx+1+2*nx-2]
+-xv[nlocal+0+nx+1+2*nx-1]
 -xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+1]
+-xv[nlocal+0+nx+1+nx*ny]
+-xv[nlocal+0+nx+1+nx*ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*(nz-1)-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*(nz-1)-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz-1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz-1]
+-xv[nlocal+0+nx+1+nx*ny]
+-xv[nlocal+0+nx+1+nx*ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*(nz-2)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*(nz-2)+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*(nz-1)]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*(nz-1)+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+1+nx*(ny-1)-2]
+-xv[nlocal+0+nx+1+nx*(ny-1)-1]
+-xv[nlocal+0+nx+1+nx*ny-2]
+-xv[nlocal+0+nx+1+nx*ny-1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+1]
+-xv[nlocal+0+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+2*ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+2*ny-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz-1]
+-xv[nlocal+0+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx+1+nx*ny+ny-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*(nz-1)-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*(nz-1)-1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz-2]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz-1]
 ;
 iy=0;
 iz=0;
@@ -11259,20 +16478,131 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
+std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<-1<<" "<<0<<" "<<0<<" "<<1<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz]
+-xv[nlocal+0+nx*nz+nz+ny*nz+1]
+-xv[nlocal+0+nx*nz]
+-xv[nlocal+0+nx*nz+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx]
+;
 ix = 0;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(nz-2)]
+-xv[nlocal+0+nx*(nz-2)+1]
+-xv[nlocal+0+nx*(nz-1)]
+-xv[nlocal+0+nx*(nz-1)+1]
 -xv[nlocal+0+nx*nz+nz+ny*nz]
 -xv[nlocal+0+nx*nz+nz+ny*nz+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx+1]
+-xv[nlocal+0+nx*nz+nz-2]
+-xv[nlocal+0+nx*nz+nz-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*ny]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*ny+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz+nz+ny*nz]
+-xv[nlocal+0+nx*nz+nz+ny*nz+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*(ny-2)]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*(ny-2)+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*(ny-1)]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*(ny-1)+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*ny+ny-1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+2*nx-2]
+-xv[nlocal+0+2*nx-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx-1]
+-xv[nlocal+0+nx*nz]
+-xv[nlocal+0+nx*nz+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx]
+-xv[nlocal+0+nx*nz+nz]
+-xv[nlocal+0+nx*nz+nz+1]
+-xv[nlocal+0+nx*nz+nz+ny]
+-xv[nlocal+0+nx*nz+nz+ny+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*ny]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*ny+1]
 ;
 ix = nx-1;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(nz-1)-2]
+-xv[nlocal+0+nx*(nz-1)-1]
+-xv[nlocal+0+nx*nz-2]
+-xv[nlocal+0+nx*nz-1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx-2]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+2*nx-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+2*nx-1]
+-xv[nlocal+0+nx*nz+nz-2]
+-xv[nlocal+0+nx*nz+nz-1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-2)]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-2)+1]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-1)]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-1)+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*ny]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*ny+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz]
+-xv[nlocal+0+nx*nz+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx]
+-xv[nlocal+0+nx*nz+nz+ny-2]
+-xv[nlocal+0+nx*nz+nz+ny-1]
+-xv[nlocal+0+nx*nz+nz+2*ny-2]
+-xv[nlocal+0+nx*nz+nz+2*ny-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*ny+ny-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*(ny-1)-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*(ny-1)-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*ny-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*ny-1]
+-xv[nlocal+0+nx*nz+nz-2]
+-xv[nlocal+0+nx*nz+nz-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-1)-2]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-1)-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*ny+ny-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*ny+ny-1]
 ;
 iy=0;
 iz=0;
@@ -11490,6 +16820,80 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<-1<<" "<<0<<" "<<0<<" "<<0<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
+-xv[nlocal+0+nx*nz]
+-xv[nlocal+0+nx*nz+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(nz-2)]
+-xv[nlocal+0+nx*(nz-2)+1]
+-xv[nlocal+0+nx*(nz-1)]
+-xv[nlocal+0+nx*(nz-1)+1]
+-xv[nlocal+0+nx*nz+nz-2]
+-xv[nlocal+0+nx*nz+nz-1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+2*nx-2]
+-xv[nlocal+0+2*nx-1]
+-xv[nlocal+0+nx*nz]
+-xv[nlocal+0+nx*nz+1]
+-xv[nlocal+0+nx*nz+nz]
+-xv[nlocal+0+nx*nz+nz+1]
+-xv[nlocal+0+nx*nz+nz+ny]
+-xv[nlocal+0+nx*nz+nz+ny+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(nz-1)-2]
+-xv[nlocal+0+nx*(nz-1)-1]
+-xv[nlocal+0+nx*nz-2]
+-xv[nlocal+0+nx*nz-1]
+-xv[nlocal+0+nx*nz+nz-2]
+-xv[nlocal+0+nx*nz+nz-1]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-2)]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-2)+1]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-1)]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-1)+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz]
+-xv[nlocal+0+nx*nz+1]
+-xv[nlocal+0+nx*nz+nz+ny-2]
+-xv[nlocal+0+nx*nz+nz+ny-1]
+-xv[nlocal+0+nx*nz+nz+2*ny-2]
+-xv[nlocal+0+nx*nz+nz+2*ny-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz+nz-2]
+-xv[nlocal+0+nx*nz+nz-1]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-1)-2]
+-xv[nlocal+0+nx*nz+nz+ny*(nz-1)-1]
+-xv[nlocal+0+nx*nz+nz+ny*nz-2]
+-xv[nlocal+0+nx*nz+nz+ny*nz-1]
+;
 iy=0;
 iz=0;
 for (ix=1; ix<nx-1;ix++)
@@ -11636,34 +17040,182 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-ix = 0;
-iy = ny-1;
+std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<0<<" "<<1<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
 -xv[nlocal+0+nx*ny+ny]
 -xv[nlocal+0+nx*ny+ny+1]
+-xv[nlocal+0+nx*ny]
+-xv[nlocal+0+nx*ny+1]
+-xv[nlocal+0+nx*ny+ny+nx]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny+nx]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(ny-2)]
+-xv[nlocal+0+nx*(ny-2)+1]
+-xv[nlocal+0+nx*(ny-1)]
+-xv[nlocal+0+nx*(ny-1)+1]
+-xv[nlocal+0+nx*ny+ny]
+-xv[nlocal+0+nx*ny+ny+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny+1]
+-xv[nlocal+0+nx*ny+ny-2]
+-xv[nlocal+0+nx*ny+ny-1]
+-xv[nlocal+0+nx*ny+ny+nx]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny+nx]
 ;
 ix = 0;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*(ny-2)]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*(ny-2)+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*(ny-1)]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*(ny-1)+1]
+-xv[nlocal+0+nx*ny+ny]
+-xv[nlocal+0+nx*ny+ny+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*(nz-2)]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*(nz-2)+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*(nz-1)]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*(nz-1)+1]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny-1]
+-xv[nlocal+0+nx*ny+ny+nx]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny+nx]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+2*nx-2]
+-xv[nlocal+0+2*nx-1]
+-xv[nlocal+0+nx*ny+ny+nx-2]
+-xv[nlocal+0+nx*ny+ny+nx-1]
+-xv[nlocal+0+nx*ny]
+-xv[nlocal+0+nx*ny+1]
+-xv[nlocal+0+nx*ny+ny+nx+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+1]
+-xv[nlocal+0+nx*ny+ny+nx]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny+nx]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+2*nx-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+2*nx-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny+nx-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny+nx-1]
+-xv[nlocal+0+nx*ny]
+-xv[nlocal+0+nx*ny+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*(nz-2)]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*(nz-2)+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*(nz-1)]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*(nz-1)+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+1]
+-xv[nlocal+0+nx*ny+ny+nx]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny+nx]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(ny-1)-2]
+-xv[nlocal+0+nx*(ny-1)-1]
+-xv[nlocal+0+nx*ny-2]
+-xv[nlocal+0+nx*ny-1]
 -xv[nlocal+0+nx*ny+ny+nx-2]
 -xv[nlocal+0+nx*ny+ny+nx-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+2*nx-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+2*nx-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny+nx-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny+nx-1]
+-xv[nlocal+0+nx*ny+ny-2]
+-xv[nlocal+0+nx*ny+ny-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+2*ny-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+2*ny-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny-1]
 -xv[nlocal+0+nx*ny+ny+nx]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny+nx]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*(ny-1)-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*(ny-1)-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny-1]
+-xv[nlocal+0+nx*ny+ny+nx-2]
+-xv[nlocal+0+nx*ny+ny+nx-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*(nz-1)-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*(nz-1)-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz-1]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny+nx-2]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny+nx-1]
+-xv[nlocal+0+nx*ny+ny-2]
+-xv[nlocal+0+nx*ny+ny-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*(nz-1)-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*(nz-1)-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny-1]
+-xv[nlocal+0+nx*ny+ny+nx]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz-1]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny+ny+nx]
 ;
 iz=0;
@@ -11961,20 +17513,131 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<0<<" "<<1<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
+-xv[nlocal+0+nx*ny+ny]
+-xv[nlocal+0+nx*ny+ny+1]
+-xv[nlocal+0+nx*ny]
+-xv[nlocal+0+nx*ny+1]
+-xv[nlocal+0+nx*ny+ny+nx]
+;
 ix = 0;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(ny-2)]
+-xv[nlocal+0+nx*(ny-2)+1]
+-xv[nlocal+0+nx*(ny-1)]
+-xv[nlocal+0+nx*(ny-1)+1]
 -xv[nlocal+0+nx*ny+ny]
 -xv[nlocal+0+nx*ny+ny+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx+1]
+-xv[nlocal+0+nx*ny+ny-2]
+-xv[nlocal+0+nx*ny+ny-1]
+-xv[nlocal+0+nx*ny+ny+nx]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny+ny]
+-xv[nlocal+0+nx*ny+ny+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*(nz-2)]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*(nz-2)+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*(nz-1)]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*(nz-1)+1]
+-xv[nlocal+0+nx*ny+ny+nx]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz-1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+2*nx-2]
+-xv[nlocal+0+2*nx-1]
+-xv[nlocal+0+nx*ny+ny+nx-2]
+-xv[nlocal+0+nx*ny+ny+nx-1]
+-xv[nlocal+0+nx*ny]
+-xv[nlocal+0+nx*ny+1]
+-xv[nlocal+0+nx*ny+ny+nx+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny+1]
+-xv[nlocal+0+nx*ny+ny+nx]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny]
+-xv[nlocal+0+nx*ny+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*(nz-2)]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*(nz-2)+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*(nz-1)]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*(nz-1)+1]
+-xv[nlocal+0+nx*ny+ny+nx]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz-1]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(ny-1)-2]
+-xv[nlocal+0+nx*(ny-1)-1]
+-xv[nlocal+0+nx*ny-2]
+-xv[nlocal+0+nx*ny-1]
 -xv[nlocal+0+nx*ny+ny+nx-2]
 -xv[nlocal+0+nx*ny+ny+nx-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+2*nx-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+2*nx-1]
+-xv[nlocal+0+nx*ny+ny-2]
+-xv[nlocal+0+nx*ny+ny-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+2*ny-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+2*ny-1]
 -xv[nlocal+0+nx*ny+ny+nx]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny+ny+nx-2]
+-xv[nlocal+0+nx*ny+ny+nx-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*(nz-1)-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*(nz-1)-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz-1]
+-xv[nlocal+0+nx*ny+ny-2]
+-xv[nlocal+0+nx*ny+ny-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*(nz-1)-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*(nz-1)-1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz-1]
+-xv[nlocal+0+nx*ny+ny+nx]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz-1]
 ;
 iz=0;
 iy=0;
@@ -12195,19 +17858,130 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
+std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<0<<" "<<1<<" "<<0<<" "<<1<<std::endl;ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+nx*nz+nz]
+-xv[nlocal+0+ny*nz+nx*nz+nz+1]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx+1]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny+1]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+1]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny+nx]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz]
+-xv[nlocal+0+ny*nz+1]
+-xv[nlocal+0+ny*nz+nx]
+-xv[nlocal+0+ny*nz+nx+1]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny+1]
+-xv[nlocal+0+ny*nz+nx*nz]
+-xv[nlocal+0+ny*nz+nx*nz+1]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny+nx]
+;
 ix = 0;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*(ny-2)]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*(ny-2)+1]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*(ny-1)]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*(ny-1)+1]
+-xv[nlocal+0+ny*nz+nx*(nz-2)]
+-xv[nlocal+0+ny*nz+nx*(nz-2)+1]
+-xv[nlocal+0+ny*nz+nx*(nz-1)]
+-xv[nlocal+0+ny*nz+nx*(nz-1)+1]
 -xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny]
 -xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny+1]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny-2]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny-1]
+-xv[nlocal+0+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+ny*nz+nx*nz+nz-1]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny+nx]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny]
+-xv[nlocal+0+ny+1]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+1]
+-xv[nlocal+0+ny*nz+nx*nz]
+-xv[nlocal+0+ny*nz+nx*nz+1]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny+nx]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx-2]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx-1]
+-xv[nlocal+0+ny*nz+nx*nz+nz+2*nx-2]
+-xv[nlocal+0+ny*nz+nx*nz+nz+2*nx-1]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny+nx-2]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny+nx-1]
+-xv[nlocal+0+ny*(nz-2)]
+-xv[nlocal+0+ny*(nz-2)+1]
+-xv[nlocal+0+ny*(nz-1)]
+-xv[nlocal+0+ny*(nz-1)+1]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+1]
+-xv[nlocal+0+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+ny*nz+nx*nz+nz-1]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny+nx]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+nx-2]
+-xv[nlocal+0+ny*nz+nx-1]
+-xv[nlocal+0+ny*nz+2*nx-2]
+-xv[nlocal+0+ny*nz+2*nx-1]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny+nx-2]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny+nx-1]
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+2*ny-2]
+-xv[nlocal+0+2*ny-1]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny-2]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny-1]
+-xv[nlocal+0+ny*nz+nx*nz]
+-xv[nlocal+0+ny*nz+nx*nz+1]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny+nx]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*(ny-1)-2]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*(ny-1)-1]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny-2]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny-1]
+-xv[nlocal+0+ny*nz+nx*(nz-1)-2]
+-xv[nlocal+0+ny*nz+nx*(nz-1)-1]
+-xv[nlocal+0+ny*nz+nx*nz-2]
+-xv[nlocal+0+ny*nz+nx*nz-1]
 -xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny+nx-2]
 -xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny+nx-1]
+-xv[nlocal+0+ny*(nz-1)-2]
+-xv[nlocal+0+ny*(nz-1)-1]
+-xv[nlocal+0+ny*nz-2]
+-xv[nlocal+0+ny*nz-1]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny-2]
+-xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny-1]
+-xv[nlocal+0+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+ny*nz+nx*nz+nz-1]
 -xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny+ny+nx]
 ;
 iz=nz-1;
@@ -12426,6 +18200,80 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<0<<" "<<1<<" "<<0<<" "<<0<<std::endl;ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz]
+-xv[nlocal+0+ny*nz+1]
+-xv[nlocal+0+ny*nz+nx]
+-xv[nlocal+0+ny*nz+nx+1]
+-xv[nlocal+0+ny*nz+nx*nz]
+-xv[nlocal+0+ny*nz+nx*nz+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+nx*(nz-2)]
+-xv[nlocal+0+ny*nz+nx*(nz-2)+1]
+-xv[nlocal+0+ny*nz+nx*(nz-1)]
+-xv[nlocal+0+ny*nz+nx*(nz-1)+1]
+-xv[nlocal+0+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+ny*nz+nx*nz+nz-1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny]
+-xv[nlocal+0+ny+1]
+-xv[nlocal+0+ny*nz+nx*nz]
+-xv[nlocal+0+ny*nz+nx*nz+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*(nz-2)]
+-xv[nlocal+0+ny*(nz-2)+1]
+-xv[nlocal+0+ny*(nz-1)]
+-xv[nlocal+0+ny*(nz-1)+1]
+-xv[nlocal+0+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+ny*nz+nx*nz+nz-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+nx-2]
+-xv[nlocal+0+ny*nz+nx-1]
+-xv[nlocal+0+ny*nz+2*nx-2]
+-xv[nlocal+0+ny*nz+2*nx-1]
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+2*ny-2]
+-xv[nlocal+0+2*ny-1]
+-xv[nlocal+0+ny*nz+nx*nz]
+-xv[nlocal+0+ny*nz+nx*nz+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+nx*(nz-1)-2]
+-xv[nlocal+0+ny*nz+nx*(nz-1)-1]
+-xv[nlocal+0+ny*nz+nx*nz-2]
+-xv[nlocal+0+ny*nz+nx*nz-1]
+-xv[nlocal+0+ny*(nz-1)-2]
+-xv[nlocal+0+ny*(nz-1)-1]
+-xv[nlocal+0+ny*nz-2]
+-xv[nlocal+0+ny*nz-1]
+-xv[nlocal+0+ny*nz+nx*nz+nz-2]
+-xv[nlocal+0+ny*nz+nx*nz+nz-1]
+;
 iy=ny-1;
 iz=0;
 for (ix=1; ix<nx-1;ix++)
@@ -12569,6 +18417,118 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
+std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<0<<" "<<0<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
+-xv[nlocal+0+nx*ny]
+-xv[nlocal+0+nx*ny+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny+ny+ny*nz]
+-xv[nlocal+0+nx*ny+ny+ny*nz+1]
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx]
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx+1]
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx*ny]
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx*ny+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(ny-2)]
+-xv[nlocal+0+nx*(ny-2)+1]
+-xv[nlocal+0+nx*(ny-1)]
+-xv[nlocal+0+nx*(ny-1)+1]
+-xv[nlocal+0+nx*ny+ny-2]
+-xv[nlocal+0+nx*ny+ny-1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx*(ny-2)]
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx*(ny-2)+1]
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx*(ny-1)]
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx*(ny-1)+1]
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx*ny+ny-2]
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx*ny+ny-1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+2*nx-2]
+-xv[nlocal+0+2*nx-1]
+-xv[nlocal+0+nx*ny]
+-xv[nlocal+0+nx*ny+1]
+-xv[nlocal+0+nx*ny+ny]
+-xv[nlocal+0+nx*ny+ny+1]
+-xv[nlocal+0+nx*ny+ny+ny]
+-xv[nlocal+0+nx*ny+ny+ny+1]
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx*ny]
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx*ny+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx-2]
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx-1]
+-xv[nlocal+0+nx*ny+ny+ny*nz+2*nx-2]
+-xv[nlocal+0+nx*ny+ny+ny*nz+2*nx-1]
+-xv[nlocal+0+nx*ny]
+-xv[nlocal+0+nx*ny+1]
+-xv[nlocal+0+nx*ny+ny+ny*(nz-2)]
+-xv[nlocal+0+nx*ny+ny+ny*(nz-2)+1]
+-xv[nlocal+0+nx*ny+ny+ny*(nz-1)]
+-xv[nlocal+0+nx*ny+ny+ny*(nz-1)+1]
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx*ny]
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx*ny+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(ny-1)-2]
+-xv[nlocal+0+nx*(ny-1)-1]
+-xv[nlocal+0+nx*ny-2]
+-xv[nlocal+0+nx*ny-1]
+-xv[nlocal+0+nx*ny+ny-2]
+-xv[nlocal+0+nx*ny+ny-1]
+-xv[nlocal+0+nx*ny+ny+ny-2]
+-xv[nlocal+0+nx*ny+ny+ny-1]
+-xv[nlocal+0+nx*ny+ny+2*ny-2]
+-xv[nlocal+0+nx*ny+ny+2*ny-1]
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx*ny+ny-2]
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx*ny+ny-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx*(ny-1)-2]
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx*(ny-1)-1]
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx*ny-2]
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx*ny-1]
+-xv[nlocal+0+nx*ny+ny-2]
+-xv[nlocal+0+nx*ny+ny-1]
+-xv[nlocal+0+nx*ny+ny+ny*(nz-1)-2]
+-xv[nlocal+0+nx*ny+ny+ny*(nz-1)-1]
+-xv[nlocal+0+nx*ny+ny+ny*nz-2]
+-xv[nlocal+0+nx*ny+ny+ny*nz-1]
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx*ny+ny-2]
+-xv[nlocal+0+nx*ny+ny+ny*nz+nx*ny+ny-1]
+;
 iz=0;
 iy=0;
 for (ix=1; ix<nx-1;ix++)
@@ -12776,6 +18736,80 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<0<<" "<<0<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
+-xv[nlocal+0+nx*ny]
+-xv[nlocal+0+nx*ny+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(ny-2)]
+-xv[nlocal+0+nx*(ny-2)+1]
+-xv[nlocal+0+nx*(ny-1)]
+-xv[nlocal+0+nx*(ny-1)+1]
+-xv[nlocal+0+nx*ny+ny-2]
+-xv[nlocal+0+nx*ny+ny-1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+2*nx-2]
+-xv[nlocal+0+2*nx-1]
+-xv[nlocal+0+nx*ny]
+-xv[nlocal+0+nx*ny+1]
+-xv[nlocal+0+nx*ny+ny]
+-xv[nlocal+0+nx*ny+ny+1]
+-xv[nlocal+0+nx*ny+ny+ny]
+-xv[nlocal+0+nx*ny+ny+ny+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny]
+-xv[nlocal+0+nx*ny+1]
+-xv[nlocal+0+nx*ny+ny+ny*(nz-2)]
+-xv[nlocal+0+nx*ny+ny+ny*(nz-2)+1]
+-xv[nlocal+0+nx*ny+ny+ny*(nz-1)]
+-xv[nlocal+0+nx*ny+ny+ny*(nz-1)+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(ny-1)-2]
+-xv[nlocal+0+nx*(ny-1)-1]
+-xv[nlocal+0+nx*ny-2]
+-xv[nlocal+0+nx*ny-1]
+-xv[nlocal+0+nx*ny+ny-2]
+-xv[nlocal+0+nx*ny+ny-1]
+-xv[nlocal+0+nx*ny+ny+ny-2]
+-xv[nlocal+0+nx*ny+ny+ny-1]
+-xv[nlocal+0+nx*ny+ny+2*ny-2]
+-xv[nlocal+0+nx*ny+ny+2*ny-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny+ny-2]
+-xv[nlocal+0+nx*ny+ny-1]
+-xv[nlocal+0+nx*ny+ny+ny*(nz-1)-2]
+-xv[nlocal+0+nx*ny+ny+ny*(nz-1)-1]
+-xv[nlocal+0+nx*ny+ny+ny*nz-2]
+-xv[nlocal+0+nx*ny+ny+ny*nz-1]
+;
 iz=0;
 iy=0;
 for (ix=1; ix<nx-1;ix++)
@@ -12916,6 +18950,80 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
+std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<0<<" "<<0<<" "<<0<<" "<<1<<std::endl;ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz]
+-xv[nlocal+0+ny*nz+1]
+-xv[nlocal+0+ny*nz+nx]
+-xv[nlocal+0+ny*nz+nx+1]
+-xv[nlocal+0+ny*nz+nx*ny]
+-xv[nlocal+0+ny*nz+nx*ny+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+nx*(ny-2)]
+-xv[nlocal+0+ny*nz+nx*(ny-2)+1]
+-xv[nlocal+0+ny*nz+nx*(ny-1)]
+-xv[nlocal+0+ny*nz+nx*(ny-1)+1]
+-xv[nlocal+0+ny*nz+nx*ny+ny-2]
+-xv[nlocal+0+ny*nz+nx*ny+ny-1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny]
+-xv[nlocal+0+ny+1]
+-xv[nlocal+0+ny*nz+nx*ny]
+-xv[nlocal+0+ny*nz+nx*ny+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+nx-2]
+-xv[nlocal+0+ny*nz+nx-1]
+-xv[nlocal+0+ny*nz+2*nx-2]
+-xv[nlocal+0+ny*nz+2*nx-1]
+-xv[nlocal+0+ny*(nz-2)]
+-xv[nlocal+0+ny*(nz-2)+1]
+-xv[nlocal+0+ny*(nz-1)]
+-xv[nlocal+0+ny*(nz-1)+1]
+-xv[nlocal+0+ny*nz+nx*ny]
+-xv[nlocal+0+ny*nz+nx*ny+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+2*ny-2]
+-xv[nlocal+0+2*ny-1]
+-xv[nlocal+0+ny*nz+nx*ny+ny-2]
+-xv[nlocal+0+ny*nz+nx*ny+ny-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*nz+nx*(ny-1)-2]
+-xv[nlocal+0+ny*nz+nx*(ny-1)-1]
+-xv[nlocal+0+ny*nz+nx*ny-2]
+-xv[nlocal+0+ny*nz+nx*ny-1]
+-xv[nlocal+0+ny*(nz-1)-2]
+-xv[nlocal+0+ny*(nz-1)-1]
+-xv[nlocal+0+ny*nz-2]
+-xv[nlocal+0+ny*nz-1]
+-xv[nlocal+0+ny*nz+nx*ny+ny-2]
+-xv[nlocal+0+ny*nz+nx*ny+ny-1]
+;
 iz=nz-1;
 iy=0;
 for (ix=1; ix<nx-1;ix++)
@@ -13053,6 +19161,42 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<std::endl;ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+ny]
+-xv[nlocal+0+ny+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*(nz-2)]
+-xv[nlocal+0+ny*(nz-2)+1]
+-xv[nlocal+0+ny*(nz-1)]
+-xv[nlocal+0+ny*(nz-1)+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny-2]
+-xv[nlocal+0+ny-1]
+-xv[nlocal+0+2*ny-2]
+-xv[nlocal+0+2*ny-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+ny*(nz-1)-2]
+-xv[nlocal+0+ny*(nz-1)-1]
+-xv[nlocal+0+ny*nz-2]
+-xv[nlocal+0+ny*nz-1]
+;
 ;
 ix=nx-1;
 iz=0;
@@ -13132,31 +19276,79 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-ix = 0;
+std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<-1<<" "<<1<<" "<<-1<<" "<<1<<std::endl;ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
+-xv[nlocal+0+nx+nx*ny+nx]
+-xv[nlocal+0+nx+nx*ny+nx+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx]
+-xv[nlocal+0+nx+nx*ny+nx+nx+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
+-xv[nlocal+0+nx+nx]
+-xv[nlocal+0+nx+nx+1]
+-xv[nlocal+0+nx+nx*ny]
+-xv[nlocal+0+nx+nx*ny+1]
 ;
 ix = 0;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*(nz-2)]
+-xv[nlocal+0+nx+nx*ny+nx+nx*(nz-2)+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*(nz-1)]
+-xv[nlocal+0+nx+nx*ny+nx+nx*(nz-1)+1]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*ny]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*ny+1]
 ;
 ix = 0;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx+nx*(ny-2)]
+-xv[nlocal+0+nx+nx*(ny-2)+1]
+-xv[nlocal+0+nx+nx*(ny-1)]
+-xv[nlocal+0+nx+nx*(ny-1)+1]
 -xv[nlocal+0+nx+nx*ny]
 -xv[nlocal+0+nx+nx*ny+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*ny]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*ny+1]
 ;
 ix = 0;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*(ny-2)]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*(ny-2)+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*(ny-1)]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*(ny-1)+1]
+-xv[nlocal+0+nx+nx*ny]
+-xv[nlocal+0+nx+nx*ny+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*(nz-2)]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*(nz-2)+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*(nz-1)]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*(nz-1)+1]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*ny]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*ny+1]
 ;
@@ -13166,25 +19358,73 @@ iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+nx*ny+nx+nx-2]
+-xv[nlocal+0+nx+nx*ny+nx+nx-1]
+-xv[nlocal+0+nx+nx*ny+nx+2*nx-2]
+-xv[nlocal+0+nx+nx*ny+nx+2*nx-1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx-2]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx-1]
+-xv[nlocal+0+nx+nx-2]
+-xv[nlocal+0+nx+nx-1]
+-xv[nlocal+0+nx+2*nx-2]
+-xv[nlocal+0+nx+2*nx-1]
+-xv[nlocal+0+nx+nx*ny+nx-2]
+-xv[nlocal+0+nx+nx*ny+nx-1]
 ;
 ix = nx-1;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*(nz-1)-2]
+-xv[nlocal+0+nx+nx*ny+nx+nx*(nz-1)-1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz-2]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz-1]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx-2]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx-1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx-2]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx-1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+2*nx-2]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+2*nx-1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*ny+nx-2]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*ny+nx-1]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+nx*(ny-1)-2]
+-xv[nlocal+0+nx+nx*(ny-1)-1]
+-xv[nlocal+0+nx+nx*ny-2]
+-xv[nlocal+0+nx+nx*ny-1]
 -xv[nlocal+0+nx+nx*ny+nx-2]
 -xv[nlocal+0+nx+nx*ny+nx-1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx-2]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx-1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+2*nx-2]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+2*nx-1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*ny+nx-2]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*ny+nx-1]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx-2]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx-1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*(ny-1)-2]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*(ny-1)-1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*ny-2]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*ny-1]
+-xv[nlocal+0+nx+nx*ny+nx-2]
+-xv[nlocal+0+nx+nx*ny+nx-1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*(nz-1)-2]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*(nz-1)-1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz-2]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz-1]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*ny+nx-2]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*ny+nx-1]
 ;
@@ -13474,19 +19714,61 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-ix = 0;
+std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<-1<<" "<<1<<" "<<-1<<" "<<0<<std::endl;ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
+-xv[nlocal+0+nx+nx*ny+nx]
+-xv[nlocal+0+nx+nx*ny+nx+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx]
+-xv[nlocal+0+nx+nx*ny+nx+nx+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
+-xv[nlocal+0+nx+nx]
+-xv[nlocal+0+nx+nx+1]
+-xv[nlocal+0+nx+nx*ny]
+-xv[nlocal+0+nx+nx*ny+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*(nz-2)]
+-xv[nlocal+0+nx+nx*ny+nx+nx*(nz-2)+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*(nz-1)]
+-xv[nlocal+0+nx+nx*ny+nx+nx*(nz-1)+1]
 ;
 ix = 0;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx+nx*(ny-2)]
+-xv[nlocal+0+nx+nx*(ny-2)+1]
+-xv[nlocal+0+nx+nx*(ny-1)]
+-xv[nlocal+0+nx+nx*(ny-1)+1]
 -xv[nlocal+0+nx+nx*ny]
 -xv[nlocal+0+nx+nx*ny+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx+nx*ny]
+-xv[nlocal+0+nx+nx*ny+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*(nz-2)]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*(nz-2)+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*(nz-1)]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*(nz-1)+1]
 ;
 ix = nx-1;
 iy = 0;
@@ -13494,13 +19776,55 @@ iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+nx*ny+nx+nx-2]
+-xv[nlocal+0+nx+nx*ny+nx+nx-1]
+-xv[nlocal+0+nx+nx*ny+nx+2*nx-2]
+-xv[nlocal+0+nx+nx*ny+nx+2*nx-1]
+-xv[nlocal+0+nx+nx-2]
+-xv[nlocal+0+nx+nx-1]
+-xv[nlocal+0+nx+2*nx-2]
+-xv[nlocal+0+nx+2*nx-1]
+-xv[nlocal+0+nx+nx*ny+nx-2]
+-xv[nlocal+0+nx+nx*ny+nx-1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*(nz-1)-2]
+-xv[nlocal+0+nx+nx*ny+nx+nx*(nz-1)-1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz-2]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz-1]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+nx*(ny-1)-2]
+-xv[nlocal+0+nx+nx*(ny-1)-1]
+-xv[nlocal+0+nx+nx*ny-2]
+-xv[nlocal+0+nx+nx*ny-1]
 -xv[nlocal+0+nx+nx*ny+nx-2]
 -xv[nlocal+0+nx+nx*ny+nx-1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx-2]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx-1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+2*nx-2]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+2*nx-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx+nx*ny+nx-2]
+-xv[nlocal+0+nx+nx*ny+nx-1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*(nz-1)-2]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*(nz-1)-1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz-2]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz-1]
 ;
 iy=0;
 iz=0;
@@ -13712,31 +20036,115 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
+std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<-1<<" "<<1<<" "<<0<<" "<<1<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
+-xv[nlocal+0+nx*nz+nx*nz]
+-xv[nlocal+0+nx*nz+nx*nz+1]
+;
 ix = 0;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(nz-2)]
+-xv[nlocal+0+nx*(nz-2)+1]
+-xv[nlocal+0+nx*(nz-1)]
+-xv[nlocal+0+nx*(nz-1)+1]
 -xv[nlocal+0+nx*nz+nx*nz]
 -xv[nlocal+0+nx*nz+nx*nz+1]
+-xv[nlocal+0+nx*nz+nx*nz+nx]
+-xv[nlocal+0+nx*nz+nx*nz+nx+1]
+-xv[nlocal+0+nx*nz+nx*nz+nx+nx]
+-xv[nlocal+0+nx*nz+nx*nz+nx+nx+1]
+-xv[nlocal+0+nx*nz+nx*nz+nx+nx*ny]
+-xv[nlocal+0+nx*nz+nx*nz+nx+nx*ny+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz]
+-xv[nlocal+0+nx*nz+1]
+-xv[nlocal+0+nx*nz+nx]
+-xv[nlocal+0+nx*nz+nx+1]
+-xv[nlocal+0+nx*nz+nx*nz+nx+nx*ny]
+-xv[nlocal+0+nx*nz+nx*nz+nx+nx*ny+1]
 ;
 ix = 0;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz+nx*nz]
+-xv[nlocal+0+nx*nz+nx*nz+1]
+-xv[nlocal+0+nx*nz+nx*nz+nx+nx*(ny-2)]
+-xv[nlocal+0+nx*nz+nx*nz+nx+nx*(ny-2)+1]
+-xv[nlocal+0+nx*nz+nx*nz+nx+nx*(ny-1)]
+-xv[nlocal+0+nx*nz+nx*nz+nx+nx*(ny-1)+1]
+-xv[nlocal+0+nx*nz+nx*(nz-2)]
+-xv[nlocal+0+nx*nz+nx*(nz-2)+1]
+-xv[nlocal+0+nx*nz+nx*(nz-1)]
+-xv[nlocal+0+nx*nz+nx*(nz-1)+1]
 -xv[nlocal+0+nx*nz+nx*nz+nx+nx*ny]
 -xv[nlocal+0+nx*nz+nx*nz+nx+nx*ny+1]
 ;
 ix = nx-1;
 iy = 0;
-iz = nz-1;
+iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+2*nx-2]
+-xv[nlocal+0+2*nx-1]
 -xv[nlocal+0+nx*nz+nx*nz+nx-2]
 -xv[nlocal+0+nx*nz+nx*nz+nx-1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(nz-1)-2]
+-xv[nlocal+0+nx*(nz-1)-1]
+-xv[nlocal+0+nx*nz-2]
+-xv[nlocal+0+nx*nz-1]
+-xv[nlocal+0+nx*nz+nx*nz+nx-2]
+-xv[nlocal+0+nx*nz+nx*nz+nx-1]
+-xv[nlocal+0+nx*nz+nx*nz+nx+nx-2]
+-xv[nlocal+0+nx*nz+nx*nz+nx+nx-1]
+-xv[nlocal+0+nx*nz+nx*nz+nx+2*nx-2]
+-xv[nlocal+0+nx*nz+nx*nz+nx+2*nx-1]
+-xv[nlocal+0+nx*nz+nx*nz+nx+nx*ny+nx-2]
+-xv[nlocal+0+nx*nz+nx*nz+nx+nx*ny+nx-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz+nx-2]
+-xv[nlocal+0+nx*nz+nx-1]
+-xv[nlocal+0+nx*nz+2*nx-2]
+-xv[nlocal+0+nx*nz+2*nx-1]
+-xv[nlocal+0+nx*nz+nx*nz+nx+nx*ny+nx-2]
+-xv[nlocal+0+nx*nz+nx*nz+nx+nx*ny+nx-1]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz+nx*nz+nx-2]
+-xv[nlocal+0+nx*nz+nx*nz+nx-1]
+-xv[nlocal+0+nx*nz+nx*nz+nx+nx*(ny-1)-2]
+-xv[nlocal+0+nx*nz+nx*nz+nx+nx*(ny-1)-1]
+-xv[nlocal+0+nx*nz+nx*nz+nx+nx*ny-2]
+-xv[nlocal+0+nx*nz+nx*nz+nx+nx*ny-1]
+-xv[nlocal+0+nx*nz+nx*(nz-1)-2]
+-xv[nlocal+0+nx*nz+nx*(nz-1)-1]
+-xv[nlocal+0+nx*nz+nx*nz-2]
+-xv[nlocal+0+nx*nz+nx*nz-1]
 -xv[nlocal+0+nx*nz+nx*nz+nx+nx*ny+nx-2]
 -xv[nlocal+0+nx*nz+nx*nz+nx+nx*ny+nx-1]
 ;
@@ -13947,6 +20355,78 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<-1<<" "<<1<<" "<<0<<" "<<0<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(nz-2)]
+-xv[nlocal+0+nx*(nz-2)+1]
+-xv[nlocal+0+nx*(nz-1)]
+-xv[nlocal+0+nx*(nz-1)+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz]
+-xv[nlocal+0+nx*nz+1]
+-xv[nlocal+0+nx*nz+nx]
+-xv[nlocal+0+nx*nz+nx+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz+nx*(nz-2)]
+-xv[nlocal+0+nx*nz+nx*(nz-2)+1]
+-xv[nlocal+0+nx*nz+nx*(nz-1)]
+-xv[nlocal+0+nx*nz+nx*(nz-1)+1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+2*nx-2]
+-xv[nlocal+0+2*nx-1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(nz-1)-2]
+-xv[nlocal+0+nx*(nz-1)-1]
+-xv[nlocal+0+nx*nz-2]
+-xv[nlocal+0+nx*nz-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz+nx-2]
+-xv[nlocal+0+nx*nz+nx-1]
+-xv[nlocal+0+nx*nz+2*nx-2]
+-xv[nlocal+0+nx*nz+2*nx-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz+nx*(nz-1)-2]
+-xv[nlocal+0+nx*nz+nx*(nz-1)-1]
+-xv[nlocal+0+nx*nz+nx*nz-2]
+-xv[nlocal+0+nx*nz+nx*nz-1]
+;
 iy=0;
 iz=0;
 for (ix=1; ix<nx-1;ix++)
@@ -14081,19 +20561,61 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-ix = 0;
+std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<-1<<" "<<0<<" "<<-1<<" "<<1<<std::endl;ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
+-xv[nlocal+0+nx+nx*ny]
+-xv[nlocal+0+nx+nx*ny+1]
+-xv[nlocal+0+nx+nx*ny+nx]
+-xv[nlocal+0+nx+nx*ny+nx+1]
+-xv[nlocal+0+nx+nx*ny+nx*nz]
+-xv[nlocal+0+nx+nx*ny+nx*nz+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
+-xv[nlocal+0+nx+nx]
+-xv[nlocal+0+nx+nx+1]
 ;
 ix = 0;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx+nx*ny+nx*(nz-2)]
+-xv[nlocal+0+nx+nx*ny+nx*(nz-2)+1]
+-xv[nlocal+0+nx+nx*ny+nx*(nz-1)]
+-xv[nlocal+0+nx+nx*ny+nx*(nz-1)+1]
 -xv[nlocal+0+nx+nx*ny+nx*nz]
 -xv[nlocal+0+nx+nx*ny+nx*nz+1]
+-xv[nlocal+0+nx+nx*ny+nx*nz+nx]
+-xv[nlocal+0+nx+nx*ny+nx*nz+nx+1]
+-xv[nlocal+0+nx+nx*ny+nx*nz+nx+nx]
+-xv[nlocal+0+nx+nx*ny+nx*nz+nx+nx+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx+nx*(ny-2)]
+-xv[nlocal+0+nx+nx*(ny-2)+1]
+-xv[nlocal+0+nx+nx*(ny-1)]
+-xv[nlocal+0+nx+nx*(ny-1)+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx+nx*ny+nx*nz]
+-xv[nlocal+0+nx+nx*ny+nx*nz+1]
+-xv[nlocal+0+nx+nx*ny+nx*nz+nx+nx*(ny-2)]
+-xv[nlocal+0+nx+nx*ny+nx*nz+nx+nx*(ny-2)+1]
+-xv[nlocal+0+nx+nx*ny+nx*nz+nx+nx*(ny-1)]
+-xv[nlocal+0+nx+nx*ny+nx*nz+nx+nx*(ny-1)+1]
 ;
 ix = nx-1;
 iy = 0;
@@ -14101,13 +20623,55 @@ iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+nx*ny+nx-2]
+-xv[nlocal+0+nx+nx*ny+nx-1]
+-xv[nlocal+0+nx+nx*ny+2*nx-2]
+-xv[nlocal+0+nx+nx*ny+2*nx-1]
+-xv[nlocal+0+nx+nx*ny+nx*nz+nx-2]
+-xv[nlocal+0+nx+nx*ny+nx*nz+nx-1]
+-xv[nlocal+0+nx+nx-2]
+-xv[nlocal+0+nx+nx-1]
+-xv[nlocal+0+nx+2*nx-2]
+-xv[nlocal+0+nx+2*nx-1]
 ;
 ix = nx-1;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+nx*ny+nx*(nz-1)-2]
+-xv[nlocal+0+nx+nx*ny+nx*(nz-1)-1]
+-xv[nlocal+0+nx+nx*ny+nx*nz-2]
+-xv[nlocal+0+nx+nx*ny+nx*nz-1]
 -xv[nlocal+0+nx+nx*ny+nx*nz+nx-2]
 -xv[nlocal+0+nx+nx*ny+nx*nz+nx-1]
+-xv[nlocal+0+nx+nx*ny+nx*nz+nx+nx-2]
+-xv[nlocal+0+nx+nx*ny+nx*nz+nx+nx-1]
+-xv[nlocal+0+nx+nx*ny+nx*nz+nx+2*nx-2]
+-xv[nlocal+0+nx+nx*ny+nx*nz+nx+2*nx-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+nx*(ny-1)-2]
+-xv[nlocal+0+nx+nx*(ny-1)-1]
+-xv[nlocal+0+nx+nx*ny-2]
+-xv[nlocal+0+nx+nx*ny-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx+nx*ny+nx*nz+nx-2]
+-xv[nlocal+0+nx+nx*ny+nx*nz+nx-1]
+-xv[nlocal+0+nx+nx*ny+nx*nz+nx+nx*(ny-1)-2]
+-xv[nlocal+0+nx+nx*ny+nx*nz+nx+nx*(ny-1)-1]
+-xv[nlocal+0+nx+nx*ny+nx*nz+nx+nx*ny-2]
+-xv[nlocal+0+nx+nx*ny+nx*nz+nx+nx*ny-1]
 ;
 iy=0;
 iz=0;
@@ -14316,12 +20880,42 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-ix = 0;
+std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<-1<<" "<<0<<" "<<-1<<" "<<0<<std::endl;ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
+-xv[nlocal+0+nx+nx*ny]
+-xv[nlocal+0+nx+nx*ny+1]
+-xv[nlocal+0+nx+nx*ny+nx]
+-xv[nlocal+0+nx+nx*ny+nx+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
+-xv[nlocal+0+nx+nx]
+-xv[nlocal+0+nx+nx+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx+nx*ny+nx*(nz-2)]
+-xv[nlocal+0+nx+nx*ny+nx*(nz-2)+1]
+-xv[nlocal+0+nx+nx*ny+nx*(nz-1)]
+-xv[nlocal+0+nx+nx*ny+nx*(nz-1)+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx+nx*(ny-2)]
+-xv[nlocal+0+nx+nx*(ny-2)+1]
+-xv[nlocal+0+nx+nx*(ny-1)]
+-xv[nlocal+0+nx+nx*(ny-1)+1]
 ;
 ix = nx-1;
 iy = 0;
@@ -14329,6 +20923,36 @@ iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+nx*ny+nx-2]
+-xv[nlocal+0+nx+nx*ny+nx-1]
+-xv[nlocal+0+nx+nx*ny+2*nx-2]
+-xv[nlocal+0+nx+nx*ny+2*nx-1]
+-xv[nlocal+0+nx+nx-2]
+-xv[nlocal+0+nx+nx-1]
+-xv[nlocal+0+nx+2*nx-2]
+-xv[nlocal+0+nx+2*nx-1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+nx*ny+nx*(nz-1)-2]
+-xv[nlocal+0+nx+nx*ny+nx*(nz-1)-1]
+-xv[nlocal+0+nx+nx*ny+nx*nz-2]
+-xv[nlocal+0+nx+nx*ny+nx*nz-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+nx+nx*(ny-1)-2]
+-xv[nlocal+0+nx+nx*(ny-1)-1]
+-xv[nlocal+0+nx+nx*ny-2]
+-xv[nlocal+0+nx+nx*ny-1]
 ;
 iy=0;
 iz=0;
@@ -14470,19 +21094,79 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
+std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<-1<<" "<<0<<" "<<0<<" "<<1<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
+-xv[nlocal+0+nx*nz]
+-xv[nlocal+0+nx*nz+1]
+;
 ix = 0;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(nz-2)]
+-xv[nlocal+0+nx*(nz-2)+1]
+-xv[nlocal+0+nx*(nz-1)]
+-xv[nlocal+0+nx*(nz-1)+1]
 -xv[nlocal+0+nx*nz]
 -xv[nlocal+0+nx*nz+1]
+-xv[nlocal+0+nx*nz+nx]
+-xv[nlocal+0+nx*nz+nx+1]
+-xv[nlocal+0+nx*nz+nx+nx]
+-xv[nlocal+0+nx*nz+nx+nx+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz]
+-xv[nlocal+0+nx*nz+1]
+-xv[nlocal+0+nx*nz+nx+nx*(ny-2)]
+-xv[nlocal+0+nx*nz+nx+nx*(ny-2)+1]
+-xv[nlocal+0+nx*nz+nx+nx*(ny-1)]
+-xv[nlocal+0+nx*nz+nx+nx*(ny-1)+1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+2*nx-2]
+-xv[nlocal+0+2*nx-1]
+-xv[nlocal+0+nx*nz+nx-2]
+-xv[nlocal+0+nx*nz+nx-1]
 ;
 ix = nx-1;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(nz-1)-2]
+-xv[nlocal+0+nx*(nz-1)-1]
+-xv[nlocal+0+nx*nz-2]
+-xv[nlocal+0+nx*nz-1]
 -xv[nlocal+0+nx*nz+nx-2]
 -xv[nlocal+0+nx*nz+nx-1]
+-xv[nlocal+0+nx*nz+nx+nx-2]
+-xv[nlocal+0+nx*nz+nx+nx-1]
+-xv[nlocal+0+nx*nz+nx+2*nx-2]
+-xv[nlocal+0+nx*nz+nx+2*nx-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz+nx-2]
+-xv[nlocal+0+nx*nz+nx-1]
+-xv[nlocal+0+nx*nz+nx+nx*(ny-1)-2]
+-xv[nlocal+0+nx*nz+nx+nx*(ny-1)-1]
+-xv[nlocal+0+nx*nz+nx+nx*ny-2]
+-xv[nlocal+0+nx*nz+nx+nx*ny-1]
 ;
 iy=0;
 iz=0;
@@ -14621,6 +21305,42 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<-1<<" "<<0<<" "<<0<<" "<<0<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(nz-2)]
+-xv[nlocal+0+nx*(nz-2)+1]
+-xv[nlocal+0+nx*(nz-1)]
+-xv[nlocal+0+nx*(nz-1)+1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+2*nx-2]
+-xv[nlocal+0+2*nx-1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(nz-1)-2]
+-xv[nlocal+0+nx*(nz-1)-1]
+-xv[nlocal+0+nx*nz-2]
+-xv[nlocal+0+nx*nz-1]
+;
 iy=0;
 iz=0;
 for (ix=1; ix<nx-1;ix++)
@@ -14697,31 +21417,115 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-ix = 0;
-iy = ny-1;
+std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<0<<" "<<1<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
 -xv[nlocal+0+nx*ny]
 -xv[nlocal+0+nx*ny+1]
 ;
 ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny+nx+nx*nz]
+-xv[nlocal+0+nx*ny+nx+nx*nz+1]
+-xv[nlocal+0+nx*ny+nx+nx*nz+nx]
+-xv[nlocal+0+nx*ny+nx+nx*nz+nx+1]
+-xv[nlocal+0+nx*ny+nx+nx*nz+nx*ny]
+-xv[nlocal+0+nx*ny+nx+nx*nz+nx*ny+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(ny-2)]
+-xv[nlocal+0+nx*(ny-2)+1]
+-xv[nlocal+0+nx*(ny-1)]
+-xv[nlocal+0+nx*(ny-1)+1]
+-xv[nlocal+0+nx*ny]
+-xv[nlocal+0+nx*ny+1]
+-xv[nlocal+0+nx*ny+nx]
+-xv[nlocal+0+nx*ny+nx+1]
+-xv[nlocal+0+nx*ny+nx+nx]
+-xv[nlocal+0+nx*ny+nx+nx+1]
+-xv[nlocal+0+nx*ny+nx+nx*nz+nx*ny]
+-xv[nlocal+0+nx*ny+nx+nx*nz+nx*ny+1]
+;
+ix = 0;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny+nx+nx*nz+nx*(ny-2)]
+-xv[nlocal+0+nx*ny+nx+nx*nz+nx*(ny-2)+1]
+-xv[nlocal+0+nx*ny+nx+nx*nz+nx*(ny-1)]
+-xv[nlocal+0+nx*ny+nx+nx*nz+nx*(ny-1)+1]
+-xv[nlocal+0+nx*ny]
+-xv[nlocal+0+nx*ny+1]
+-xv[nlocal+0+nx*ny+nx+nx*(nz-2)]
+-xv[nlocal+0+nx*ny+nx+nx*(nz-2)+1]
+-xv[nlocal+0+nx*ny+nx+nx*(nz-1)]
+-xv[nlocal+0+nx*ny+nx+nx*(nz-1)+1]
 -xv[nlocal+0+nx*ny+nx+nx*nz+nx*ny]
 -xv[nlocal+0+nx*ny+nx+nx*nz+nx*ny+1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+2*nx-2]
+-xv[nlocal+0+2*nx-1]
+-xv[nlocal+0+nx*ny+nx-2]
+-xv[nlocal+0+nx*ny+nx-1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny+nx+nx*nz+nx-2]
+-xv[nlocal+0+nx*ny+nx+nx*nz+nx-1]
+-xv[nlocal+0+nx*ny+nx+nx*nz+2*nx-2]
+-xv[nlocal+0+nx*ny+nx+nx*nz+2*nx-1]
+-xv[nlocal+0+nx*ny+nx+nx*nz+nx*ny+nx-2]
+-xv[nlocal+0+nx*ny+nx+nx*nz+nx*ny+nx-1]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(ny-1)-2]
+-xv[nlocal+0+nx*(ny-1)-1]
+-xv[nlocal+0+nx*ny-2]
+-xv[nlocal+0+nx*ny-1]
 -xv[nlocal+0+nx*ny+nx-2]
 -xv[nlocal+0+nx*ny+nx-1]
+-xv[nlocal+0+nx*ny+nx+nx-2]
+-xv[nlocal+0+nx*ny+nx+nx-1]
+-xv[nlocal+0+nx*ny+nx+2*nx-2]
+-xv[nlocal+0+nx*ny+nx+2*nx-1]
+-xv[nlocal+0+nx*ny+nx+nx*nz+nx*ny+nx-2]
+-xv[nlocal+0+nx*ny+nx+nx*nz+nx*ny+nx-1]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny+nx+nx*nz+nx*(ny-1)-2]
+-xv[nlocal+0+nx*ny+nx+nx*nz+nx*(ny-1)-1]
+-xv[nlocal+0+nx*ny+nx+nx*nz+nx*ny-2]
+-xv[nlocal+0+nx*ny+nx+nx*nz+nx*ny-1]
+-xv[nlocal+0+nx*ny+nx-2]
+-xv[nlocal+0+nx*ny+nx-1]
+-xv[nlocal+0+nx*ny+nx+nx*(nz-1)-2]
+-xv[nlocal+0+nx*ny+nx+nx*(nz-1)-1]
+-xv[nlocal+0+nx*ny+nx+nx*nz-2]
+-xv[nlocal+0+nx*ny+nx+nx*nz-1]
 -xv[nlocal+0+nx*ny+nx+nx*nz+nx*ny+nx-2]
 -xv[nlocal+0+nx*ny+nx+nx*nz+nx*ny+nx-1]
 ;
@@ -14932,19 +21736,79 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<0<<" "<<1<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
+-xv[nlocal+0+nx*ny]
+-xv[nlocal+0+nx*ny+1]
+;
 ix = 0;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(ny-2)]
+-xv[nlocal+0+nx*(ny-2)+1]
+-xv[nlocal+0+nx*(ny-1)]
+-xv[nlocal+0+nx*(ny-1)+1]
 -xv[nlocal+0+nx*ny]
 -xv[nlocal+0+nx*ny+1]
+-xv[nlocal+0+nx*ny+nx]
+-xv[nlocal+0+nx*ny+nx+1]
+-xv[nlocal+0+nx*ny+nx+nx]
+-xv[nlocal+0+nx*ny+nx+nx+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny]
+-xv[nlocal+0+nx*ny+1]
+-xv[nlocal+0+nx*ny+nx+nx*(nz-2)]
+-xv[nlocal+0+nx*ny+nx+nx*(nz-2)+1]
+-xv[nlocal+0+nx*ny+nx+nx*(nz-1)]
+-xv[nlocal+0+nx*ny+nx+nx*(nz-1)+1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+2*nx-2]
+-xv[nlocal+0+2*nx-1]
+-xv[nlocal+0+nx*ny+nx-2]
+-xv[nlocal+0+nx*ny+nx-1]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(ny-1)-2]
+-xv[nlocal+0+nx*(ny-1)-1]
+-xv[nlocal+0+nx*ny-2]
+-xv[nlocal+0+nx*ny-1]
 -xv[nlocal+0+nx*ny+nx-2]
 -xv[nlocal+0+nx*ny+nx-1]
+-xv[nlocal+0+nx*ny+nx+nx-2]
+-xv[nlocal+0+nx*ny+nx+nx-1]
+-xv[nlocal+0+nx*ny+nx+2*nx-2]
+-xv[nlocal+0+nx*ny+nx+2*nx-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny+nx-2]
+-xv[nlocal+0+nx*ny+nx-1]
+-xv[nlocal+0+nx*ny+nx+nx*(nz-1)-2]
+-xv[nlocal+0+nx*ny+nx+nx*(nz-1)-1]
+-xv[nlocal+0+nx*ny+nx+nx*nz-2]
+-xv[nlocal+0+nx*ny+nx+nx*nz-1]
 ;
 iz=0;
 iy=0;
@@ -15086,17 +21950,77 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
+std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<0<<" "<<1<<" "<<0<<" "<<1<<std::endl;ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz]
+-xv[nlocal+0+nx*nz+1]
+-xv[nlocal+0+nx*nz+nx]
+-xv[nlocal+0+nx*nz+nx+1]
+-xv[nlocal+0+nx*nz+nx*ny]
+-xv[nlocal+0+nx*nz+nx*ny+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
+-xv[nlocal+0+nx*nz+nx*ny]
+-xv[nlocal+0+nx*nz+nx*ny+1]
+;
 ix = 0;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz+nx*(ny-2)]
+-xv[nlocal+0+nx*nz+nx*(ny-2)+1]
+-xv[nlocal+0+nx*nz+nx*(ny-1)]
+-xv[nlocal+0+nx*nz+nx*(ny-1)+1]
+-xv[nlocal+0+nx*(nz-2)]
+-xv[nlocal+0+nx*(nz-2)+1]
+-xv[nlocal+0+nx*(nz-1)]
+-xv[nlocal+0+nx*(nz-1)+1]
 -xv[nlocal+0+nx*nz+nx*ny]
 -xv[nlocal+0+nx*nz+nx*ny+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz+nx-2]
+-xv[nlocal+0+nx*nz+nx-1]
+-xv[nlocal+0+nx*nz+2*nx-2]
+-xv[nlocal+0+nx*nz+2*nx-1]
+-xv[nlocal+0+nx*nz+nx*ny+nx-2]
+-xv[nlocal+0+nx*nz+nx*ny+nx-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+2*nx-2]
+-xv[nlocal+0+2*nx-1]
+-xv[nlocal+0+nx*nz+nx*ny+nx-2]
+-xv[nlocal+0+nx*nz+nx*ny+nx-1]
 ;
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*nz+nx*(ny-1)-2]
+-xv[nlocal+0+nx*nz+nx*(ny-1)-1]
+-xv[nlocal+0+nx*nz+nx*ny-2]
+-xv[nlocal+0+nx*nz+nx*ny-1]
+-xv[nlocal+0+nx*(nz-1)-2]
+-xv[nlocal+0+nx*(nz-1)-1]
+-xv[nlocal+0+nx*nz-2]
+-xv[nlocal+0+nx*nz-1]
 -xv[nlocal+0+nx*nz+nx*ny+nx-2]
 -xv[nlocal+0+nx*nz+nx*ny+nx-1]
 ;
@@ -15237,6 +22161,42 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<0<<" "<<1<<" "<<0<<" "<<0<<std::endl;ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(nz-2)]
+-xv[nlocal+0+nx*(nz-2)+1]
+-xv[nlocal+0+nx*(nz-1)]
+-xv[nlocal+0+nx*(nz-1)+1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+2*nx-2]
+-xv[nlocal+0+2*nx-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(nz-1)-2]
+-xv[nlocal+0+nx*(nz-1)-1]
+-xv[nlocal+0+nx*nz-2]
+-xv[nlocal+0+nx*nz-1]
+;
 iy=ny-1;
 iz=0;
 for (ix=1; ix<nx-1;ix++)
@@ -15310,6 +22270,78 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
+std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
+;
+ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny]
+-xv[nlocal+0+nx*ny+1]
+-xv[nlocal+0+nx*ny+nx]
+-xv[nlocal+0+nx*ny+nx+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(ny-2)]
+-xv[nlocal+0+nx*(ny-2)+1]
+-xv[nlocal+0+nx*(ny-1)]
+-xv[nlocal+0+nx*(ny-1)+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny+nx*(ny-2)]
+-xv[nlocal+0+nx*ny+nx*(ny-2)+1]
+-xv[nlocal+0+nx*ny+nx*(ny-1)]
+-xv[nlocal+0+nx*ny+nx*(ny-1)+1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+2*nx-2]
+-xv[nlocal+0+2*nx-1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny+nx-2]
+-xv[nlocal+0+nx*ny+nx-1]
+-xv[nlocal+0+nx*ny+2*nx-2]
+-xv[nlocal+0+nx*ny+2*nx-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(ny-1)-2]
+-xv[nlocal+0+nx*(ny-1)-1]
+-xv[nlocal+0+nx*ny-2]
+-xv[nlocal+0+nx*ny-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*ny+nx*(ny-1)-2]
+-xv[nlocal+0+nx*ny+nx*(ny-1)-1]
+-xv[nlocal+0+nx*ny+nx*ny-2]
+-xv[nlocal+0+nx*ny+nx*ny-1]
+;
 iz=0;
 iy=0;
 for (ix=1; ix<nx-1;ix++)
@@ -15438,6 +22470,42 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
+std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
+;
+ix = 0;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(ny-2)]
+-xv[nlocal+0+nx*(ny-2)+1]
+-xv[nlocal+0+nx*(ny-1)]
+-xv[nlocal+0+nx*(ny-1)+1]
+;
+ix = nx-1;
+iy = 0;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+2*nx-2]
+-xv[nlocal+0+2*nx-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = 0;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(ny-1)-2]
+-xv[nlocal+0+nx*(ny-1)-1]
+-xv[nlocal+0+nx*ny-2]
+-xv[nlocal+0+nx*ny-1]
+;
 iz=0;
 iy=0;
 for (ix=1; ix<nx-1;ix++)
@@ -15508,6 +22576,42 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
+std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<" "<<1<<std::endl;ix = 0;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0]
+-xv[nlocal+0+1]
+-xv[nlocal+0+nx]
+-xv[nlocal+0+nx+1]
+;
+ix = 0;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(ny-2)]
+-xv[nlocal+0+nx*(ny-2)+1]
+-xv[nlocal+0+nx*(ny-1)]
+-xv[nlocal+0+nx*(ny-1)+1]
+;
+ix = nx-1;
+iy = 0;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx-2]
+-xv[nlocal+0+nx-1]
+-xv[nlocal+0+2*nx-2]
+-xv[nlocal+0+2*nx-1]
+;
+ix = nx-1;
+iy = ny-1;
+iz = nz-1;
+yv[ix+iy*nx+iz*ny*nx] += 
+-xv[nlocal+0+nx*(ny-1)-2]
+-xv[nlocal+0+nx*(ny-1)-1]
+-xv[nlocal+0+nx*ny-2]
+-xv[nlocal+0+nx*ny-1]
+;
 iz=nz-1;
 iy=0;
 for (ix=1; ix<nx-1;ix++)
@@ -15575,7 +22679,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-;
+std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<std::endl;;
 ;
 ;
 }//ipz < npz - 1

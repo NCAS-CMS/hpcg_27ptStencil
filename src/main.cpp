@@ -49,6 +49,7 @@ using std::endl;
 #include "ReportResults.hpp"
 #include "mytimer.hpp"
 #include "ComputeSPMV_ref.hpp"
+#include "ComputeSPMV_old.hpp"
 #include "ComputeMG_ref.hpp"
 #include "ComputeResidual.hpp"
 #include "CG.hpp"
@@ -183,6 +184,23 @@ int main(int argc, char * argv[]) {
   // First load vector with random values
   FillRandomVector(x_overlap);
 
+  //dhc test spmv vs old
+  Vector new_spmv_ans, old_spmv_ans;
+  InitializeVector(new_spmv_ans, ncol);
+  InitializeVector(old_spmv_ans, ncol);
+  ierr = ComputeSPMV_ref(A, x_overlap, new_spmv_ans);
+  ierr = ComputeSPMV_old(A, x_overlap, old_spmv_ans);
+  //return 1000;
+  for (int i=0;i < ncol;i++){
+    if(abs(new_spmv_ans.values[i]-old_spmv_ans.values[i]) > 0.000000000000000000000000000000000000000000000000000000000000000000001)
+    {
+      std::cout << "ERROR " << A.geom->rank << " " << i << " " << new_spmv_ans.values[i] << " " << old_spmv_ans.values[i]<< std::endl;
+    }
+  }
+#ifndef HPCG_NO_MPI
+  MPI_Barrier(MPI_COMM_WORLD);
+#endif
+  return 1000;
   int numberOfCalls = 10;
   if (quickPath) numberOfCalls = 1; //QuickPath means we do on one call of each block of repetitive code
   double t_begin = mytimer();
