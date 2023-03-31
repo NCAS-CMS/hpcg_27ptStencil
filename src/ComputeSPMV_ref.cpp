@@ -626,7 +626,7 @@ if(ipx > 0)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<-1<<" "<<1<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -991,7 +991,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+1+nx+1+ny+(iy-1)*nx]
 -xv[nlocal+0+1+nx+1+ny+(iy-1)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+(iy)*nx]
--xv[nlocal+0+1+nx+1+ny+(iy-1)*nx+1]
+-xv[nlocal+0+1+nx+1+ny+(iy)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+(iy+1)*nx]
 -xv[nlocal+0+1+nx+1+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -1013,7 +1013,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+(iy-1)*nx]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+(iy-1)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+(iy)*nx]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+(iy-1)*nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+(iy)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+(iy+1)*nx]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -1085,7 +1085,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+(iz-1)*ny]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+(iz-1)*ny+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+(iz)*ny]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+(iz-1)*ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+(iz)*ny+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+(iz+1)*ny]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -1116,7 +1116,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+(iz-1)*nx]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+(iz-1)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+(iz)*nx]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+(iz-1)*nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+(iz)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+(iz+1)*nx]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -1138,7 +1138,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz-1)*nx]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz-1)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz)*nx]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz-1)*nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz+1)*nx]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -1169,7 +1169,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+(iz-1)*ny]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+(iz-1)*ny+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+(iz)*ny]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+(iz-1)*ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+(iz)*ny+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+(iz+1)*ny]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -1298,7 +1298,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<-1<<" "<<1<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -1578,7 +1578,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+1+nx+1+ny+(iy-1)*nx]
 -xv[nlocal+0+1+nx+1+ny+(iy-1)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+(iy)*nx]
--xv[nlocal+0+1+nx+1+ny+(iy-1)*nx+1]
+-xv[nlocal+0+1+nx+1+ny+(iy)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+(iy+1)*nx]
 -xv[nlocal+0+1+nx+1+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -1641,7 +1641,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+(iz-1)*ny]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+(iz-1)*ny+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+(iz)*ny]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+(iz-1)*ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+(iz)*ny+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+(iz+1)*ny]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -1672,7 +1672,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+(iz-1)*nx]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+(iz-1)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+(iz)*nx]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+(iz-1)*nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+(iz)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+(iz+1)*nx]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -1694,7 +1694,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz-1)*nx]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz-1)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz)*nx]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz-1)*nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz+1)*nx]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -1725,7 +1725,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+(iz-1)*ny]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+(iz-1)*ny+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+(iz)*ny]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+(iz-1)*ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+(iz)*ny+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+(iz+1)*ny]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -1840,7 +1840,7 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<-1<<" "<<1<<" "<<0<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -2120,7 +2120,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+(iy-1)*nx]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+(iy-1)*nx+1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+(iy)*nx]
--xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+(iy-1)*nx+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+(iy)*nx+1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+(iy+1)*nx]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -2183,7 +2183,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+nx*nz+nz+(iz-1)*ny]
 -xv[nlocal+0+nz+nx*nz+nz+(iz-1)*ny+1]
 -xv[nlocal+0+nz+nx*nz+nz+(iz)*ny]
--xv[nlocal+0+nz+nx*nz+nz+(iz-1)*ny+1]
+-xv[nlocal+0+nz+nx*nz+nz+(iz)*ny+1]
 -xv[nlocal+0+nz+nx*nz+nz+(iz+1)*ny]
 -xv[nlocal+0+nz+nx*nz+nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -2214,7 +2214,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+(iz-1)*nx]
 -xv[nlocal+0+nz+(iz-1)*nx+1]
 -xv[nlocal+0+nz+(iz)*nx]
--xv[nlocal+0+nz+(iz-1)*nx+1]
+-xv[nlocal+0+nz+(iz)*nx+1]
 -xv[nlocal+0+nz+(iz+1)*nx]
 -xv[nlocal+0+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -2236,7 +2236,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz-1)*nx]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz-1)*nx+1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz)*nx]
--xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz-1)*nx+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz)*nx+1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz+1)*nx]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -2267,7 +2267,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz-1)*ny]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz-1)*ny+1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz)*ny]
--xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz-1)*ny+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz)*ny+1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz+1)*ny]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -2379,7 +2379,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<-1<<" "<<1<<" "<<0<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -2606,7 +2606,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+nx*nz+nz+(iz-1)*ny]
 -xv[nlocal+0+nz+nx*nz+nz+(iz-1)*ny+1]
 -xv[nlocal+0+nz+nx*nz+nz+(iz)*ny]
--xv[nlocal+0+nz+nx*nz+nz+(iz-1)*ny+1]
+-xv[nlocal+0+nz+nx*nz+nz+(iz)*ny+1]
 -xv[nlocal+0+nz+nx*nz+nz+(iz+1)*ny]
 -xv[nlocal+0+nz+nx*nz+nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -2637,7 +2637,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+(iz-1)*nx]
 -xv[nlocal+0+nz+(iz-1)*nx+1]
 -xv[nlocal+0+nz+(iz)*nx]
--xv[nlocal+0+nz+(iz-1)*nx+1]
+-xv[nlocal+0+nz+(iz)*nx+1]
 -xv[nlocal+0+nz+(iz+1)*nx]
 -xv[nlocal+0+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -2659,7 +2659,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz-1)*nx]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz-1)*nx+1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz)*nx]
--xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz-1)*nx+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz)*nx+1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz+1)*nx]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -2690,7 +2690,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz-1)*ny]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz-1)*ny+1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz)*ny]
--xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz-1)*ny+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz)*ny+1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz+1)*ny]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -2791,7 +2791,7 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<-1<<" "<<0<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -3080,7 +3080,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+1+nx+1+ny+(iy-1)*nx]
 -xv[nlocal+0+1+nx+1+ny+(iy-1)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+(iy)*nx]
--xv[nlocal+0+1+nx+1+ny+(iy-1)*nx+1]
+-xv[nlocal+0+1+nx+1+ny+(iy)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+(iy+1)*nx]
 -xv[nlocal+0+1+nx+1+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -3102,7 +3102,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+(iy-1)*nx]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+(iy-1)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+(iy)*nx]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+(iy-1)*nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+(iy)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+(iy+1)*nx]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -3174,7 +3174,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+(iz-1)*ny]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+(iz-1)*ny+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+(iz)*ny]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+(iz-1)*ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+(iz)*ny+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+(iz+1)*ny]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -3196,7 +3196,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+(iz-1)*nx]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+(iz-1)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+(iz)*nx]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+(iz-1)*nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+(iz)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+(iz+1)*nx]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -3227,7 +3227,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+(iz-1)*ny]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+(iz-1)*ny+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+(iz)*ny]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+(iz-1)*ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+(iz)*ny+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+(iz+1)*ny]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -3330,7 +3330,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<-1<<" "<<0<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -3549,7 +3549,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+1+nx+1+ny+(iy-1)*nx]
 -xv[nlocal+0+1+nx+1+ny+(iy-1)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+(iy)*nx]
--xv[nlocal+0+1+nx+1+ny+(iy-1)*nx+1]
+-xv[nlocal+0+1+nx+1+ny+(iy)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+(iy+1)*nx]
 -xv[nlocal+0+1+nx+1+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -3612,7 +3612,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+(iz-1)*ny]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+(iz-1)*ny+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+(iz)*ny]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+(iz-1)*ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+(iz)*ny+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+(iz+1)*ny]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -3634,7 +3634,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+(iz-1)*nx]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+(iz-1)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+(iz)*nx]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+(iz-1)*nx+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+(iz)*nx+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+(iz+1)*nx]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -3665,7 +3665,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+(iz-1)*ny]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+(iz-1)*ny+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+(iz)*ny]
--xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+(iz-1)*ny+1]
+-xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+(iz)*ny+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+(iz+1)*ny]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -3754,7 +3754,7 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<-1<<" "<<0<<" "<<0<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -3973,7 +3973,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+(iy-1)*nx]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+(iy-1)*nx+1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+(iy)*nx]
--xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+(iy-1)*nx+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+(iy)*nx+1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+(iy+1)*nx]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -4036,7 +4036,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+nx*nz+nz+(iz-1)*ny]
 -xv[nlocal+0+nz+nx*nz+nz+(iz-1)*ny+1]
 -xv[nlocal+0+nz+nx*nz+nz+(iz)*ny]
--xv[nlocal+0+nz+nx*nz+nz+(iz-1)*ny+1]
+-xv[nlocal+0+nz+nx*nz+nz+(iz)*ny+1]
 -xv[nlocal+0+nz+nx*nz+nz+(iz+1)*ny]
 -xv[nlocal+0+nz+nx*nz+nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -4058,7 +4058,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+(iz-1)*nx]
 -xv[nlocal+0+nz+(iz-1)*nx+1]
 -xv[nlocal+0+nz+(iz)*nx]
--xv[nlocal+0+nz+(iz-1)*nx+1]
+-xv[nlocal+0+nz+(iz)*nx+1]
 -xv[nlocal+0+nz+(iz+1)*nx]
 -xv[nlocal+0+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -4089,7 +4089,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz-1)*ny]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz-1)*ny+1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz)*ny]
--xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz-1)*ny+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz)*ny+1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz+1)*ny]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -4175,7 +4175,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<-1<<" "<<0<<" "<<0<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -4356,7 +4356,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+nx*nz+nz+(iz-1)*ny]
 -xv[nlocal+0+nz+nx*nz+nz+(iz-1)*ny+1]
 -xv[nlocal+0+nz+nx*nz+nz+(iz)*ny]
--xv[nlocal+0+nz+nx*nz+nz+(iz-1)*ny+1]
+-xv[nlocal+0+nz+nx*nz+nz+(iz)*ny+1]
 -xv[nlocal+0+nz+nx*nz+nz+(iz+1)*ny]
 -xv[nlocal+0+nz+nx*nz+nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -4378,7 +4378,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+(iz-1)*nx]
 -xv[nlocal+0+nz+(iz-1)*nx+1]
 -xv[nlocal+0+nz+(iz)*nx]
--xv[nlocal+0+nz+(iz-1)*nx+1]
+-xv[nlocal+0+nz+(iz)*nx+1]
 -xv[nlocal+0+nz+(iz+1)*nx]
 -xv[nlocal+0+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -4409,7 +4409,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz-1)*ny]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz-1)*ny+1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz)*ny]
--xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz-1)*ny+1]
+-xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz)*ny+1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz+1)*ny]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -4487,7 +4487,7 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<0<<" "<<1<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -4776,7 +4776,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+ny+(iy-1)*nx]
 -xv[nlocal+0+ny+(iy-1)*nx+1]
 -xv[nlocal+0+ny+(iy)*nx]
--xv[nlocal+0+ny+(iy-1)*nx+1]
+-xv[nlocal+0+ny+(iy)*nx+1]
 -xv[nlocal+0+ny+(iy+1)*nx]
 -xv[nlocal+0+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -4798,7 +4798,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+(iy-1)*nx]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+(iy-1)*nx+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+(iy)*nx]
--xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+(iy-1)*nx+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+(iy)*nx+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+(iy+1)*nx]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -4861,7 +4861,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+(iz-1)*ny]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+(iz-1)*ny+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+(iz)*ny]
--xv[nlocal+0+ny+nx*ny+ny+1+nx+1+(iz-1)*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+(iz)*ny+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+(iz+1)*ny]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -4892,7 +4892,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+(iz-1)*nx]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+(iz-1)*nx+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+(iz)*nx]
--xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+(iz-1)*nx+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+(iz)*nx+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+(iz+1)*nx]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -4914,7 +4914,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+(iz-1)*ny]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+(iz-1)*ny+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+(iz)*ny]
--xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+(iz-1)*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+(iz)*ny+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+(iz+1)*ny]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -5026,7 +5026,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<0<<" "<<1<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -5245,7 +5245,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+ny+(iy-1)*nx]
 -xv[nlocal+0+ny+(iy-1)*nx+1]
 -xv[nlocal+0+ny+(iy)*nx]
--xv[nlocal+0+ny+(iy-1)*nx+1]
+-xv[nlocal+0+ny+(iy)*nx+1]
 -xv[nlocal+0+ny+(iy+1)*nx]
 -xv[nlocal+0+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -5299,7 +5299,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+(iz-1)*ny]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+(iz-1)*ny+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+(iz)*ny]
--xv[nlocal+0+ny+nx*ny+ny+1+nx+1+(iz-1)*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+(iz)*ny+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+(iz+1)*ny]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -5330,7 +5330,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+(iz-1)*nx]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+(iz-1)*nx+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+(iz)*nx]
--xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+(iz-1)*nx+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+(iz)*nx+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+(iz+1)*nx]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -5352,7 +5352,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+(iz-1)*ny]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+(iz-1)*ny+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+(iz)*ny]
--xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+(iz-1)*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+(iz)*ny+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+(iz+1)*ny]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -5450,7 +5450,7 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<0<<" "<<1<<" "<<0<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -5669,7 +5669,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+(iy-1)*nx]
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+(iy-1)*nx+1]
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+(iy)*nx]
--xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+(iy-1)*nx+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+(iy)*nx+1]
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+(iy+1)*nx]
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -5723,7 +5723,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+(iz-1)*ny]
 -xv[nlocal+0+(iz-1)*ny+1]
 -xv[nlocal+0+(iz)*ny]
--xv[nlocal+0+(iz-1)*ny+1]
+-xv[nlocal+0+(iz)*ny+1]
 -xv[nlocal+0+(iz+1)*ny]
 -xv[nlocal+0+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -5754,7 +5754,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny*nz+ny*nz+nz+(iz-1)*nx]
 -xv[nlocal+0+ny*nz+ny*nz+nz+(iz-1)*nx+1]
 -xv[nlocal+0+ny*nz+ny*nz+nz+(iz)*nx]
--xv[nlocal+0+ny*nz+ny*nz+nz+(iz-1)*nx+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+(iz)*nx+1]
 -xv[nlocal+0+ny*nz+ny*nz+nz+(iz+1)*nx]
 -xv[nlocal+0+ny*nz+ny*nz+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -5776,7 +5776,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny*nz+(iz-1)*ny]
 -xv[nlocal+0+ny*nz+(iz-1)*ny+1]
 -xv[nlocal+0+ny*nz+(iz)*ny]
--xv[nlocal+0+ny*nz+(iz-1)*ny+1]
+-xv[nlocal+0+ny*nz+(iz)*ny+1]
 -xv[nlocal+0+ny*nz+(iz+1)*ny]
 -xv[nlocal+0+ny*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -5871,7 +5871,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<0<<" "<<1<<" "<<0<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -6043,7 +6043,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+(iz-1)*ny]
 -xv[nlocal+0+(iz-1)*ny+1]
 -xv[nlocal+0+(iz)*ny]
--xv[nlocal+0+(iz-1)*ny+1]
+-xv[nlocal+0+(iz)*ny+1]
 -xv[nlocal+0+(iz+1)*ny]
 -xv[nlocal+0+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -6074,7 +6074,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny*nz+ny*nz+nz+(iz-1)*nx]
 -xv[nlocal+0+ny*nz+ny*nz+nz+(iz-1)*nx+1]
 -xv[nlocal+0+ny*nz+ny*nz+nz+(iz)*nx]
--xv[nlocal+0+ny*nz+ny*nz+nz+(iz-1)*nx+1]
+-xv[nlocal+0+ny*nz+ny*nz+nz+(iz)*nx+1]
 -xv[nlocal+0+ny*nz+ny*nz+nz+(iz+1)*nx]
 -xv[nlocal+0+ny*nz+ny*nz+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -6096,7 +6096,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny*nz+(iz-1)*ny]
 -xv[nlocal+0+ny*nz+(iz-1)*ny+1]
 -xv[nlocal+0+ny*nz+(iz)*ny]
--xv[nlocal+0+ny*nz+(iz-1)*ny+1]
+-xv[nlocal+0+ny*nz+(iz)*ny+1]
 -xv[nlocal+0+ny*nz+(iz+1)*ny]
 -xv[nlocal+0+ny*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -6180,7 +6180,7 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<0<<" "<<0<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -6393,7 +6393,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+ny+(iy-1)*nx]
 -xv[nlocal+0+ny+(iy-1)*nx+1]
 -xv[nlocal+0+ny+(iy)*nx]
--xv[nlocal+0+ny+(iy-1)*nx+1]
+-xv[nlocal+0+ny+(iy)*nx+1]
 -xv[nlocal+0+ny+(iy+1)*nx]
 -xv[nlocal+0+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -6415,7 +6415,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+(iy-1)*nx]
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+(iy-1)*nx+1]
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+(iy)*nx]
--xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+(iy-1)*nx+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+(iy)*nx+1]
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+(iy+1)*nx]
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -6478,7 +6478,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny+nx*ny+ny+(iz-1)*ny]
 -xv[nlocal+0+ny+nx*ny+ny+(iz-1)*ny+1]
 -xv[nlocal+0+ny+nx*ny+ny+(iz)*ny]
--xv[nlocal+0+ny+nx*ny+ny+(iz-1)*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+(iz)*ny+1]
 -xv[nlocal+0+ny+nx*ny+ny+(iz+1)*ny]
 -xv[nlocal+0+ny+nx*ny+ny+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -6500,7 +6500,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+(iz-1)*ny]
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+(iz-1)*ny+1]
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+(iz)*ny]
--xv[nlocal+0+ny+nx*ny+ny+ny*nz+(iz-1)*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+(iz)*ny+1]
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+(iz+1)*ny]
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -6586,7 +6586,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<0<<" "<<0<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -6744,7 +6744,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+ny+(iy-1)*nx]
 -xv[nlocal+0+ny+(iy-1)*nx+1]
 -xv[nlocal+0+ny+(iy)*nx]
--xv[nlocal+0+ny+(iy-1)*nx+1]
+-xv[nlocal+0+ny+(iy)*nx+1]
 -xv[nlocal+0+ny+(iy+1)*nx]
 -xv[nlocal+0+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -6798,7 +6798,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny+nx*ny+ny+(iz-1)*ny]
 -xv[nlocal+0+ny+nx*ny+ny+(iz-1)*ny+1]
 -xv[nlocal+0+ny+nx*ny+ny+(iz)*ny]
--xv[nlocal+0+ny+nx*ny+ny+(iz-1)*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+(iz)*ny+1]
 -xv[nlocal+0+ny+nx*ny+ny+(iz+1)*ny]
 -xv[nlocal+0+ny+nx*ny+ny+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -6820,7 +6820,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+(iz-1)*ny]
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+(iz-1)*ny+1]
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+(iz)*ny]
--xv[nlocal+0+ny+nx*ny+ny+ny*nz+(iz-1)*ny+1]
+-xv[nlocal+0+ny+nx*ny+ny+ny*nz+(iz)*ny+1]
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+(iz+1)*ny]
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -6892,7 +6892,7 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<0<<" "<<0<<" "<<0<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -7050,7 +7050,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+ny*nz+ny*nz+ny+(iy-1)*nx]
 -xv[nlocal+0+ny*nz+ny*nz+ny+(iy-1)*nx+1]
 -xv[nlocal+0+ny*nz+ny*nz+ny+(iy)*nx]
--xv[nlocal+0+ny*nz+ny*nz+ny+(iy-1)*nx+1]
+-xv[nlocal+0+ny*nz+ny*nz+ny+(iy)*nx+1]
 -xv[nlocal+0+ny*nz+ny*nz+ny+(iy+1)*nx]
 -xv[nlocal+0+ny*nz+ny*nz+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -7104,7 +7104,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+(iz-1)*ny]
 -xv[nlocal+0+(iz-1)*ny+1]
 -xv[nlocal+0+(iz)*ny]
--xv[nlocal+0+(iz-1)*ny+1]
+-xv[nlocal+0+(iz)*ny+1]
 -xv[nlocal+0+(iz+1)*ny]
 -xv[nlocal+0+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -7126,7 +7126,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny*nz+(iz-1)*ny]
 -xv[nlocal+0+ny*nz+(iz-1)*ny+1]
 -xv[nlocal+0+ny*nz+(iz)*ny]
--xv[nlocal+0+ny*nz+(iz-1)*ny+1]
+-xv[nlocal+0+ny*nz+(iz)*ny+1]
 -xv[nlocal+0+ny*nz+(iz+1)*ny]
 -xv[nlocal+0+ny*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -7195,7 +7195,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<1<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -7321,7 +7321,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+(iz-1)*ny]
 -xv[nlocal+0+(iz-1)*ny+1]
 -xv[nlocal+0+(iz)*ny]
--xv[nlocal+0+(iz-1)*ny+1]
+-xv[nlocal+0+(iz)*ny+1]
 -xv[nlocal+0+(iz+1)*ny]
 -xv[nlocal+0+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -7343,7 +7343,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny*nz+(iz-1)*ny]
 -xv[nlocal+0+ny*nz+(iz-1)*ny+1]
 -xv[nlocal+0+ny*nz+(iz)*ny]
--xv[nlocal+0+ny*nz+(iz-1)*ny+1]
+-xv[nlocal+0+ny*nz+(iz)*ny+1]
 -xv[nlocal+0+ny*nz+(iz+1)*ny]
 -xv[nlocal+0+ny*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -7407,7 +7407,7 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<-1<<" "<<1<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -7736,7 +7736,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+1+nx+ny+(iy-1)*nx]
 -xv[nlocal+0+1+nx+ny+(iy-1)*nx+1]
 -xv[nlocal+0+1+nx+ny+(iy)*nx]
--xv[nlocal+0+1+nx+ny+(iy-1)*nx+1]
+-xv[nlocal+0+1+nx+ny+(iy)*nx+1]
 -xv[nlocal+0+1+nx+ny+(iy+1)*nx]
 -xv[nlocal+0+1+nx+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -7758,7 +7758,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+(iy-1)*nx]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+(iy-1)*nx+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+(iy)*nx]
--xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+(iy-1)*nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+(iy)*nx+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+(iy+1)*nx]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -7790,7 +7790,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+(iz-1)*ny]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+(iz-1)*ny+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+(iz)*ny]
--xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+(iz-1)*ny+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+(iz)*ny+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+(iz+1)*ny]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -7821,7 +7821,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+(iz-1)*nx]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+(iz-1)*nx+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+(iz)*nx]
--xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+(iz-1)*nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+(iz)*nx+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+(iz+1)*nx]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -7843,7 +7843,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+(iz-1)*nx]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+(iz-1)*nx+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+(iz)*nx]
--xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+(iz-1)*nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+(iz)*nx+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+(iz+1)*nx]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -7946,7 +7946,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<-1<<" "<<1<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -8196,7 +8196,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+1+nx+ny+(iy-1)*nx]
 -xv[nlocal+0+1+nx+ny+(iy-1)*nx+1]
 -xv[nlocal+0+1+nx+ny+(iy)*nx]
--xv[nlocal+0+1+nx+ny+(iy-1)*nx+1]
+-xv[nlocal+0+1+nx+ny+(iy)*nx+1]
 -xv[nlocal+0+1+nx+ny+(iy+1)*nx]
 -xv[nlocal+0+1+nx+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -8228,7 +8228,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+(iz-1)*ny]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+(iz-1)*ny+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+(iz)*ny]
--xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+(iz-1)*ny+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+(iz)*ny+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+(iz+1)*ny]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -8259,7 +8259,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+(iz-1)*nx]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+(iz-1)*nx+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+(iz)*nx]
--xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+(iz-1)*nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+(iz)*nx+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+(iz+1)*nx]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -8281,7 +8281,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+(iz-1)*nx]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+(iz-1)*nx+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+(iz)*nx]
--xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+(iz-1)*nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+(iz)*nx+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+(iz+1)*nx]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -8370,7 +8370,7 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<-1<<" "<<1<<" "<<0<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -8620,7 +8620,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+(iy-1)*nx]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+(iy-1)*nx+1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+(iy)*nx]
--xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+(iy-1)*nx+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+(iy)*nx+1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+(iy+1)*nx]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -8652,7 +8652,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+nx*nz+(iz-1)*ny]
 -xv[nlocal+0+nz+nx*nz+(iz-1)*ny+1]
 -xv[nlocal+0+nz+nx*nz+(iz)*ny]
--xv[nlocal+0+nz+nx*nz+(iz-1)*ny+1]
+-xv[nlocal+0+nz+nx*nz+(iz)*ny+1]
 -xv[nlocal+0+nz+nx*nz+(iz+1)*ny]
 -xv[nlocal+0+nz+nx*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -8683,7 +8683,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+(iz-1)*nx]
 -xv[nlocal+0+nz+(iz-1)*nx+1]
 -xv[nlocal+0+nz+(iz)*nx]
--xv[nlocal+0+nz+(iz-1)*nx+1]
+-xv[nlocal+0+nz+(iz)*nx+1]
 -xv[nlocal+0+nz+(iz+1)*nx]
 -xv[nlocal+0+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -8705,7 +8705,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+(iz-1)*nx]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+(iz-1)*nx+1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+(iz)*nx]
--xv[nlocal+0+nz+nx*nz+ny*nz+nz+(iz-1)*nx+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+(iz)*nx+1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+(iz+1)*nx]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -8791,7 +8791,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<-1<<" "<<1<<" "<<0<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -8972,7 +8972,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+nx*nz+(iz-1)*ny]
 -xv[nlocal+0+nz+nx*nz+(iz-1)*ny+1]
 -xv[nlocal+0+nz+nx*nz+(iz)*ny]
--xv[nlocal+0+nz+nx*nz+(iz-1)*ny+1]
+-xv[nlocal+0+nz+nx*nz+(iz)*ny+1]
 -xv[nlocal+0+nz+nx*nz+(iz+1)*ny]
 -xv[nlocal+0+nz+nx*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -9003,7 +9003,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+(iz-1)*nx]
 -xv[nlocal+0+nz+(iz-1)*nx+1]
 -xv[nlocal+0+nz+(iz)*nx]
--xv[nlocal+0+nz+(iz-1)*nx+1]
+-xv[nlocal+0+nz+(iz)*nx+1]
 -xv[nlocal+0+nz+(iz+1)*nx]
 -xv[nlocal+0+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -9025,7 +9025,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+(iz-1)*nx]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+(iz-1)*nx+1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+(iz)*nx]
--xv[nlocal+0+nz+nx*nz+ny*nz+nz+(iz-1)*nx+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+nz+(iz)*nx+1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+(iz+1)*nx]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -9100,7 +9100,7 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<-1<<" "<<0<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -9359,7 +9359,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+1+nx+ny+(iy-1)*nx]
 -xv[nlocal+0+1+nx+ny+(iy-1)*nx+1]
 -xv[nlocal+0+1+nx+ny+(iy)*nx]
--xv[nlocal+0+1+nx+ny+(iy-1)*nx+1]
+-xv[nlocal+0+1+nx+ny+(iy)*nx+1]
 -xv[nlocal+0+1+nx+ny+(iy+1)*nx]
 -xv[nlocal+0+1+nx+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -9381,7 +9381,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+(iy-1)*nx]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+(iy-1)*nx+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+(iy)*nx]
--xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+(iy-1)*nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+(iy)*nx+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+(iy+1)*nx]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -9413,7 +9413,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+(iz-1)*ny]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+(iz-1)*ny+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+(iz)*ny]
--xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+(iz-1)*ny+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+(iz)*ny+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+(iz+1)*ny]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -9435,7 +9435,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+(iz-1)*nx]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+(iz-1)*nx+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+(iz)*nx]
--xv[nlocal+0+1+nx+ny+nx*ny+nz+(iz-1)*nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+(iz)*nx+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+(iz+1)*nx]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -9521,7 +9521,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<-1<<" "<<0<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -9710,7 +9710,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+1+nx+ny+(iy-1)*nx]
 -xv[nlocal+0+1+nx+ny+(iy-1)*nx+1]
 -xv[nlocal+0+1+nx+ny+(iy)*nx]
--xv[nlocal+0+1+nx+ny+(iy-1)*nx+1]
+-xv[nlocal+0+1+nx+ny+(iy)*nx+1]
 -xv[nlocal+0+1+nx+ny+(iy+1)*nx]
 -xv[nlocal+0+1+nx+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -9742,7 +9742,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+(iz-1)*ny]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+(iz-1)*ny+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+(iz)*ny]
--xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+(iz-1)*ny+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+(iz)*ny+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+(iz+1)*ny]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -9764,7 +9764,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+(iz-1)*nx]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+(iz-1)*nx+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+(iz)*nx]
--xv[nlocal+0+1+nx+ny+nx*ny+nz+(iz-1)*nx+1]
+-xv[nlocal+0+1+nx+ny+nx*ny+nz+(iz)*nx+1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+(iz+1)*nx]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -9836,7 +9836,7 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<-1<<" "<<0<<" "<<0<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -10025,7 +10025,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+(iy-1)*nx]
 -xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+(iy-1)*nx+1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+(iy)*nx]
--xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+(iy-1)*nx+1]
+-xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+(iy)*nx+1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+(iy+1)*nx]
 -xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -10057,7 +10057,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+nx*nz+(iz-1)*ny]
 -xv[nlocal+0+nz+nx*nz+(iz-1)*ny+1]
 -xv[nlocal+0+nz+nx*nz+(iz)*ny]
--xv[nlocal+0+nz+nx*nz+(iz-1)*ny+1]
+-xv[nlocal+0+nz+nx*nz+(iz)*ny+1]
 -xv[nlocal+0+nz+nx*nz+(iz+1)*ny]
 -xv[nlocal+0+nz+nx*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -10079,7 +10079,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+(iz-1)*nx]
 -xv[nlocal+0+nz+(iz-1)*nx+1]
 -xv[nlocal+0+nz+(iz)*nx]
--xv[nlocal+0+nz+(iz-1)*nx+1]
+-xv[nlocal+0+nz+(iz)*nx+1]
 -xv[nlocal+0+nz+(iz+1)*nx]
 -xv[nlocal+0+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -10148,7 +10148,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<-1<<" "<<0<<" "<<0<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -10277,7 +10277,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+nx*nz+(iz-1)*ny]
 -xv[nlocal+0+nz+nx*nz+(iz-1)*ny+1]
 -xv[nlocal+0+nz+nx*nz+(iz)*ny]
--xv[nlocal+0+nz+nx*nz+(iz-1)*ny+1]
+-xv[nlocal+0+nz+nx*nz+(iz)*ny+1]
 -xv[nlocal+0+nz+nx*nz+(iz+1)*ny]
 -xv[nlocal+0+nz+nx*nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -10299,7 +10299,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nz+(iz-1)*nx]
 -xv[nlocal+0+nz+(iz-1)*nx+1]
 -xv[nlocal+0+nz+(iz)*nx]
--xv[nlocal+0+nz+(iz-1)*nx+1]
+-xv[nlocal+0+nz+(iz)*nx+1]
 -xv[nlocal+0+nz+(iz+1)*nx]
 -xv[nlocal+0+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -10360,7 +10360,7 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<0<<" "<<1<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -10619,7 +10619,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+ny+(iy-1)*nx]
 -xv[nlocal+0+ny+(iy-1)*nx+1]
 -xv[nlocal+0+ny+(iy)*nx]
--xv[nlocal+0+ny+(iy-1)*nx+1]
+-xv[nlocal+0+ny+(iy)*nx+1]
 -xv[nlocal+0+ny+(iy+1)*nx]
 -xv[nlocal+0+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -10641,7 +10641,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+(iy-1)*nx]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+(iy-1)*nx+1]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+(iy)*nx]
--xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+(iy-1)*nx+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+(iy)*nx+1]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+(iy+1)*nx]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -10664,7 +10664,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny+nx*ny+1+nx+(iz-1)*ny]
 -xv[nlocal+0+ny+nx*ny+1+nx+(iz-1)*ny+1]
 -xv[nlocal+0+ny+nx*ny+1+nx+(iz)*ny]
--xv[nlocal+0+ny+nx*ny+1+nx+(iz-1)*ny+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+(iz)*ny+1]
 -xv[nlocal+0+ny+nx*ny+1+nx+(iz+1)*ny]
 -xv[nlocal+0+ny+nx*ny+1+nx+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -10695,7 +10695,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+(iz-1)*nx]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+(iz-1)*nx+1]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+(iz)*nx]
--xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+(iz-1)*nx+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+(iz)*nx+1]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+(iz+1)*nx]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -10781,7 +10781,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<0<<" "<<1<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -10970,7 +10970,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+ny+(iy-1)*nx]
 -xv[nlocal+0+ny+(iy-1)*nx+1]
 -xv[nlocal+0+ny+(iy)*nx]
--xv[nlocal+0+ny+(iy-1)*nx+1]
+-xv[nlocal+0+ny+(iy)*nx+1]
 -xv[nlocal+0+ny+(iy+1)*nx]
 -xv[nlocal+0+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -10993,7 +10993,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny+nx*ny+1+nx+(iz-1)*ny]
 -xv[nlocal+0+ny+nx*ny+1+nx+(iz-1)*ny+1]
 -xv[nlocal+0+ny+nx*ny+1+nx+(iz)*ny]
--xv[nlocal+0+ny+nx*ny+1+nx+(iz-1)*ny+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+(iz)*ny+1]
 -xv[nlocal+0+ny+nx*ny+1+nx+(iz+1)*ny]
 -xv[nlocal+0+ny+nx*ny+1+nx+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -11024,7 +11024,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+(iz-1)*nx]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+(iz-1)*nx+1]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+(iz)*nx]
--xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+(iz-1)*nx+1]
+-xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+(iz)*nx+1]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+(iz+1)*nx]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -11096,7 +11096,7 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<0<<" "<<1<<" "<<0<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -11285,7 +11285,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+ny*nz+nz+nx*nz+ny+(iy-1)*nx]
 -xv[nlocal+0+ny*nz+nz+nx*nz+ny+(iy-1)*nx+1]
 -xv[nlocal+0+ny*nz+nz+nx*nz+ny+(iy)*nx]
--xv[nlocal+0+ny*nz+nz+nx*nz+ny+(iy-1)*nx+1]
+-xv[nlocal+0+ny*nz+nz+nx*nz+ny+(iy)*nx+1]
 -xv[nlocal+0+ny*nz+nz+nx*nz+ny+(iy+1)*nx]
 -xv[nlocal+0+ny*nz+nz+nx*nz+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -11308,7 +11308,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+(iz-1)*ny]
 -xv[nlocal+0+(iz-1)*ny+1]
 -xv[nlocal+0+(iz)*ny]
--xv[nlocal+0+(iz-1)*ny+1]
+-xv[nlocal+0+(iz)*ny+1]
 -xv[nlocal+0+(iz+1)*ny]
 -xv[nlocal+0+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -11339,7 +11339,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny*nz+nz+(iz-1)*nx]
 -xv[nlocal+0+ny*nz+nz+(iz-1)*nx+1]
 -xv[nlocal+0+ny*nz+nz+(iz)*nx]
--xv[nlocal+0+ny*nz+nz+(iz-1)*nx+1]
+-xv[nlocal+0+ny*nz+nz+(iz)*nx+1]
 -xv[nlocal+0+ny*nz+nz+(iz+1)*nx]
 -xv[nlocal+0+ny*nz+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -11408,7 +11408,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<0<<" "<<1<<" "<<0<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -11528,7 +11528,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+(iz-1)*ny]
 -xv[nlocal+0+(iz-1)*ny+1]
 -xv[nlocal+0+(iz)*ny]
--xv[nlocal+0+(iz-1)*ny+1]
+-xv[nlocal+0+(iz)*ny+1]
 -xv[nlocal+0+(iz+1)*ny]
 -xv[nlocal+0+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -11559,7 +11559,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny*nz+nz+(iz-1)*nx]
 -xv[nlocal+0+ny*nz+nz+(iz-1)*nx+1]
 -xv[nlocal+0+ny*nz+nz+(iz)*nx]
--xv[nlocal+0+ny*nz+nz+(iz-1)*nx+1]
+-xv[nlocal+0+ny*nz+nz+(iz)*nx+1]
 -xv[nlocal+0+ny*nz+nz+(iz+1)*nx]
 -xv[nlocal+0+ny*nz+nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -11617,7 +11617,7 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<0<<" "<<0<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -11806,7 +11806,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+ny+(iy-1)*nx]
 -xv[nlocal+0+ny+(iy-1)*nx+1]
 -xv[nlocal+0+ny+(iy)*nx]
--xv[nlocal+0+ny+(iy-1)*nx+1]
+-xv[nlocal+0+ny+(iy)*nx+1]
 -xv[nlocal+0+ny+(iy+1)*nx]
 -xv[nlocal+0+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -11828,7 +11828,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+ny+nx*ny+ny*nz+ny+(iy-1)*nx]
 -xv[nlocal+0+ny+nx*ny+ny*nz+ny+(iy-1)*nx+1]
 -xv[nlocal+0+ny+nx*ny+ny*nz+ny+(iy)*nx]
--xv[nlocal+0+ny+nx*ny+ny*nz+ny+(iy-1)*nx+1]
+-xv[nlocal+0+ny+nx*ny+ny*nz+ny+(iy)*nx+1]
 -xv[nlocal+0+ny+nx*ny+ny*nz+ny+(iy+1)*nx]
 -xv[nlocal+0+ny+nx*ny+ny*nz+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -11851,7 +11851,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny+nx*ny+(iz-1)*ny]
 -xv[nlocal+0+ny+nx*ny+(iz-1)*ny+1]
 -xv[nlocal+0+ny+nx*ny+(iz)*ny]
--xv[nlocal+0+ny+nx*ny+(iz-1)*ny+1]
+-xv[nlocal+0+ny+nx*ny+(iz)*ny+1]
 -xv[nlocal+0+ny+nx*ny+(iz+1)*ny]
 -xv[nlocal+0+ny+nx*ny+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -11920,7 +11920,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<0<<" "<<0<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -12048,7 +12048,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+ny+(iy-1)*nx]
 -xv[nlocal+0+ny+(iy-1)*nx+1]
 -xv[nlocal+0+ny+(iy)*nx]
--xv[nlocal+0+ny+(iy-1)*nx+1]
+-xv[nlocal+0+ny+(iy)*nx+1]
 -xv[nlocal+0+ny+(iy+1)*nx]
 -xv[nlocal+0+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -12071,7 +12071,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny+nx*ny+(iz-1)*ny]
 -xv[nlocal+0+ny+nx*ny+(iz-1)*ny+1]
 -xv[nlocal+0+ny+nx*ny+(iz)*ny]
--xv[nlocal+0+ny+nx*ny+(iz-1)*ny+1]
+-xv[nlocal+0+ny+nx*ny+(iz)*ny+1]
 -xv[nlocal+0+ny+nx*ny+(iz+1)*ny]
 -xv[nlocal+0+ny+nx*ny+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -12126,7 +12126,7 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -12254,7 +12254,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+ny*nz+ny+(iy-1)*nx]
 -xv[nlocal+0+ny*nz+ny+(iy-1)*nx+1]
 -xv[nlocal+0+ny*nz+ny+(iy)*nx]
--xv[nlocal+0+ny*nz+ny+(iy-1)*nx+1]
+-xv[nlocal+0+ny*nz+ny+(iy)*nx+1]
 -xv[nlocal+0+ny*nz+ny+(iy+1)*nx]
 -xv[nlocal+0+ny*nz+ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -12277,7 +12277,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+(iz-1)*ny]
 -xv[nlocal+0+(iz-1)*ny+1]
 -xv[nlocal+0+(iz)*ny]
--xv[nlocal+0+(iz-1)*ny+1]
+-xv[nlocal+0+(iz)*ny+1]
 -xv[nlocal+0+(iz+1)*ny]
 -xv[nlocal+0+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -12329,7 +12329,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<-1<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -12397,7 +12397,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+(iz-1)*ny]
 -xv[nlocal+0+(iz-1)*ny+1]
 -xv[nlocal+0+(iz)*ny]
--xv[nlocal+0+(iz-1)*ny+1]
+-xv[nlocal+0+(iz)*ny+1]
 -xv[nlocal+0+(iz+1)*ny]
 -xv[nlocal+0+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -12447,7 +12447,7 @@ else
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<-1<<" "<<1<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -12736,7 +12736,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nx+1+(iy-1)*nx]
 -xv[nlocal+0+nx+1+(iy-1)*nx+1]
 -xv[nlocal+0+nx+1+(iy)*nx]
--xv[nlocal+0+nx+1+(iy-1)*nx+1]
+-xv[nlocal+0+nx+1+(iy)*nx+1]
 -xv[nlocal+0+nx+1+(iy+1)*nx]
 -xv[nlocal+0+nx+1+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -12758,7 +12758,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+(iy-1)*nx]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+(iy-1)*nx+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+(iy)*nx]
--xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+(iy-1)*nx+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+(iy)*nx+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+(iy+1)*nx]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -12821,7 +12821,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+(iz-1)*nx]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+(iz-1)*nx+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+(iz)*nx]
--xv[nlocal+0+nx+1+nx*ny+ny+nx+1+(iz-1)*nx+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+(iz)*nx+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+(iz+1)*nx]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -12843,7 +12843,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+(iz-1)*nx]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+(iz-1)*nx+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+(iz)*nx]
--xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+(iz-1)*nx+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+(iz)*nx+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+(iz+1)*nx]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -12874,7 +12874,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+(iz-1)*ny]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+(iz-1)*ny+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+(iz)*ny]
--xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+(iz-1)*ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+(iz)*ny+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+(iz+1)*ny]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -12986,7 +12986,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<-1<<" "<<1<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -13205,7 +13205,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nx+1+(iy-1)*nx]
 -xv[nlocal+0+nx+1+(iy-1)*nx+1]
 -xv[nlocal+0+nx+1+(iy)*nx]
--xv[nlocal+0+nx+1+(iy-1)*nx+1]
+-xv[nlocal+0+nx+1+(iy)*nx+1]
 -xv[nlocal+0+nx+1+(iy+1)*nx]
 -xv[nlocal+0+nx+1+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -13259,7 +13259,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+(iz-1)*nx]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+(iz-1)*nx+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+(iz)*nx]
--xv[nlocal+0+nx+1+nx*ny+ny+nx+1+(iz-1)*nx+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+(iz)*nx+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+(iz+1)*nx]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -13281,7 +13281,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+(iz-1)*nx]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+(iz-1)*nx+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+(iz)*nx]
--xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+(iz-1)*nx+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+(iz)*nx+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+(iz+1)*nx]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -13312,7 +13312,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+(iz-1)*ny]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+(iz-1)*ny+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+(iz)*ny]
--xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+(iz-1)*ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+(iz)*ny+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+(iz+1)*ny]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -13410,7 +13410,7 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<-1<<" "<<1<<" "<<0<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -13629,7 +13629,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+(iy-1)*nx]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+(iy-1)*nx+1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+(iy)*nx]
--xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+(iy-1)*nx+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+(iy)*nx+1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+(iy+1)*nx]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -13683,7 +13683,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+(iz-1)*nx]
 -xv[nlocal+0+(iz-1)*nx+1]
 -xv[nlocal+0+(iz)*nx]
--xv[nlocal+0+(iz-1)*nx+1]
+-xv[nlocal+0+(iz)*nx+1]
 -xv[nlocal+0+(iz+1)*nx]
 -xv[nlocal+0+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -13705,7 +13705,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx*nz+nz+ny*nz+(iz-1)*nx]
 -xv[nlocal+0+nx*nz+nz+ny*nz+(iz-1)*nx+1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+(iz)*nx]
--xv[nlocal+0+nx*nz+nz+ny*nz+(iz-1)*nx+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+(iz)*nx+1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+(iz+1)*nx]
 -xv[nlocal+0+nx*nz+nz+ny*nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -13736,7 +13736,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx*nz+nz+(iz-1)*ny]
 -xv[nlocal+0+nx*nz+nz+(iz-1)*ny+1]
 -xv[nlocal+0+nx*nz+nz+(iz)*ny]
--xv[nlocal+0+nx*nz+nz+(iz-1)*ny+1]
+-xv[nlocal+0+nx*nz+nz+(iz)*ny+1]
 -xv[nlocal+0+nx*nz+nz+(iz+1)*ny]
 -xv[nlocal+0+nx*nz+nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -13831,7 +13831,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<-1<<" "<<1<<" "<<0<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -14003,7 +14003,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+(iz-1)*nx]
 -xv[nlocal+0+(iz-1)*nx+1]
 -xv[nlocal+0+(iz)*nx]
--xv[nlocal+0+(iz-1)*nx+1]
+-xv[nlocal+0+(iz)*nx+1]
 -xv[nlocal+0+(iz+1)*nx]
 -xv[nlocal+0+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -14025,7 +14025,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx*nz+nz+ny*nz+(iz-1)*nx]
 -xv[nlocal+0+nx*nz+nz+ny*nz+(iz-1)*nx+1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+(iz)*nx]
--xv[nlocal+0+nx*nz+nz+ny*nz+(iz-1)*nx+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+(iz)*nx+1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+(iz+1)*nx]
 -xv[nlocal+0+nx*nz+nz+ny*nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -14056,7 +14056,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx*nz+nz+(iz-1)*ny]
 -xv[nlocal+0+nx*nz+nz+(iz-1)*ny+1]
 -xv[nlocal+0+nx*nz+nz+(iz)*ny]
--xv[nlocal+0+nx*nz+nz+(iz-1)*ny+1]
+-xv[nlocal+0+nx*nz+nz+(iz)*ny+1]
 -xv[nlocal+0+nx*nz+nz+(iz+1)*ny]
 -xv[nlocal+0+nx*nz+nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -14140,7 +14140,7 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<-1<<" "<<0<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -14359,7 +14359,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nx+1+(iy-1)*nx]
 -xv[nlocal+0+nx+1+(iy-1)*nx+1]
 -xv[nlocal+0+nx+1+(iy)*nx]
--xv[nlocal+0+nx+1+(iy-1)*nx+1]
+-xv[nlocal+0+nx+1+(iy)*nx+1]
 -xv[nlocal+0+nx+1+(iy+1)*nx]
 -xv[nlocal+0+nx+1+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -14381,7 +14381,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+(iy-1)*nx]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+(iy-1)*nx+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+(iy)*nx]
--xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+(iy-1)*nx+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+(iy)*nx+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+(iy+1)*nx]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -14444,7 +14444,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx+1+nx*ny+ny+(iz-1)*nx]
 -xv[nlocal+0+nx+1+nx*ny+ny+(iz-1)*nx+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+(iz)*nx]
--xv[nlocal+0+nx+1+nx*ny+ny+(iz-1)*nx+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+(iz)*nx+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+(iz+1)*nx]
 -xv[nlocal+0+nx+1+nx*ny+ny+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -14475,7 +14475,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+(iz-1)*ny]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+(iz-1)*ny+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+(iz)*ny]
--xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+(iz-1)*ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+(iz)*ny+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+(iz+1)*ny]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -14561,7 +14561,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<-1<<" "<<0<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -14719,7 +14719,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nx+1+(iy-1)*nx]
 -xv[nlocal+0+nx+1+(iy-1)*nx+1]
 -xv[nlocal+0+nx+1+(iy)*nx]
--xv[nlocal+0+nx+1+(iy-1)*nx+1]
+-xv[nlocal+0+nx+1+(iy)*nx+1]
 -xv[nlocal+0+nx+1+(iy+1)*nx]
 -xv[nlocal+0+nx+1+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -14773,7 +14773,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx+1+nx*ny+ny+(iz-1)*nx]
 -xv[nlocal+0+nx+1+nx*ny+ny+(iz-1)*nx+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+(iz)*nx]
--xv[nlocal+0+nx+1+nx*ny+ny+(iz-1)*nx+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+(iz)*nx+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+(iz+1)*nx]
 -xv[nlocal+0+nx+1+nx*ny+ny+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -14804,7 +14804,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+(iz-1)*ny]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+(iz-1)*ny+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+(iz)*ny]
--xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+(iz-1)*ny+1]
+-xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+(iz)*ny+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+(iz+1)*ny]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -14876,7 +14876,7 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<-1<<" "<<0<<" "<<0<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -15034,7 +15034,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+(iy-1)*nx]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+(iy-1)*nx+1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+(iy)*nx]
--xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+(iy-1)*nx+1]
+-xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+(iy)*nx+1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+(iy+1)*nx]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -15088,7 +15088,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+(iz-1)*nx]
 -xv[nlocal+0+(iz-1)*nx+1]
 -xv[nlocal+0+(iz)*nx]
--xv[nlocal+0+(iz-1)*nx+1]
+-xv[nlocal+0+(iz)*nx+1]
 -xv[nlocal+0+(iz+1)*nx]
 -xv[nlocal+0+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -15119,7 +15119,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx*nz+nz+(iz-1)*ny]
 -xv[nlocal+0+nx*nz+nz+(iz-1)*ny+1]
 -xv[nlocal+0+nx*nz+nz+(iz)*ny]
--xv[nlocal+0+nx*nz+nz+(iz-1)*ny+1]
+-xv[nlocal+0+nx*nz+nz+(iz)*ny+1]
 -xv[nlocal+0+nx*nz+nz+(iz+1)*ny]
 -xv[nlocal+0+nx*nz+nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -15188,7 +15188,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<-1<<" "<<0<<" "<<0<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -15308,7 +15308,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+(iz-1)*nx]
 -xv[nlocal+0+(iz-1)*nx+1]
 -xv[nlocal+0+(iz)*nx]
--xv[nlocal+0+(iz-1)*nx+1]
+-xv[nlocal+0+(iz)*nx+1]
 -xv[nlocal+0+(iz+1)*nx]
 -xv[nlocal+0+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -15339,7 +15339,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx*nz+nz+(iz-1)*ny]
 -xv[nlocal+0+nx*nz+nz+(iz-1)*ny+1]
 -xv[nlocal+0+nx*nz+nz+(iz)*ny]
--xv[nlocal+0+nx*nz+nz+(iz-1)*ny+1]
+-xv[nlocal+0+nx*nz+nz+(iz)*ny+1]
 -xv[nlocal+0+nx*nz+nz+(iz+1)*ny]
 -xv[nlocal+0+nx*nz+nz+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -15400,7 +15400,7 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<0<<" "<<1<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -15619,7 +15619,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+(iy-1)*nx]
 -xv[nlocal+0+(iy-1)*nx+1]
 -xv[nlocal+0+(iy)*nx]
--xv[nlocal+0+(iy-1)*nx+1]
+-xv[nlocal+0+(iy)*nx+1]
 -xv[nlocal+0+(iy+1)*nx]
 -xv[nlocal+0+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -15641,7 +15641,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+(iy-1)*nx]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+(iy-1)*nx+1]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+(iy)*nx]
--xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+(iy-1)*nx+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+(iy)*nx+1]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+(iy+1)*nx]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -15704,7 +15704,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+(iz-1)*nx]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+(iz-1)*nx+1]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+(iz)*nx]
--xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+(iz-1)*nx+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+(iz)*nx+1]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+(iz+1)*nx]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -15726,7 +15726,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx*ny+ny+nx+1+(iz-1)*ny]
 -xv[nlocal+0+nx*ny+ny+nx+1+(iz-1)*ny+1]
 -xv[nlocal+0+nx*ny+ny+nx+1+(iz)*ny]
--xv[nlocal+0+nx*ny+ny+nx+1+(iz-1)*ny+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+(iz)*ny+1]
 -xv[nlocal+0+nx*ny+ny+nx+1+(iz+1)*ny]
 -xv[nlocal+0+nx*ny+ny+nx+1+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -15821,7 +15821,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<0<<" "<<1<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -15979,7 +15979,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+(iy-1)*nx]
 -xv[nlocal+0+(iy-1)*nx+1]
 -xv[nlocal+0+(iy)*nx]
--xv[nlocal+0+(iy-1)*nx+1]
+-xv[nlocal+0+(iy)*nx+1]
 -xv[nlocal+0+(iy+1)*nx]
 -xv[nlocal+0+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -16033,7 +16033,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+(iz-1)*nx]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+(iz-1)*nx+1]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+(iz)*nx]
--xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+(iz-1)*nx+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+(iz)*nx+1]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+(iz+1)*nx]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -16055,7 +16055,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx*ny+ny+nx+1+(iz-1)*ny]
 -xv[nlocal+0+nx*ny+ny+nx+1+(iz-1)*ny+1]
 -xv[nlocal+0+nx*ny+ny+nx+1+(iz)*ny]
--xv[nlocal+0+nx*ny+ny+nx+1+(iz-1)*ny+1]
+-xv[nlocal+0+nx*ny+ny+nx+1+(iz)*ny+1]
 -xv[nlocal+0+nx*ny+ny+nx+1+(iz+1)*ny]
 -xv[nlocal+0+nx*ny+ny+nx+1+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -16136,7 +16136,7 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<0<<" "<<1<<" "<<0<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -16294,7 +16294,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+ny*nz+nx*nz+nz+(iy-1)*nx]
 -xv[nlocal+0+ny*nz+nx*nz+nz+(iy-1)*nx+1]
 -xv[nlocal+0+ny*nz+nx*nz+nz+(iy)*nx]
--xv[nlocal+0+ny*nz+nx*nz+nz+(iy-1)*nx+1]
+-xv[nlocal+0+ny*nz+nx*nz+nz+(iy)*nx+1]
 -xv[nlocal+0+ny*nz+nx*nz+nz+(iy+1)*nx]
 -xv[nlocal+0+ny*nz+nx*nz+nz+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -16348,7 +16348,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny*nz+(iz-1)*nx]
 -xv[nlocal+0+ny*nz+(iz-1)*nx+1]
 -xv[nlocal+0+ny*nz+(iz)*nx]
--xv[nlocal+0+ny*nz+(iz-1)*nx+1]
+-xv[nlocal+0+ny*nz+(iz)*nx+1]
 -xv[nlocal+0+ny*nz+(iz+1)*nx]
 -xv[nlocal+0+ny*nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -16370,7 +16370,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+(iz-1)*ny]
 -xv[nlocal+0+(iz-1)*ny+1]
 -xv[nlocal+0+(iz)*ny]
--xv[nlocal+0+(iz-1)*ny+1]
+-xv[nlocal+0+(iz)*ny+1]
 -xv[nlocal+0+(iz+1)*ny]
 -xv[nlocal+0+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -16448,7 +16448,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<0<<" "<<1<<" "<<0<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -16568,7 +16568,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+ny*nz+(iz-1)*nx]
 -xv[nlocal+0+ny*nz+(iz-1)*nx+1]
 -xv[nlocal+0+ny*nz+(iz)*nx]
--xv[nlocal+0+ny*nz+(iz-1)*nx+1]
+-xv[nlocal+0+ny*nz+(iz)*nx+1]
 -xv[nlocal+0+ny*nz+(iz+1)*nx]
 -xv[nlocal+0+ny*nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -16590,7 +16590,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+(iz-1)*ny]
 -xv[nlocal+0+(iz-1)*ny+1]
 -xv[nlocal+0+(iz)*ny]
--xv[nlocal+0+(iz-1)*ny+1]
+-xv[nlocal+0+(iz)*ny+1]
 -xv[nlocal+0+(iz+1)*ny]
 -xv[nlocal+0+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -16657,7 +16657,7 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<0<<" "<<0<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -16806,7 +16806,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+(iy-1)*nx]
 -xv[nlocal+0+(iy-1)*nx+1]
 -xv[nlocal+0+(iy)*nx]
--xv[nlocal+0+(iy-1)*nx+1]
+-xv[nlocal+0+(iy)*nx+1]
 -xv[nlocal+0+(iy+1)*nx]
 -xv[nlocal+0+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -16828,7 +16828,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nx*ny+ny+ny*nz+(iy-1)*nx]
 -xv[nlocal+0+nx*ny+ny+ny*nz+(iy-1)*nx+1]
 -xv[nlocal+0+nx*ny+ny+ny*nz+(iy)*nx]
--xv[nlocal+0+nx*ny+ny+ny*nz+(iy-1)*nx+1]
+-xv[nlocal+0+nx*ny+ny+ny*nz+(iy)*nx+1]
 -xv[nlocal+0+nx*ny+ny+ny*nz+(iy+1)*nx]
 -xv[nlocal+0+nx*ny+ny+ny*nz+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -16891,7 +16891,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx*ny+ny+(iz-1)*ny]
 -xv[nlocal+0+nx*ny+ny+(iz-1)*ny+1]
 -xv[nlocal+0+nx*ny+ny+(iz)*ny]
--xv[nlocal+0+nx*ny+ny+(iz-1)*ny+1]
+-xv[nlocal+0+nx*ny+ny+(iz)*ny+1]
 -xv[nlocal+0+nx*ny+ny+(iz+1)*ny]
 -xv[nlocal+0+nx*ny+ny+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -16960,7 +16960,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<0<<" "<<0<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -17057,7 +17057,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+(iy-1)*nx]
 -xv[nlocal+0+(iy-1)*nx+1]
 -xv[nlocal+0+(iy)*nx]
--xv[nlocal+0+(iy-1)*nx+1]
+-xv[nlocal+0+(iy)*nx+1]
 -xv[nlocal+0+(iy+1)*nx]
 -xv[nlocal+0+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -17111,7 +17111,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx*ny+ny+(iz-1)*ny]
 -xv[nlocal+0+nx*ny+ny+(iz-1)*ny+1]
 -xv[nlocal+0+nx*ny+ny+(iz)*ny]
--xv[nlocal+0+nx*ny+ny+(iz-1)*ny+1]
+-xv[nlocal+0+nx*ny+ny+(iz)*ny+1]
 -xv[nlocal+0+nx*ny+ny+(iz+1)*ny]
 -xv[nlocal+0+nx*ny+ny+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -17166,7 +17166,7 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<0<<" "<<0<<" "<<0<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -17263,7 +17263,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+ny*nz+(iy-1)*nx]
 -xv[nlocal+0+ny*nz+(iy-1)*nx+1]
 -xv[nlocal+0+ny*nz+(iy)*nx]
--xv[nlocal+0+ny*nz+(iy-1)*nx+1]
+-xv[nlocal+0+ny*nz+(iy)*nx+1]
 -xv[nlocal+0+ny*nz+(iy+1)*nx]
 -xv[nlocal+0+ny*nz+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -17317,7 +17317,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+(iz-1)*ny]
 -xv[nlocal+0+(iz-1)*ny+1]
 -xv[nlocal+0+(iz)*ny]
--xv[nlocal+0+(iz-1)*ny+1]
+-xv[nlocal+0+(iz)*ny+1]
 -xv[nlocal+0+(iz+1)*ny]
 -xv[nlocal+0+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -17369,7 +17369,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<1<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<std::endl;ix = nx-1;
+ix = nx-1;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -17437,7 +17437,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+(iz-1)*ny]
 -xv[nlocal+0+(iz-1)*ny+1]
 -xv[nlocal+0+(iz)*ny]
--xv[nlocal+0+(iz-1)*ny+1]
+-xv[nlocal+0+(iz)*ny+1]
 -xv[nlocal+0+(iz+1)*ny]
 -xv[nlocal+0+(iz+1)*ny+1]
 ;}iy=ny-1;
@@ -17484,7 +17484,7 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<-1<<" "<<1<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -17737,7 +17737,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nx+(iy-1)*nx]
 -xv[nlocal+0+nx+(iy-1)*nx+1]
 -xv[nlocal+0+nx+(iy)*nx]
--xv[nlocal+0+nx+(iy-1)*nx+1]
+-xv[nlocal+0+nx+(iy)*nx+1]
 -xv[nlocal+0+nx+(iy+1)*nx]
 -xv[nlocal+0+nx+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -17759,7 +17759,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+(iy-1)*nx]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+(iy-1)*nx+1]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+(iy)*nx]
--xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+(iy-1)*nx+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+(iy)*nx+1]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+(iy+1)*nx]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -17782,7 +17782,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx+nx*ny+nx+(iz-1)*nx]
 -xv[nlocal+0+nx+nx*ny+nx+(iz-1)*nx+1]
 -xv[nlocal+0+nx+nx*ny+nx+(iz)*nx]
--xv[nlocal+0+nx+nx*ny+nx+(iz-1)*nx+1]
+-xv[nlocal+0+nx+nx*ny+nx+(iz)*nx+1]
 -xv[nlocal+0+nx+nx*ny+nx+(iz+1)*nx]
 -xv[nlocal+0+nx+nx*ny+nx+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -17804,7 +17804,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+(iz-1)*nx]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+(iz-1)*nx+1]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+(iz)*nx]
--xv[nlocal+0+nx+nx*ny+nx+nx*nz+(iz-1)*nx+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+(iz)*nx+1]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+(iz+1)*nx]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -17890,7 +17890,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<-1<<" "<<1<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -18079,7 +18079,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nx+(iy-1)*nx]
 -xv[nlocal+0+nx+(iy-1)*nx+1]
 -xv[nlocal+0+nx+(iy)*nx]
--xv[nlocal+0+nx+(iy-1)*nx+1]
+-xv[nlocal+0+nx+(iy)*nx+1]
 -xv[nlocal+0+nx+(iy+1)*nx]
 -xv[nlocal+0+nx+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -18102,7 +18102,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx+nx*ny+nx+(iz-1)*nx]
 -xv[nlocal+0+nx+nx*ny+nx+(iz-1)*nx+1]
 -xv[nlocal+0+nx+nx*ny+nx+(iz)*nx]
--xv[nlocal+0+nx+nx*ny+nx+(iz-1)*nx+1]
+-xv[nlocal+0+nx+nx*ny+nx+(iz)*nx+1]
 -xv[nlocal+0+nx+nx*ny+nx+(iz+1)*nx]
 -xv[nlocal+0+nx+nx*ny+nx+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -18124,7 +18124,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+(iz-1)*nx]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+(iz-1)*nx+1]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+(iz)*nx]
--xv[nlocal+0+nx+nx*ny+nx+nx*nz+(iz-1)*nx+1]
+-xv[nlocal+0+nx+nx*ny+nx+nx*nz+(iz)*nx+1]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+(iz+1)*nx]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -18196,7 +18196,7 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<-1<<" "<<1<<" "<<0<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -18385,7 +18385,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nx*nz+nx*nz+nx+(iy-1)*nx]
 -xv[nlocal+0+nx*nz+nx*nz+nx+(iy-1)*nx+1]
 -xv[nlocal+0+nx*nz+nx*nz+nx+(iy)*nx]
--xv[nlocal+0+nx*nz+nx*nz+nx+(iy-1)*nx+1]
+-xv[nlocal+0+nx*nz+nx*nz+nx+(iy)*nx+1]
 -xv[nlocal+0+nx*nz+nx*nz+nx+(iy+1)*nx]
 -xv[nlocal+0+nx*nz+nx*nz+nx+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -18408,7 +18408,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+(iz-1)*nx]
 -xv[nlocal+0+(iz-1)*nx+1]
 -xv[nlocal+0+(iz)*nx]
--xv[nlocal+0+(iz-1)*nx+1]
+-xv[nlocal+0+(iz)*nx+1]
 -xv[nlocal+0+(iz+1)*nx]
 -xv[nlocal+0+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -18430,7 +18430,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx*nz+(iz-1)*nx]
 -xv[nlocal+0+nx*nz+(iz-1)*nx+1]
 -xv[nlocal+0+nx*nz+(iz)*nx]
--xv[nlocal+0+nx*nz+(iz-1)*nx+1]
+-xv[nlocal+0+nx*nz+(iz)*nx+1]
 -xv[nlocal+0+nx*nz+(iz+1)*nx]
 -xv[nlocal+0+nx*nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -18499,7 +18499,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<-1<<" "<<1<<" "<<0<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -18625,7 +18625,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+(iz-1)*nx]
 -xv[nlocal+0+(iz-1)*nx+1]
 -xv[nlocal+0+(iz)*nx]
--xv[nlocal+0+(iz-1)*nx+1]
+-xv[nlocal+0+(iz)*nx+1]
 -xv[nlocal+0+(iz+1)*nx]
 -xv[nlocal+0+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -18647,7 +18647,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx*nz+(iz-1)*nx]
 -xv[nlocal+0+nx*nz+(iz-1)*nx+1]
 -xv[nlocal+0+nx*nz+(iz)*nx]
--xv[nlocal+0+nx*nz+(iz-1)*nx+1]
+-xv[nlocal+0+nx*nz+(iz)*nx+1]
 -xv[nlocal+0+nx*nz+(iz+1)*nx]
 -xv[nlocal+0+nx*nz+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -18705,7 +18705,7 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<-1<<" "<<0<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -18894,7 +18894,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nx+(iy-1)*nx]
 -xv[nlocal+0+nx+(iy-1)*nx+1]
 -xv[nlocal+0+nx+(iy)*nx]
--xv[nlocal+0+nx+(iy-1)*nx+1]
+-xv[nlocal+0+nx+(iy)*nx+1]
 -xv[nlocal+0+nx+(iy+1)*nx]
 -xv[nlocal+0+nx+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -18916,7 +18916,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nx+nx*ny+nx*nz+nx+(iy-1)*nx]
 -xv[nlocal+0+nx+nx*ny+nx*nz+nx+(iy-1)*nx+1]
 -xv[nlocal+0+nx+nx*ny+nx*nz+nx+(iy)*nx]
--xv[nlocal+0+nx+nx*ny+nx*nz+nx+(iy-1)*nx+1]
+-xv[nlocal+0+nx+nx*ny+nx*nz+nx+(iy)*nx+1]
 -xv[nlocal+0+nx+nx*ny+nx*nz+nx+(iy+1)*nx]
 -xv[nlocal+0+nx+nx*ny+nx*nz+nx+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -18939,7 +18939,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx+nx*ny+(iz-1)*nx]
 -xv[nlocal+0+nx+nx*ny+(iz-1)*nx+1]
 -xv[nlocal+0+nx+nx*ny+(iz)*nx]
--xv[nlocal+0+nx+nx*ny+(iz-1)*nx+1]
+-xv[nlocal+0+nx+nx*ny+(iz)*nx+1]
 -xv[nlocal+0+nx+nx*ny+(iz+1)*nx]
 -xv[nlocal+0+nx+nx*ny+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -19008,7 +19008,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<-1<<" "<<0<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -19136,7 +19136,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nx+(iy-1)*nx]
 -xv[nlocal+0+nx+(iy-1)*nx+1]
 -xv[nlocal+0+nx+(iy)*nx]
--xv[nlocal+0+nx+(iy-1)*nx+1]
+-xv[nlocal+0+nx+(iy)*nx+1]
 -xv[nlocal+0+nx+(iy+1)*nx]
 -xv[nlocal+0+nx+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -19159,7 +19159,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx+nx*ny+(iz-1)*nx]
 -xv[nlocal+0+nx+nx*ny+(iz-1)*nx+1]
 -xv[nlocal+0+nx+nx*ny+(iz)*nx]
--xv[nlocal+0+nx+nx*ny+(iz-1)*nx+1]
+-xv[nlocal+0+nx+nx*ny+(iz)*nx+1]
 -xv[nlocal+0+nx+nx*ny+(iz+1)*nx]
 -xv[nlocal+0+nx+nx*ny+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -19214,7 +19214,7 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<-1<<" "<<0<<" "<<0<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -19342,7 +19342,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nx*nz+nx+(iy-1)*nx]
 -xv[nlocal+0+nx*nz+nx+(iy-1)*nx+1]
 -xv[nlocal+0+nx*nz+nx+(iy)*nx]
--xv[nlocal+0+nx*nz+nx+(iy-1)*nx+1]
+-xv[nlocal+0+nx*nz+nx+(iy)*nx+1]
 -xv[nlocal+0+nx*nz+nx+(iy+1)*nx]
 -xv[nlocal+0+nx*nz+nx+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -19365,7 +19365,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+(iz-1)*nx]
 -xv[nlocal+0+(iz-1)*nx+1]
 -xv[nlocal+0+(iz)*nx]
--xv[nlocal+0+(iz-1)*nx+1]
+-xv[nlocal+0+(iz)*nx+1]
 -xv[nlocal+0+(iz+1)*nx]
 -xv[nlocal+0+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -19417,7 +19417,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<-1<<" "<<0<<" "<<0<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -19485,7 +19485,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+(iz-1)*nx]
 -xv[nlocal+0+(iz-1)*nx+1]
 -xv[nlocal+0+(iz)*nx]
--xv[nlocal+0+(iz-1)*nx+1]
+-xv[nlocal+0+(iz)*nx+1]
 -xv[nlocal+0+(iz+1)*nx]
 -xv[nlocal+0+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -19529,7 +19529,7 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<0<<" "<<1<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -19718,7 +19718,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+(iy-1)*nx]
 -xv[nlocal+0+(iy-1)*nx+1]
 -xv[nlocal+0+(iy)*nx]
--xv[nlocal+0+(iy-1)*nx+1]
+-xv[nlocal+0+(iy)*nx+1]
 -xv[nlocal+0+(iy+1)*nx]
 -xv[nlocal+0+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -19740,7 +19740,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nx*ny+nx+nx*nz+(iy-1)*nx]
 -xv[nlocal+0+nx*ny+nx+nx*nz+(iy-1)*nx+1]
 -xv[nlocal+0+nx*ny+nx+nx*nz+(iy)*nx]
--xv[nlocal+0+nx*ny+nx+nx*nz+(iy-1)*nx+1]
+-xv[nlocal+0+nx*ny+nx+nx*nz+(iy)*nx+1]
 -xv[nlocal+0+nx*ny+nx+nx*nz+(iy+1)*nx]
 -xv[nlocal+0+nx*ny+nx+nx*nz+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -19763,7 +19763,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx*ny+nx+(iz-1)*nx]
 -xv[nlocal+0+nx*ny+nx+(iz-1)*nx+1]
 -xv[nlocal+0+nx*ny+nx+(iz)*nx]
--xv[nlocal+0+nx*ny+nx+(iz-1)*nx+1]
+-xv[nlocal+0+nx*ny+nx+(iz)*nx+1]
 -xv[nlocal+0+nx*ny+nx+(iz+1)*nx]
 -xv[nlocal+0+nx*ny+nx+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -19832,7 +19832,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<0<<" "<<1<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -19960,7 +19960,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+(iy-1)*nx]
 -xv[nlocal+0+(iy-1)*nx+1]
 -xv[nlocal+0+(iy)*nx]
--xv[nlocal+0+(iy-1)*nx+1]
+-xv[nlocal+0+(iy)*nx+1]
 -xv[nlocal+0+(iy+1)*nx]
 -xv[nlocal+0+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -19983,7 +19983,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+nx*ny+nx+(iz-1)*nx]
 -xv[nlocal+0+nx*ny+nx+(iz-1)*nx+1]
 -xv[nlocal+0+nx*ny+nx+(iz)*nx]
--xv[nlocal+0+nx*ny+nx+(iz-1)*nx+1]
+-xv[nlocal+0+nx*ny+nx+(iz)*nx+1]
 -xv[nlocal+0+nx*ny+nx+(iz+1)*nx]
 -xv[nlocal+0+nx*ny+nx+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -20038,7 +20038,7 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<0<<" "<<1<<" "<<0<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -20166,7 +20166,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nx*nz+(iy-1)*nx]
 -xv[nlocal+0+nx*nz+(iy-1)*nx+1]
 -xv[nlocal+0+nx*nz+(iy)*nx]
--xv[nlocal+0+nx*nz+(iy-1)*nx+1]
+-xv[nlocal+0+nx*nz+(iy)*nx+1]
 -xv[nlocal+0+nx*nz+(iy+1)*nx]
 -xv[nlocal+0+nx*nz+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -20189,7 +20189,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+(iz-1)*nx]
 -xv[nlocal+0+(iz-1)*nx+1]
 -xv[nlocal+0+(iz)*nx]
--xv[nlocal+0+(iz-1)*nx+1]
+-xv[nlocal+0+(iz)*nx+1]
 -xv[nlocal+0+(iz+1)*nx]
 -xv[nlocal+0+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -20241,7 +20241,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<0<<" "<<1<<" "<<0<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = ny-1;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -20309,7 +20309,7 @@ for (iz=1; iz<nz-1;iz++)
 -xv[nlocal+0+(iz-1)*nx]
 -xv[nlocal+0+(iz-1)*nx+1]
 -xv[nlocal+0+(iz)*nx]
--xv[nlocal+0+(iz-1)*nx+1]
+-xv[nlocal+0+(iz)*nx+1]
 -xv[nlocal+0+(iz+1)*nx]
 -xv[nlocal+0+(iz+1)*nx+1]
 ;}ix=nx-1;
@@ -20350,7 +20350,7 @@ for (iz=1; iz<nz-1;iz++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<" "<<-1<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -20475,7 +20475,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+(iy-1)*nx]
 -xv[nlocal+0+(iy-1)*nx+1]
 -xv[nlocal+0+(iy)*nx]
--xv[nlocal+0+(iy-1)*nx+1]
+-xv[nlocal+0+(iy)*nx+1]
 -xv[nlocal+0+(iy+1)*nx]
 -xv[nlocal+0+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -20497,7 +20497,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+nx*ny+(iy-1)*nx]
 -xv[nlocal+0+nx*ny+(iy-1)*nx+1]
 -xv[nlocal+0+nx*ny+(iy)*nx]
--xv[nlocal+0+nx*ny+(iy-1)*nx+1]
+-xv[nlocal+0+nx*ny+(iy)*nx+1]
 -xv[nlocal+0+nx*ny+(iy+1)*nx]
 -xv[nlocal+0+nx*ny+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -20550,7 +20550,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<" "<<-1<<" "<<0<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = 0;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -20617,7 +20617,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+(iy-1)*nx]
 -xv[nlocal+0+(iy-1)*nx+1]
 -xv[nlocal+0+(iy)*nx]
--xv[nlocal+0+(iy-1)*nx+1]
+-xv[nlocal+0+(iy)*nx+1]
 -xv[nlocal+0+(iy+1)*nx]
 -xv[nlocal+0+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -20656,7 +20656,7 @@ for (iy=1; iy<ny-1;iy++)
 {
             if(ipz < npz - 1)
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<" "<<1<<std::endl;ix = 0;
+ix = 0;
 iy = 0;
 iz = nz-1;
 yv[ix+iy*nx+iz*ny*nx] += 
@@ -20723,7 +20723,7 @@ for (iy=1; iy<ny-1;iy++)
 -xv[nlocal+0+(iy-1)*nx]
 -xv[nlocal+0+(iy-1)*nx+1]
 -xv[nlocal+0+(iy)*nx]
--xv[nlocal+0+(iy-1)*nx+1]
+-xv[nlocal+0+(iy)*nx+1]
 -xv[nlocal+0+(iy+1)*nx]
 -xv[nlocal+0+(iy+1)*nx+1]
 ;}ix=nx-1;
@@ -20759,7 +20759,7 @@ for (iy=1; iy<ny-1;iy++)
 }//ipz < npz - 1
             else
 {
-std::cout <<A.geom->rank<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<" "<<0<<std::endl;;
+;
 ;
 ;
 }//ipz < npz - 1
