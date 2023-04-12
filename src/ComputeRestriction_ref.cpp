@@ -47,9 +47,6 @@ int ComputeRestriction_ref(const SparseMatrix & A, const Vector & rf) {
   local_int_t ix = 0;
   local_int_t iy = 0;
   local_int_t iz = 0;
-//  local_int_t nex = 0;
-//  local_int_t ney = 0;
-//  local_int_t nez = 0;
   local_int_t nx = A.geom->nx;
   local_int_t ny = A.geom->ny;
   local_int_t nz = A.geom->nz;
@@ -57,16 +54,10 @@ int ComputeRestriction_ref(const SparseMatrix & A, const Vector & rf) {
 #ifndef HPCG_NO_OPENMP
 #pragma omp parallel for
 #endif
-/*  for (local_int_t i=0; i<nc; ++i){
-        //rcv[i] = rfv[f2c[i]] - Axfv[f2c[i]];
-     std::cout << "Restriction " << i << " " << f2c[i] << std::endl;
-  }*/
-
   for( iz=0; iz< nz; iz +=2){
     for( iy=0; iy< ny; iy +=2){
         for (ix=0; ix < nx; ix +=2){
             rcv[ix/2+iy*nx/4+iz*ny*nx/8] = rfv[ix+iy*nx+iz*ny*nx] - Axfv[ix+iy*nx+iz*ny*nx];
-//        std::cout << "restrict  " << ix+iy*nx+iz*ny*nx << " " << ix/2+iy*nx/4+iz*ny*nx/8 << std::endl;
         }
     }
 }

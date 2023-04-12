@@ -32,6 +32,7 @@ using std::endl;
 #include "hpcg.hpp"
 
 #include "ComputeSPMV.hpp"
+#include "ComputeSPMV_old.hpp"
 #include "ComputeMG.hpp"
 #include "ComputeDotProduct.hpp"
 #include "ComputeResidual.hpp"
@@ -62,7 +63,7 @@ int TestSymmetry(SparseMatrix & A, Vector & b, Vector & xexact, TestSymmetryData
  local_int_t nrow = A.localNumberOfRows;
  local_int_t ncol = A.localNumberOfColumns;
 
- Vector x_ncol, y_ncol, z_ncol;
+ Vector x_ncol, y_ncol, z_ncol, z_ncol2;
  InitializeVector(x_ncol, ncol);
  InitializeVector(y_ncol, ncol);
  InitializeVector(z_ncol, ncol);
@@ -90,6 +91,7 @@ int TestSymmetry(SparseMatrix & A, Vector & b, Vector & xexact, TestSymmetryData
  // Next, compute y'*A*x
  ComputeDotProduct(nrow, x_ncol, x_ncol, xNorm2, t4, A.isDotProductOptimized);
  ierr = ComputeSPMV(A, x_ncol, z_ncol); // b_computed = A*x_overlap
+
  if (ierr) HPCG_fout << "Error in call to SpMV: " << ierr << ".\n" << endl;
  double ytAx = 0.0;
  ierr = ComputeDotProduct(nrow, y_ncol, z_ncol, ytAx, t4, A.isDotProductOptimized); // y'*A*x
