@@ -49,7 +49,6 @@ using std::endl;
 #include "ReportResults.hpp"
 #include "mytimer.hpp"
 #include "ComputeSPMV_ref.hpp"
-#include "ComputeSPMV_old.hpp"
 #include "ComputeMG_ref.hpp"
 #include "ComputeResidual.hpp"
 #include "CG.hpp"
@@ -238,6 +237,7 @@ int main(int argc, char * argv[]) {
 #ifdef HPCG_DETAILED_DEBUG
   if (geom->size == 1) WriteProblem(*geom, A, b, x, xexact);
 #endif
+
 
   //////////////////////////////
   // Validation Testing Phase //

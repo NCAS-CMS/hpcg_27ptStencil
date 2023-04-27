@@ -67,8 +67,7 @@ int TestCG(SparseMatrix & A, CGData & data, Vector & b, Vector & x, TestCGData &
   // CG should converge in about 10 iterations for this problem, regardless of problem size
   for (local_int_t i=0; i< A.localNumberOfRows; ++i) {
     global_int_t globalRowID = A.localToGlobalMap[i];
-    // dhc - need all diagonals to be the same for the matrix free version of SPMV
-//    if (globalRowID<9) {
+    //    if (globalRowID<9) {
     if (false) {
       double scale = (globalRowID+2)*1.0e6;
       ScaleVectorValue(exaggeratedDiagA, i, scale);
