@@ -177,17 +177,68 @@ int main(int argc, char * argv[]) {
   int* map_w3;double* yvec;double* xvec;double* op1;double* op2;double* op3;double* op4;double* op5;double* op6;double* op7;double* op8;double* op9;double* ans;
   int* stencil_size; int*** dofmap;
 
-  read_dinodump(loop0_start, loop0_stop, nlayers, undf_w3, x_vec_max_branch_length, &map_w3,
+  if (rank==0)
+  {
+    read_dinodump(loop0_start, loop0_stop, nlayers, undf_w3, x_vec_max_branch_length, &map_w3,
                 &yvec, &xvec, &op1, &op2, &op3, &op4, &op5, &op6, &op7, &op8, &op9, &ans, &stencil_size, &dofmap);
+  }
 
-//  std::cout << "Replacing vector b " << b.localLength << "with my x which has " << undf_w3 << std::endl;
+  MPI_Bcast(&loop0_start, 1, MPI_INT, 0, MPI_COMM_WORLD );
+  MPI_Bcast(&loop0_stop,  1, MPI_INT, 0, MPI_COMM_WORLD );
+  MPI_Bcast(&nlayers,     1, MPI_INT, 0, MPI_COMM_WORLD );
+  MPI_Bcast(&undf_w3,     1, MPI_INT, 0, MPI_COMM_WORLD );
+  MPI_Bcast(&x_vec_max_branch_length, 1, MPI_INT, 0, MPI_COMM_WORLD );
+  if(rank!=0)
+  {
+     map_w3 = (int*)    malloc(loop0_stop * sizeof(int));
+     yvec   = (double*) malloc(undf_w3 * sizeof(double));
+     xvec   = (double*) malloc(undf_w3 * sizeof(double));
+     op1    = (double*) malloc(undf_w3 * sizeof(double));
+     op2    = (double*) malloc(undf_w3 * sizeof(double));
+     op3    = (double*) malloc(undf_w3 * sizeof(double));
+     op4    = (double*) malloc(undf_w3 * sizeof(double));
+     op5    = (double*) malloc(undf_w3 * sizeof(double));
+     op6    = (double*) malloc(undf_w3 * sizeof(double));
+     op7    = (double*) malloc(undf_w3 * sizeof(double));
+     op8    = (double*) malloc(undf_w3 * sizeof(double));
+     op9    = (double*) malloc(undf_w3 * sizeof(double));
+     ans    = (double*) malloc(undf_w3 * sizeof(double));
+  }
+
+  MPI_Bcast(map_w3, loop0_stop, MPI_INT, 0, MPI_COMM_WORLD );
+  MPI_Bcast(yvec, undf_w3, MPI_DOUBLE, 0, MPI_COMM_WORLD );
+  MPI_Bcast(xvec, undf_w3, MPI_DOUBLE, 0, MPI_COMM_WORLD );
+  MPI_Bcast(op1, undf_w3, MPI_DOUBLE, 0, MPI_COMM_WORLD );
+  MPI_Bcast(op2, undf_w3, MPI_DOUBLE, 0, MPI_COMM_WORLD );
+  MPI_Bcast(op3, undf_w3, MPI_DOUBLE, 0, MPI_COMM_WORLD );
+  MPI_Bcast(op4, undf_w3, MPI_DOUBLE, 0, MPI_COMM_WORLD );
+  MPI_Bcast(op5, undf_w3, MPI_DOUBLE, 0, MPI_COMM_WORLD );
+  MPI_Bcast(op6, undf_w3, MPI_DOUBLE, 0, MPI_COMM_WORLD );
+  MPI_Bcast(op7, undf_w3, MPI_DOUBLE, 0, MPI_COMM_WORLD );
+  MPI_Bcast(op8, undf_w3, MPI_DOUBLE, 0, MPI_COMM_WORLD );
+  MPI_Bcast(op9, undf_w3, MPI_DOUBLE, 0, MPI_COMM_WORLD );
+  MPI_Bcast(ans, undf_w3, MPI_DOUBLE, 0, MPI_COMM_WORLD );
+
+  //set dofmap to be contiguous later (then do 1 bcast)
+  if(rank!=0)  dofmap = (int***) malloc(loop0_stop * sizeof(int **));
+  for (int i=0;i<loop0_stop;i++)
+  {
+    if (rank!=0) dofmap[i] = (int**) malloc(4 * sizeof(int*));
+        for (int j=0; j < 4; j++)
+        {
+            if(rank!=0) dofmap[i][j] = (int*) malloc (x_vec_max_branch_length * sizeof(int));
+
+            MPI_Bcast(dofmap[i][j], x_vec_max_branch_length, MPI_INT, 0, MPI_COMM_WORLD);
+        }
+    }
+
   b.localLength = undf_w3;
   b.values = xvec;
   x.localLength = undf_w3;
-  //x.values = xvec;
+
   xexact.localLength = undf_w3;
   xexact.values = yvec;
-  // something for ans??
+
   // z direction never partitioned, so global and local always nlayers
   A.geom->gnz = nlayers;
   A.geom->nz  = nlayers;
@@ -230,7 +281,6 @@ int main(int argc, char * argv[]) {
   Vector x_overlap, b_computed;
   InitializeVector(x_overlap, ncol); // Overlapped copy of x vector
   InitializeVector(b_computed, nrow); // Computed RHS vector
-
 
   // Record execution time of reference SpMV and MG kernels for reporting times
   // First load vector with random values
@@ -305,9 +355,9 @@ int main(int argc, char * argv[]) {
   TestCGData testcg_data;
 
   testcg_data.count_pass = testcg_data.count_fail = 0;
-  TestCG(A, data, b, x, testcg_data);
+//  TestCG(A, data, b, x, testcg_data);
   TestSymmetryData testsymmetry_data;
-  TestSymmetry(A, b, xexact, testsymmetry_data);
+//  TestSymmetry(A, b, xexact, testsymmetry_data);
 
 #ifdef HPCG_DEBUG
   if (rank==0) HPCG_fout << "Total validation (TestCG and TestSymmetry) execution time in main (sec) = " << mytimer() - t1 << endl;

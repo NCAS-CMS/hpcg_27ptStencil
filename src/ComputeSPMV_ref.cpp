@@ -50,10 +50,10 @@ int ComputeSPMV_ref( const SparseMatrix & A, Vector & x, Vector & y) {
   assert(x.localLength>=A.localNumberOfColumns); // Test vector lengths
   assert(y.localLength>=A.localNumberOfRows);
 
-#ifndef HPCG_NO_MPI
-    ExchangeHalo(A,x);
-#endif
-
+  //#ifndef HPCG_NO_MPI
+  //    ExchangeHalo(A,x);
+  //#endif
+  //  std::cout<<A.geom->rank<<" skip halo"<<std::endl;
   const double * const xv = x.values;
   double * const yv = y.values;
   const int* map_fn = (*A.geom->map_w3);//map function

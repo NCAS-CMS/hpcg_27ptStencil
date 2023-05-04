@@ -283,9 +283,9 @@ void read_dinodump(local_int_t& loop0_start, local_int_t& loop0_stop, local_int_
                 *op9          = (double*) malloc(undf_w3 * sizeof(double));
                 *ans          = (double*) malloc(undf_w3 * sizeof(double));
 
-                std::cout << "Scalars " << loop0_start << " "<< loop0_stop << " "<< nlayers << " "<< undf_w3 << " "<< x_vec_max_branch_length << std::endl;
-                std::cout << "Points in file " << stencil_start << " " << stencil_stop << " " << dofmap_start << " " << dofmap_stop << " "
-                << map_start << " " << map_stop << std::endl;
+		//                std::cout << "Scalars " << loop0_start << " "<< loop0_stop << " "<< nlayers << " "<< undf_w3 << " "<< x_vec_max_branch_length << std::endl;
+                //std::cout << "Points in file " << stencil_start << " " << stencil_stop << " " << dofmap_start << " " << dofmap_stop << " "
+                //<< map_start << " " << map_stop << std::endl;
          }
       }
       else{

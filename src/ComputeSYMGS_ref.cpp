@@ -59,7 +59,7 @@ int ComputeSYMGS_ref( const SparseMatrix & A, const Vector & r, Vector & x) {
 #ifndef HPCG_NO_MPI
   ExchangeHalo(A,x);
 #endif
-
+  assert(false);
   local_int_t ix = 0;
   local_int_t iy = 0;
   local_int_t iz = 0;
