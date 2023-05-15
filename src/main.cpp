@@ -138,8 +138,6 @@ int main(int argc, char * argv[]) {
   GenerateProblem(A, &b, &x, &xexact); // Keep here but over write data today, and subroutine later
   SetupHalo(A); //dhc - presumably won't work??
 
-
-
   int numberOfMgLevels = 1; // 4; // Number of levels including first // Don't know how this will work at this stage - dhc
   SparseMatrix * curLevelMatrix = &A;
   for (int level = 1; level< numberOfMgLevels; ++level) {
@@ -268,6 +266,11 @@ int main(int argc, char * argv[]) {
     A.op8 = A.op6; //D=U
   }
 
+  // slightly tidy data object to avoid problems?
+  data.Ap.localLength = A.localNumberOfColumns;
+  data.p.localLength = A.localNumberOfColumns;
+  data.r.localLength = A.localNumberOfColumns;
+  data.z.localLength = A.localNumberOfColumns;
 
   ////////////////////////////////////
   // Reference SpMV+MG Timing Phase //
@@ -353,7 +356,6 @@ int main(int argc, char * argv[]) {
 #endif
   // dhc - look at these tests -- surely cant pass? - diagonal etc??
   TestCGData testcg_data;
-
   testcg_data.count_pass = testcg_data.count_fail = 0;
 //  TestCG(A, data, b, x, testcg_data);
   TestSymmetryData testsymmetry_data;
