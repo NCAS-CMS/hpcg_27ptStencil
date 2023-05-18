@@ -23,7 +23,6 @@
 #include <mpi.h>
 #endif
 #include <fstream>
-#include <iostream>
 #include <cfloat>
 using std::endl;
 #include <vector>
@@ -71,7 +70,6 @@ int TestSymmetry(SparseMatrix & A, Vector & b, Vector & xexact, TestSymmetryData
  testsymmetry_data.count_fail = 0;
 
  // Test symmetry of matrix
-
  // First load vectors with random values
  FillRandomVector(x_ncol);
  FillRandomVector(y_ncol);
@@ -100,7 +98,7 @@ int TestSymmetry(SparseMatrix & A, Vector & b, Vector & xexact, TestSymmetryData
  if (A.geom->rank==0) HPCG_fout << "Departure from symmetry (scaled) for SpMV abs(x'*A*y - y'*A*x) = " << testsymmetry_data.depsym_spmv << endl;
 
  // Test symmetry of multi-grid
-/* NO!
+/* NO! There is no multi-grid in this stage of LFRic CG benchmark
  // Compute x'*Minv*y
  ierr = ComputeMG(A, y_ncol, z_ncol); // z_ncol = Minv*y_ncol
  if (ierr) HPCG_fout << "Error in call to MG: " << ierr << ".\n" << endl;
