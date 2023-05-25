@@ -60,7 +60,7 @@ using std::endl;
 #include "TestCG.hpp"
 #include "TestSymmetry.hpp"
 #include "TestNorms.hpp"
-#include "DHC_temp_setup.hpp"
+#include "LFRic_setup.hpp"
 
 /*!
   Main driver program: Construct synthetic problem, run V&V tests, compute benchmark parameters, run benchmark, report results.
@@ -136,7 +136,7 @@ int main(int argc, char * argv[]) {
 
   Vector b, x, xexact;
   GenerateProblem(A, &b, &x, &xexact); // Keep here but over write data today, and subroutine later
-  SetupHalo(A); //dhc - presumably won't work??
+  SetupHalo(A); //dhc - will not be doing halo exchange in this app
 
 
 
