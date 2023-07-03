@@ -274,9 +274,12 @@ int main(int argc, char * argv[]) {
   data.r.localLength = A.localNumberOfColumns;
   data.z.localLength = A.localNumberOfColumns;
 
-  // Change parts of A needed for performance
-  A.totalNumberOfNonzeros = 9.0 * A.totalNumberOfRows; // This is not true really, as not 9pt stencil at boundary 
-
+  // Change parts of A (each MPI is a replica)
+  A.totalNumberOfRows = A.localNumberOfRows * size;
+  // 9pt stencil in bulk, but 2 layers above and below - hence bottom/top missing 2, and 1st above/below bottom/top missing 1
+  A.totalNumberOfNonzeros = (9.0 * A.geom->nxy * (A.geom->nz -4) +
+                             8.0 * A.geom->nxy * 2 +
+                             7.0 * A.geom->nxy * 2) * size;
   ////////////////////////////////////
   // Reference SpMV+MG Timing Phase //
   ////////////////////////////////////
