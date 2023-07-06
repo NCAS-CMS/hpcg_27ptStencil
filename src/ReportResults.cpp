@@ -216,8 +216,8 @@ void ReportResults(const SparseMatrix & A, int numberOfMgLevels, int numberOfCgS
     doc.get("Machine Summary")->add("Threads per processes",A.geom->numThreads);
 
     doc.add("Global Problem Dimensions","");
-    doc.get("Global Problem Dimensions")->add("Global nx",A.geom->gnx);
-    doc.get("Global Problem Dimensions")->add("Global ny",A.geom->gny);
+    doc.get("Global Problem Dimensions")->add("Global nx","N/A");
+    doc.get("Global Problem Dimensions")->add("Global ny","N/A");
     doc.get("Global Problem Dimensions")->add("Global nz",A.geom->gnz);
 
     doc.add("Processor Dimensions","");
@@ -226,14 +226,14 @@ void ReportResults(const SparseMatrix & A, int numberOfMgLevels, int numberOfCgS
     doc.get("Processor Dimensions")->add("npz",A.geom->npz);
 
     doc.add("Local Domain Dimensions","");
-    doc.get("Local Domain Dimensions")->add("nx",A.geom->nx);
-    doc.get("Local Domain Dimensions")->add("ny",A.geom->ny);
+    doc.get("Local Domain Dimensions")->add("nx","N/A");
+    doc.get("Local Domain Dimensions")->add("ny","N/A");
 
     int ipartz_ids = 0;
     for (int i=0; i< A.geom->npartz; ++i) {
-      doc.get("Local Domain Dimensions")->add("Lower ipz", ipartz_ids);
-      doc.get("Local Domain Dimensions")->add("Upper ipz", A.geom->partz_ids[i]-1);
-      doc.get("Local Domain Dimensions")->add("nz",A.geom->partz_nz[i]);
+      doc.get("Local Domain Dimensions")->add("Lower ipz", "N/A");
+      doc.get("Local Domain Dimensions")->add("Upper ipz", "N/A");
+      doc.get("Local Domain Dimensions")->add("nz","As global");
       ipartz_ids = A.geom->partz_ids[i];
     }
 
