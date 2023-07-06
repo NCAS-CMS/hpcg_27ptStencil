@@ -67,9 +67,8 @@ int ComputeSYMGS_ref( const SparseMatrix & A, const Vector & r, Vector & x) {
   int ipy          = A.geom->ipy;
   int ipz          = A.geom->ipz;
   double diagonal_element = A.matrixDiagonal[0][0];// big assumption?
-//  const local_int_t nrow = A.localNumberOfRows;
-//  double ** matrixDiagonal = A.matrixDiagonal;  // An array of pointers to the diagonal entries A.matrixValues
-  const double * const rv = r.values;
+
+const double * const rv = r.values;
   double * const xv = x.values;
 
 // forward sweep

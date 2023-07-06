@@ -1,4 +1,3 @@
-
 //@HEADER
 // ***************************************************
 //
@@ -17,7 +16,6 @@
 
  HPCG routine
  */
-#include <iostream>
 
 #include "ComputeSPMV_ref.hpp"
 
@@ -72,12 +70,6 @@ int ComputeSPMV_ref( const SparseMatrix & A, Vector & x, Vector & y) {
   local_int_t ny = A.geom->ny;
   local_int_t nz = A.geom->nz;
   local_int_t nlocal = nx*ny*nz;
-//  global_int_t gix0 = A.geom->gix0;
-//  global_int_t giy0 = A.geom->giy0;
-//  global_int_t giz0 = A.geom->giz0;
-//  global_int_t gnx = A.geom->gnx;
-//  global_int_t gny = A.geom->gny;
-//  global_int_t gnz = A.geom->gnz;
   int npx          = A.geom->npx;
   int npy          = A.geom->npy;
   int npz          = A.geom->npz;
@@ -124,12 +116,12 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 ;}
 }
 }
-//sides
+//sides 
 iz = 0;
 for (ix=1; ix<nx-1;ix++){
     for (iy=1; iy<ny-1;iy++)
 {
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+-1)+(iy+-1)*nx+(iz+0)*ny*nx]
 -xv[(ix+-1)+(iy+-1)*nx+(iz+1)*ny*nx]
 -xv[(ix+-1)+(iy+0)*nx+(iz+0)*ny*nx]
@@ -153,7 +145,7 @@ iz = nz-1;
 for (ix=1; ix<nx-1;ix++){
     for (iy=1; iy<ny-1;iy++)
 {
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+-1)+(iy+-1)*nx+(iz+-1)*ny*nx]
 -xv[(ix+-1)+(iy+-1)*nx+(iz+0)*ny*nx]
 -xv[(ix+-1)+(iy+0)*nx+(iz+-1)*ny*nx]
@@ -177,7 +169,7 @@ iy = 0;
 for (ix=1; ix<nx-1;ix++){
     for (iz=1; iz<nz-1;iz++)
 {
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+-1)+(iy+0)*nx+(iz+-1)*ny*nx]
 -xv[(ix+-1)+(iy+1)*nx+(iz+-1)*ny*nx]
 -xv[(ix+-1)+(iy+0)*nx+(iz+0)*ny*nx]
@@ -201,7 +193,7 @@ iy = ny-1;
 for (ix=1; ix<nx-1;ix++){
     for (iz=1; iz<nz-1;iz++)
 {
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+-1)+(iy+-1)*nx+(iz+-1)*ny*nx]
 -xv[(ix+-1)+(iy+0)*nx+(iz+-1)*ny*nx]
 -xv[(ix+-1)+(iy+-1)*nx+(iz+0)*ny*nx]
@@ -225,7 +217,7 @@ ix = 0;
 for (iy=1; iy<ny-1;iy++){
     for (iz=1; iz<nz-1;iz++)
 {
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+0)+(iy+-1)*nx+(iz+-1)*ny*nx]
 -xv[(ix+1)+(iy+-1)*nx+(iz+-1)*ny*nx]
 -xv[(ix+0)+(iy+-1)*nx+(iz+0)*ny*nx]
@@ -249,7 +241,7 @@ ix = nx-1;
 for (iy=1; iy<ny-1;iy++){
     for (iz=1; iz<nz-1;iz++)
 {
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+-1)+(iy+-1)*nx+(iz+-1)*ny*nx]
 -xv[(ix+0)+(iy+-1)*nx+(iz+-1)*ny*nx]
 -xv[(ix+-1)+(iy+-1)*nx+(iz+0)*ny*nx]
@@ -270,11 +262,11 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 ;}
 }
 
-//edges
+//edges 
 ix = 0;
 iy = 0;
 for (iz=1; iz<nz-1;iz++){
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+0)+(iy+0)*nx+(iz+-1)*ny*nx]
 -xv[(ix+0)+(iy+1)*nx+(iz+-1)*ny*nx]
 -xv[(ix+1)+(iy+0)*nx+(iz+-1)*ny*nx]
@@ -290,7 +282,7 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 ix = 0;
 iy = ny-1;
 for (iz=1; iz<nz-1;iz++){
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+0)+(iy+-1)*nx+(iz+-1)*ny*nx]
 -xv[(ix+0)+(iy+0)*nx+(iz+-1)*ny*nx]
 -xv[(ix+1)+(iy+-1)*nx+(iz+-1)*ny*nx]
@@ -306,7 +298,7 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 ix = nx-1;
 iy = 0;
 for (iz=1; iz<nz-1;iz++){
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+-1)+(iy+0)*nx+(iz+-1)*ny*nx]
 -xv[(ix+-1)+(iy+1)*nx+(iz+-1)*ny*nx]
 -xv[(ix+0)+(iy+0)*nx+(iz+-1)*ny*nx]
@@ -322,7 +314,7 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 ix = nx-1;
 iy = ny-1;
 for (iz=1; iz<nz-1;iz++){
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+-1)+(iy+-1)*nx+(iz+-1)*ny*nx]
 -xv[(ix+-1)+(iy+0)*nx+(iz+-1)*ny*nx]
 -xv[(ix+0)+(iy+-1)*nx+(iz+-1)*ny*nx]
@@ -338,7 +330,7 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 ix = 0;
 iz = 0;
 for (iy=1; iy<ny-1;iy++){
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+0)+(iy+-1)*nx+(iz+0)*ny*nx]
 -xv[(ix+0)+(iy+-1)*nx+(iz+1)*ny*nx]
 -xv[(ix+1)+(iy+-1)*nx+(iz+0)*ny*nx]
@@ -354,7 +346,7 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 ix = 0;
 iz = nz-1;
 for (iy=1; iy<ny-1;iy++){
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+0)+(iy+-1)*nx+(iz+-1)*ny*nx]
 -xv[(ix+0)+(iy+-1)*nx+(iz+0)*ny*nx]
 -xv[(ix+1)+(iy+-1)*nx+(iz+-1)*ny*nx]
@@ -370,7 +362,7 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 ix = nx-1;
 iz = 0;
 for (iy=1; iy<ny-1;iy++){
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+-1)+(iy+-1)*nx+(iz+0)*ny*nx]
 -xv[(ix+-1)+(iy+-1)*nx+(iz+1)*ny*nx]
 -xv[(ix+0)+(iy+-1)*nx+(iz+0)*ny*nx]
@@ -386,7 +378,7 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 ix = nx-1;
 iz = nz-1;
 for (iy=1; iy<ny-1;iy++){
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+-1)+(iy+-1)*nx+(iz+-1)*ny*nx]
 -xv[(ix+-1)+(iy+-1)*nx+(iz+0)*ny*nx]
 -xv[(ix+0)+(iy+-1)*nx+(iz+-1)*ny*nx]
@@ -402,7 +394,7 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 iy = 0;
 iz = 0;
 for (ix=1; ix<nx-1;ix++){
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+-1)+(iy+0)*nx+(iz+0)*ny*nx]
 -xv[(ix+-1)+(iy+0)*nx+(iz+1)*ny*nx]
 -xv[(ix+-1)+(iy+1)*nx+(iz+0)*ny*nx]
@@ -418,7 +410,7 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 iy = 0;
 iz = nz-1;
 for (ix=1; ix<nx-1;ix++){
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+-1)+(iy+0)*nx+(iz+-1)*ny*nx]
 -xv[(ix+-1)+(iy+0)*nx+(iz+0)*ny*nx]
 -xv[(ix+-1)+(iy+1)*nx+(iz+-1)*ny*nx]
@@ -434,7 +426,7 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 iy = ny-1;
 iz = 0;
 for (ix=1; ix<nx-1;ix++){
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+-1)+(iy+-1)*nx+(iz+0)*ny*nx]
 -xv[(ix+-1)+(iy+-1)*nx+(iz+1)*ny*nx]
 -xv[(ix+-1)+(iy+0)*nx+(iz+0)*ny*nx]
@@ -450,7 +442,7 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 iy = ny-1;
 iz = nz-1;
 for (ix=1; ix<nx-1;ix++){
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+-1)+(iy+-1)*nx+(iz+-1)*ny*nx]
 -xv[(ix+-1)+(iy+-1)*nx+(iz+0)*ny*nx]
 -xv[(ix+-1)+(iy+0)*nx+(iz+-1)*ny*nx]
@@ -468,7 +460,7 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+0)+(iy+0)*nx+(iz+1)*ny*nx]
 -xv[(ix+0)+(iy+1)*nx+(iz+0)*ny*nx]
 -xv[(ix+0)+(iy+1)*nx+(iz+1)*ny*nx]
@@ -480,7 +472,7 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+0)+(iy+0)*nx+(iz+-1)*ny*nx]
 -xv[(ix+0)+(iy+1)*nx+(iz+-1)*ny*nx]
 -xv[(ix+0)+(iy+1)*nx+(iz+0)*ny*nx]
@@ -492,7 +484,7 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+0)+(iy+-1)*nx+(iz+0)*ny*nx]
 -xv[(ix+0)+(iy+-1)*nx+(iz+1)*ny*nx]
 -xv[(ix+0)+(iy+0)*nx+(iz+1)*ny*nx]
@@ -504,7 +496,7 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+0)+(iy+-1)*nx+(iz+-1)*ny*nx]
 -xv[(ix+0)+(iy+-1)*nx+(iz+0)*ny*nx]
 -xv[(ix+0)+(iy+0)*nx+(iz+-1)*ny*nx]
@@ -516,7 +508,7 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+-1)+(iy+0)*nx+(iz+0)*ny*nx]
 -xv[(ix+-1)+(iy+0)*nx+(iz+1)*ny*nx]
 -xv[(ix+-1)+(iy+1)*nx+(iz+0)*ny*nx]
@@ -528,7 +520,7 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+-1)+(iy+0)*nx+(iz+-1)*ny*nx]
 -xv[(ix+-1)+(iy+0)*nx+(iz+0)*ny*nx]
 -xv[(ix+-1)+(iy+1)*nx+(iz+-1)*ny*nx]
@@ -540,7 +532,7 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+-1)+(iy+-1)*nx+(iz+0)*ny*nx]
 -xv[(ix+-1)+(iy+-1)*nx+(iz+1)*ny*nx]
 -xv[(ix+-1)+(iy+0)*nx+(iz+0)*ny*nx]
@@ -552,7 +544,7 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
+yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx] 
 -xv[(ix+-1)+(iy+-1)*nx+(iz+-1)*ny*nx]
 -xv[(ix+-1)+(iy+-1)*nx+(iz+0)*ny*nx]
 -xv[(ix+-1)+(iy+0)*nx+(iz+-1)*ny*nx]
@@ -561,11 +553,6 @@ yv[ix+iy*nx+iz*ny*nx] = diagonal_element * xv[ix+iy*nx+iz*ny*nx]
 -xv[(ix+0)+(iy+-1)*nx+(iz+0)*ny*nx]
 -xv[(ix+0)+(iy+0)*nx+(iz+-1)*ny*nx]
 ;
-
-
-//  if (nex*ney*nez == 0) return 0;
-
-
 
 if(ipx > 0)
 {
@@ -582,7 +569,7 @@ if(ipx > 0)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+1]
@@ -606,7 +593,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz-2]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz]
@@ -630,7 +617,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny-2]
 -xv[nlocal+0+1+nx+1+ny-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny-2]
@@ -654,7 +641,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*(nz-1)-2]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*(nz-1)-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz-2]
@@ -678,7 +665,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx-2]
 -xv[nlocal+0+1+nx-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx-2]
@@ -702,7 +689,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*(nz-1)-2]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*(nz-1)-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz-2]
@@ -726,7 +713,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny+nx*(ny-1)-2]
 -xv[nlocal+0+1+nx+1+ny+nx*(ny-1)-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny-2]
@@ -750,7 +737,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*(ny-1)-2]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*(ny-1)-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny-2]
@@ -1254,7 +1241,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+1]
@@ -1278,7 +1265,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz-2]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*(nz-2)]
@@ -1293,7 +1280,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny-2]
 -xv[nlocal+0+1+nx+1+ny-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny-2]
@@ -1317,7 +1304,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*(nz-1)-2]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*(nz-1)-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz-2]
@@ -1332,7 +1319,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx-2]
 -xv[nlocal+0+1+nx-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx-2]
@@ -1356,7 +1343,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*(nz-1)-2]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*(nz-1)-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz-2]
@@ -1371,7 +1358,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny+nx*(ny-1)-2]
 -xv[nlocal+0+1+nx+1+ny+nx*(ny-1)-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny-2]
@@ -1395,7 +1382,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-1)-2]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-1)-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1+nx+1+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz-2]
@@ -1788,7 +1775,7 @@ for (iy=1; iy<ny-1;iy++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
+          }//ipz > 0 
         else
 {
             if(ipz < npz - 1)
@@ -1796,7 +1783,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nz+nx*nz+nz]
@@ -1811,7 +1798,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz-2]
 -xv[nlocal+0+nz-1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz]
@@ -1835,7 +1822,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+nz+ny-2]
 -xv[nlocal+0+nz+nx*nz+nz+ny-1]
 -xv[nlocal+0+nz+nx*nz+nz+2*ny-2]
@@ -1850,7 +1837,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)-2]
 -xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)-1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz-2]
@@ -1874,7 +1861,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx-2]
 -xv[nlocal+0+nz+nx-1]
 -xv[nlocal+0+nz+2*nx-2]
@@ -1889,7 +1876,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*(nz-1)-2]
 -xv[nlocal+0+nz+nx*(nz-1)-1]
 -xv[nlocal+0+nz+nx*nz-2]
@@ -1913,7 +1900,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx-2]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx-1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+2*nx-2]
@@ -1928,7 +1915,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*(ny-1)-2]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*(ny-1)-1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz+nz+1+nx+1+ny+nx*ny-2]
@@ -2335,7 +2322,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nz+nx*nz+nz]
@@ -2350,7 +2337,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz-2]
 -xv[nlocal+0+nz-1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*(nz-2)]
@@ -2365,7 +2352,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+nz+ny-2]
 -xv[nlocal+0+nz+nx*nz+nz+ny-1]
 -xv[nlocal+0+nz+nx*nz+nz+2*ny-2]
@@ -2380,7 +2367,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)-2]
 -xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)-1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz-2]
@@ -2395,7 +2382,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx-2]
 -xv[nlocal+0+nz+nx-1]
 -xv[nlocal+0+nz+2*nx-2]
@@ -2410,7 +2397,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*(nz-1)-2]
 -xv[nlocal+0+nz+nx*(nz-1)-1]
 -xv[nlocal+0+nz+nx*nz-2]
@@ -2425,7 +2412,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx-2]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx-1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+2*nx-2]
@@ -2440,7 +2427,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-1)-2]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*(nz-1)-1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+nz+nx*nz-2]
@@ -2736,8 +2723,8 @@ for (iz=1; iz<nz-1;iz++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
-        }//ipy < npy - 1
+          }//ipz > 0 
+        }//ipy < npy - 1 
       else
 {
         if(ipz > 0)
@@ -2747,7 +2734,7 @@ for (iz=1; iz<nz-1;iz++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1]
@@ -2771,7 +2758,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz-2]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz]
@@ -2795,7 +2782,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny-2]
 -xv[nlocal+0+1+nx+1+ny-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny-2]
@@ -2810,7 +2797,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*(nz-1)-2]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*(nz-1)-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz-2]
@@ -2825,7 +2812,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx-2]
 -xv[nlocal+0+1+nx-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx-2]
@@ -2849,7 +2836,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*(nz-1)-2]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*(nz-1)-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz-2]
@@ -2873,7 +2860,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny+nx*(ny-1)-2]
 -xv[nlocal+0+1+nx+1+ny+nx*(ny-1)-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny-2]
@@ -2888,7 +2875,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*(ny-1)-2]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*(ny-1)-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny-2]
@@ -3286,7 +3273,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+1]
@@ -3310,7 +3297,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz-2]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*(nz-2)]
@@ -3325,7 +3312,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny-2]
 -xv[nlocal+0+1+nx+1+ny-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny-2]
@@ -3340,7 +3327,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*(nz-1)-2]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*(nz-1)-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz-2]
@@ -3349,7 +3336,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx-2]
 -xv[nlocal+0+1+nx-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx-2]
@@ -3373,7 +3360,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*(nz-1)-2]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*(nz-1)-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz-2]
@@ -3388,7 +3375,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny+nx*(ny-1)-2]
 -xv[nlocal+0+1+nx+1+ny+nx*(ny-1)-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny-2]
@@ -3403,7 +3390,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*(nz-1)-2]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*(nz-1)-1]
 -xv[nlocal+0+1+nx+1+ny+nx*ny+ny+nz+nx*nz+nz+ny*nz+ny*nz-2]
@@ -3702,7 +3689,7 @@ for (iy=1; iy<ny-1;iy++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
+          }//ipz > 0 
         else
 {
             if(ipz < npz - 1)
@@ -3710,7 +3697,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nz+nx*nz+nz]
@@ -3725,7 +3712,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz-2]
 -xv[nlocal+0+nz-1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz]
@@ -3749,7 +3736,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+nz+ny-2]
 -xv[nlocal+0+nz+nx*nz+nz+ny-1]
 -xv[nlocal+0+nz+nx*nz+nz+2*ny-2]
@@ -3758,7 +3745,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)-2]
 -xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)-1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz-2]
@@ -3773,7 +3760,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx-2]
 -xv[nlocal+0+nz+nx-1]
 -xv[nlocal+0+nz+2*nx-2]
@@ -3788,7 +3775,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*(nz-1)-2]
 -xv[nlocal+0+nz+nx*(nz-1)-1]
 -xv[nlocal+0+nz+nx*nz-2]
@@ -3812,7 +3799,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny-2]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny-1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+2*ny-2]
@@ -3821,7 +3808,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*(ny-1)-2]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*(ny-1)-1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz+1+nx+1+ny+nx*ny-2]
@@ -4131,7 +4118,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nz+nx*nz+nz]
@@ -4146,7 +4133,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz-2]
 -xv[nlocal+0+nz-1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*(nz-2)]
@@ -4161,7 +4148,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+nz+ny-2]
 -xv[nlocal+0+nz+nx*nz+nz+ny-1]
 -xv[nlocal+0+nz+nx*nz+nz+2*ny-2]
@@ -4170,7 +4157,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)-2]
 -xv[nlocal+0+nz+nx*nz+nz+ny*(nz-1)-1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz-2]
@@ -4179,7 +4166,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx-2]
 -xv[nlocal+0+nz+nx-1]
 -xv[nlocal+0+nz+2*nx-2]
@@ -4194,7 +4181,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*(nz-1)-2]
 -xv[nlocal+0+nz+nx*(nz-1)-1]
 -xv[nlocal+0+nz+nx*nz-2]
@@ -4209,7 +4196,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny-2]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny-1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+2*ny-2]
@@ -4218,7 +4205,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-1)-2]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*(nz-1)-1]
 -xv[nlocal+0+nz+nx*nz+nz+ny*nz+ny*nz-2]
@@ -4429,9 +4416,9 @@ for (iz=1; iz<nz-1;iz++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
-        }//ipy < npy - 1
-      }//ipy > 0
+          }//ipz > 0 
+        }//ipy < npy - 1 
+      }//ipy > 0 
     else
 {
       if(ipy < npy - 1)
@@ -4443,7 +4430,7 @@ for (iz=1; iz<nz-1;iz++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1]
@@ -4458,7 +4445,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*(nz-2)]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*(nz-2)+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*(nz-1)]
@@ -4473,7 +4460,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny-2]
 -xv[nlocal+0+ny-1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny-2]
@@ -4497,7 +4484,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*(nz-1)-2]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*(nz-1)-1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz-2]
@@ -4521,7 +4508,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx-2]
 -xv[nlocal+0+ny+nx-1]
 -xv[nlocal+0+ny+2*nx-2]
@@ -4536,7 +4523,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx-2]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx-1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+2*nx-2]
@@ -4551,7 +4538,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*(ny-1)-2]
 -xv[nlocal+0+ny+nx*(ny-1)-1]
 -xv[nlocal+0+ny+nx*ny-2]
@@ -4575,7 +4562,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*(ny-1)-2]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*(ny-1)-1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny-2]
@@ -4982,7 +4969,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1]
@@ -4997,7 +4984,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*(nz-2)]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*(nz-2)+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*(nz-1)]
@@ -5006,7 +4993,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny-2]
 -xv[nlocal+0+ny-1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny-2]
@@ -5030,7 +5017,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*(nz-1)-2]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*(nz-1)-1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz-2]
@@ -5045,7 +5032,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx-2]
 -xv[nlocal+0+ny+nx-1]
 -xv[nlocal+0+ny+2*nx-2]
@@ -5060,7 +5047,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*(nz-2)]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*(nz-2)+1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*(nz-1)]
@@ -5069,7 +5056,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*(ny-1)-2]
 -xv[nlocal+0+ny+nx*(ny-1)-1]
 -xv[nlocal+0+ny+nx*ny-2]
@@ -5093,7 +5080,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*(nz-1)-2]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*(nz-1)-1]
 -xv[nlocal+0+ny+nx*ny+ny+1+nx+1+ny*nz+ny*nz+nz+nx*nz-2]
@@ -5398,7 +5385,7 @@ for (iy=1; iy<ny-1;iy++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
+          }//ipz > 0 
         else
 {
             if(ipz < npz - 1)
@@ -5406,7 +5393,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+ny]
@@ -5415,7 +5402,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*(nz-2)]
 -xv[nlocal+0+ny*(nz-2)+1]
 -xv[nlocal+0+ny*(nz-1)]
@@ -5430,7 +5417,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny-2]
 -xv[nlocal+0+ny-1]
 -xv[nlocal+0+2*ny-2]
@@ -5445,7 +5432,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*(nz-1)-2]
 -xv[nlocal+0+ny*(nz-1)-1]
 -xv[nlocal+0+ny*nz-2]
@@ -5469,7 +5456,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz]
 -xv[nlocal+0+ny*nz+1]
 -xv[nlocal+0+ny*nz+ny]
@@ -5478,7 +5465,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx-2]
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx-1]
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+2*nx-2]
@@ -5493,7 +5480,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx-2]
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx-1]
 -xv[nlocal+0+ny*nz+ny*nz+nz+2*nx-2]
@@ -5508,7 +5495,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*(ny-1)-2]
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*(ny-1)-1]
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz+nz+ny+nx*ny-2]
@@ -5827,7 +5814,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+ny]
@@ -5836,7 +5823,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*(nz-2)]
 -xv[nlocal+0+ny*(nz-2)+1]
 -xv[nlocal+0+ny*(nz-1)]
@@ -5845,7 +5832,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny-2]
 -xv[nlocal+0+ny-1]
 -xv[nlocal+0+2*ny-2]
@@ -5860,7 +5847,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*(nz-1)-2]
 -xv[nlocal+0+ny*(nz-1)-1]
 -xv[nlocal+0+ny*nz-2]
@@ -5875,7 +5862,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz]
 -xv[nlocal+0+ny*nz+1]
 -xv[nlocal+0+ny*nz+ny]
@@ -5884,7 +5871,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+ny*(nz-2)]
 -xv[nlocal+0+ny*nz+ny*(nz-2)+1]
 -xv[nlocal+0+ny*nz+ny*(nz-1)]
@@ -5893,7 +5880,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx-2]
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx-1]
 -xv[nlocal+0+ny*nz+ny*nz+nz+2*nx-2]
@@ -5908,7 +5895,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx*(nz-1)-2]
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx*(nz-1)-1]
 -xv[nlocal+0+ny*nz+ny*nz+nz+nx*nz-2]
@@ -6125,8 +6112,8 @@ for (iz=1; iz<nz-1;iz++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
-        }//ipy < npy - 1
+          }//ipz > 0 
+        }//ipy < npy - 1 
       else
 {
         if(ipz > 0)
@@ -6136,7 +6123,7 @@ for (iz=1; iz<nz-1;iz++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+ny+nx*ny+ny]
@@ -6151,7 +6138,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+ny+ny*(nz-2)]
 -xv[nlocal+0+ny+nx*ny+ny+ny*(nz-2)+1]
 -xv[nlocal+0+ny+nx*ny+ny+ny*(nz-1)]
@@ -6166,7 +6153,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny-2]
 -xv[nlocal+0+ny-1]
 -xv[nlocal+0+ny+nx*ny+ny+ny-2]
@@ -6181,7 +6168,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+ny+ny*(nz-1)-2]
 -xv[nlocal+0+ny+nx*ny+ny+ny*(nz-1)-1]
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz-2]
@@ -6196,7 +6183,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx-2]
 -xv[nlocal+0+ny+nx-1]
 -xv[nlocal+0+ny+2*nx-2]
@@ -6211,7 +6198,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx-2]
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx-1]
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+2*nx-2]
@@ -6226,7 +6213,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*(ny-1)-2]
 -xv[nlocal+0+ny+nx*(ny-1)-1]
 -xv[nlocal+0+ny+nx*ny-2]
@@ -6241,7 +6228,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*(ny-1)-2]
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*(ny-1)-1]
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz+ny+nx*ny-2]
@@ -6542,7 +6529,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+ny+nx*ny+ny]
@@ -6557,7 +6544,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+ny+ny*(nz-2)]
 -xv[nlocal+0+ny+nx*ny+ny+ny*(nz-2)+1]
 -xv[nlocal+0+ny+nx*ny+ny+ny*(nz-1)]
@@ -6566,7 +6553,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny-2]
 -xv[nlocal+0+ny-1]
 -xv[nlocal+0+ny+nx*ny+ny+ny-2]
@@ -6581,7 +6568,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+ny+ny*(nz-1)-2]
 -xv[nlocal+0+ny+nx*ny+ny+ny*(nz-1)-1]
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz-2]
@@ -6590,7 +6577,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx-2]
 -xv[nlocal+0+ny+nx-1]
 -xv[nlocal+0+ny+2*nx-2]
@@ -6605,7 +6592,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*(nz-2)]
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*(nz-2)+1]
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*(nz-1)]
@@ -6614,7 +6601,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*(ny-1)-2]
 -xv[nlocal+0+ny+nx*(ny-1)-1]
 -xv[nlocal+0+ny+nx*ny-2]
@@ -6629,7 +6616,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*(nz-1)-2]
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*(nz-1)-1]
 -xv[nlocal+0+ny+nx*ny+ny+ny*nz+ny*nz-2]
@@ -6840,7 +6827,7 @@ for (iy=1; iy<ny-1;iy++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
+          }//ipz > 0 
         else
 {
             if(ipz < npz - 1)
@@ -6848,7 +6835,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+ny]
@@ -6857,7 +6844,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*(nz-2)]
 -xv[nlocal+0+ny*(nz-2)+1]
 -xv[nlocal+0+ny*(nz-1)]
@@ -6872,7 +6859,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny-2]
 -xv[nlocal+0+ny-1]
 -xv[nlocal+0+2*ny-2]
@@ -6881,7 +6868,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*(nz-1)-2]
 -xv[nlocal+0+ny*(nz-1)-1]
 -xv[nlocal+0+ny*nz-2]
@@ -6896,7 +6883,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz]
 -xv[nlocal+0+ny*nz+1]
 -xv[nlocal+0+ny*nz+ny]
@@ -6905,7 +6892,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+ny*nz+ny+nx-2]
 -xv[nlocal+0+ny*nz+ny*nz+ny+nx-1]
 -xv[nlocal+0+ny*nz+ny*nz+ny+2*nx-2]
@@ -6920,7 +6907,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+ny-2]
 -xv[nlocal+0+ny*nz+ny-1]
 -xv[nlocal+0+ny*nz+2*ny-2]
@@ -6929,7 +6916,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+ny*nz+ny+nx*(ny-1)-2]
 -xv[nlocal+0+ny*nz+ny*nz+ny+nx*(ny-1)-1]
 -xv[nlocal+0+ny*nz+ny*nz+ny+nx*ny-2]
@@ -7151,7 +7138,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+ny]
@@ -7160,7 +7147,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*(nz-2)]
 -xv[nlocal+0+ny*(nz-2)+1]
 -xv[nlocal+0+ny*(nz-1)]
@@ -7169,7 +7156,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny-2]
 -xv[nlocal+0+ny-1]
 -xv[nlocal+0+2*ny-2]
@@ -7178,7 +7165,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*(nz-1)-2]
 -xv[nlocal+0+ny*(nz-1)-1]
 -xv[nlocal+0+ny*nz-2]
@@ -7187,7 +7174,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz]
 -xv[nlocal+0+ny*nz+1]
 -xv[nlocal+0+ny*nz+ny]
@@ -7196,7 +7183,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+ny*(nz-2)]
 -xv[nlocal+0+ny*nz+ny*(nz-2)+1]
 -xv[nlocal+0+ny*nz+ny*(nz-1)]
@@ -7205,7 +7192,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+ny-2]
 -xv[nlocal+0+ny*nz+ny-1]
 -xv[nlocal+0+ny*nz+2*ny-2]
@@ -7214,7 +7201,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+ny*(nz-1)-2]
 -xv[nlocal+0+ny*nz+ny*(nz-1)-1]
 -xv[nlocal+0+ny*nz+ny*nz-2]
@@ -7346,10 +7333,10 @@ for (iz=1; iz<nz-1;iz++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
-        }//ipy < npy - 1
-      }//ipy > 0
-    }//ipx < npx - 1
+          }//ipz > 0 
+        }//ipy < npy - 1 
+      }//ipy > 0 
+    }//ipx < npx - 1 
   else
 {
     if(ipy > 0)
@@ -7363,7 +7350,7 @@ for (iz=1; iz<nz-1;iz++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+1]
@@ -7387,7 +7374,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz-2]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz]
@@ -7411,7 +7398,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny-2]
 -xv[nlocal+0+1+nx+ny-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny-2]
@@ -7435,7 +7422,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*(nz-1)-2]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*(nz-1)-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz-2]
@@ -7459,7 +7446,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx-2]
 -xv[nlocal+0+1+nx-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx-2]
@@ -7474,7 +7461,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*(nz-1)-2]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*(nz-1)-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz-2]
@@ -7489,7 +7476,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny+nx*(ny-1)-2]
 -xv[nlocal+0+1+nx+ny+nx*(ny-1)-1]
 -xv[nlocal+0+1+nx+ny+nx*ny-2]
@@ -7504,7 +7491,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*(ny-1)-2]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*(ny-1)-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny-2]
@@ -7902,7 +7889,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+1]
@@ -7926,7 +7913,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz-2]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*(nz-2)]
@@ -7941,7 +7928,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny-2]
 -xv[nlocal+0+1+nx+ny-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny-2]
@@ -7965,7 +7952,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*(nz-1)-2]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*(nz-1)-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz-2]
@@ -7980,7 +7967,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx-2]
 -xv[nlocal+0+1+nx-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx-2]
@@ -7995,7 +7982,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*(nz-1)-2]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*(nz-1)-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz-2]
@@ -8004,7 +7991,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny+nx*(ny-1)-2]
 -xv[nlocal+0+1+nx+ny+nx*(ny-1)-1]
 -xv[nlocal+0+1+nx+ny+nx*ny-2]
@@ -8019,7 +8006,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*(nz-1)-2]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*(nz-1)-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+1+nx+nz+nx*nz+ny*nz+nz+nx*nz-2]
@@ -8318,7 +8305,7 @@ for (iy=1; iy<ny-1;iy++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
+          }//ipz > 0 
         else
 {
             if(ipz < npz - 1)
@@ -8326,7 +8313,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nz+nx*nz]
@@ -8341,7 +8328,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz-2]
 -xv[nlocal+0+nz-1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz]
@@ -8365,7 +8352,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+ny-2]
 -xv[nlocal+0+nz+nx*nz+ny-1]
 -xv[nlocal+0+nz+nx*nz+2*ny-2]
@@ -8380,7 +8367,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+ny*(nz-1)-2]
 -xv[nlocal+0+nz+nx*nz+ny*(nz-1)-1]
 -xv[nlocal+0+nz+nx*nz+ny*nz-2]
@@ -8404,7 +8391,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx-2]
 -xv[nlocal+0+nz+nx-1]
 -xv[nlocal+0+nz+2*nx-2]
@@ -8413,7 +8400,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*(nz-1)-2]
 -xv[nlocal+0+nz+nx*(nz-1)-1]
 -xv[nlocal+0+nz+nx*nz-2]
@@ -8428,7 +8415,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx-2]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx-1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+2*nx-2]
@@ -8437,7 +8424,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*(ny-1)-2]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*(ny-1)-1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz+1+nx+ny+nx*ny-2]
@@ -8747,7 +8734,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nz+nx*nz]
@@ -8762,7 +8749,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz-2]
 -xv[nlocal+0+nz-1]
 -xv[nlocal+0+nz+nx*nz+ny*(nz-2)]
@@ -8777,7 +8764,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+ny-2]
 -xv[nlocal+0+nz+nx*nz+ny-1]
 -xv[nlocal+0+nz+nx*nz+2*ny-2]
@@ -8792,7 +8779,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+ny*(nz-1)-2]
 -xv[nlocal+0+nz+nx*nz+ny*(nz-1)-1]
 -xv[nlocal+0+nz+nx*nz+ny*nz-2]
@@ -8807,7 +8794,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx-2]
 -xv[nlocal+0+nz+nx-1]
 -xv[nlocal+0+nz+2*nx-2]
@@ -8816,7 +8803,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*(nz-1)-2]
 -xv[nlocal+0+nz+nx*(nz-1)-1]
 -xv[nlocal+0+nz+nx*nz-2]
@@ -8825,7 +8812,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx-2]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx-1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+2*nx-2]
@@ -8834,7 +8821,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*(nz-1)-2]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*(nz-1)-1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+nz+nx*nz-2]
@@ -9045,8 +9032,8 @@ for (iz=1; iz<nz-1;iz++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
-        }//ipy < npy - 1
+          }//ipz > 0 
+        }//ipy < npy - 1 
       else
 {
         if(ipz > 0)
@@ -9056,7 +9043,7 @@ for (iz=1; iz<nz-1;iz++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1+nx+ny+nx*ny]
 -xv[nlocal+0+1+nx+ny+nx*ny+1]
@@ -9080,7 +9067,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny+nx*ny+nz-2]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz]
@@ -9104,7 +9091,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny-2]
 -xv[nlocal+0+1+nx+ny-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny-2]
@@ -9119,7 +9106,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*(nz-1)-2]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*(nz-1)-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz-2]
@@ -9134,7 +9121,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx-2]
 -xv[nlocal+0+1+nx-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx-2]
@@ -9149,7 +9136,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*(nz-1)-2]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*(nz-1)-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz-2]
@@ -9164,7 +9151,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny+nx*(ny-1)-2]
 -xv[nlocal+0+1+nx+ny+nx*(ny-1)-1]
 -xv[nlocal+0+1+nx+ny+nx*ny-2]
@@ -9173,7 +9160,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+nx*(ny-1)-2]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+nx*(ny-1)-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz+1+nx+ny+nx*ny-2]
@@ -9477,7 +9464,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1+nx+ny+nx*ny]
 -xv[nlocal+0+1+nx+ny+nx*ny+1]
@@ -9501,7 +9488,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny+nx*ny+nz-2]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*(nz-2)]
@@ -9516,7 +9503,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny-2]
 -xv[nlocal+0+1+nx+ny-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny-2]
@@ -9531,7 +9518,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*(nz-1)-2]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*(nz-1)-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz+ny*nz-2]
@@ -9540,7 +9527,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx-2]
 -xv[nlocal+0+1+nx-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx-2]
@@ -9555,7 +9542,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*(nz-1)-2]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*(nz-1)-1]
 -xv[nlocal+0+1+nx+ny+nx*ny+nz+nx*nz-2]
@@ -9564,7 +9551,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+1+nx+ny+nx*(ny-1)-2]
 -xv[nlocal+0+1+nx+ny+nx*(ny-1)-1]
 -xv[nlocal+0+1+nx+ny+nx*ny-2]
@@ -9784,7 +9771,7 @@ for (iy=1; iy<ny-1;iy++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
+          }//ipz > 0 
         else
 {
             if(ipz < npz - 1)
@@ -9792,7 +9779,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nz+nx*nz]
@@ -9807,7 +9794,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz-2]
 -xv[nlocal+0+nz-1]
 -xv[nlocal+0+nz+nx*nz+ny*nz]
@@ -9831,7 +9818,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+ny-2]
 -xv[nlocal+0+nz+nx*nz+ny-1]
 -xv[nlocal+0+nz+nx*nz+2*ny-2]
@@ -9840,7 +9827,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+ny*(nz-1)-2]
 -xv[nlocal+0+nz+nx*nz+ny*(nz-1)-1]
 -xv[nlocal+0+nz+nx*nz+ny*nz-2]
@@ -9855,7 +9842,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx-2]
 -xv[nlocal+0+nz+nx-1]
 -xv[nlocal+0+nz+2*nx-2]
@@ -9864,7 +9851,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*(nz-1)-2]
 -xv[nlocal+0+nz+nx*(nz-1)-1]
 -xv[nlocal+0+nz+nx*nz-2]
@@ -9879,7 +9866,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+nx*(ny-1)-2]
 -xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+nx*(ny-1)-1]
 -xv[nlocal+0+nz+nx*nz+ny*nz+1+nx+ny+nx*ny-2]
@@ -10104,7 +10091,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nz+nx*nz]
@@ -10119,7 +10106,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz-2]
 -xv[nlocal+0+nz-1]
 -xv[nlocal+0+nz+nx*nz+ny*(nz-2)]
@@ -10134,7 +10121,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+ny-2]
 -xv[nlocal+0+nz+nx*nz+ny-1]
 -xv[nlocal+0+nz+nx*nz+2*ny-2]
@@ -10143,7 +10130,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*nz+ny*(nz-1)-2]
 -xv[nlocal+0+nz+nx*nz+ny*(nz-1)-1]
 -xv[nlocal+0+nz+nx*nz+ny*nz-2]
@@ -10152,7 +10139,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx-2]
 -xv[nlocal+0+nz+nx-1]
 -xv[nlocal+0+nz+2*nx-2]
@@ -10161,7 +10148,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nz+nx*(nz-1)-2]
 -xv[nlocal+0+nz+nx*(nz-1)-1]
 -xv[nlocal+0+nz+nx*nz-2]
@@ -10302,9 +10289,9 @@ for (iz=1; iz<nz-1;iz++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
-        }//ipy < npy - 1
-      }//ipy > 0
+          }//ipz > 0 
+        }//ipy < npy - 1 
+      }//ipy > 0 
     else
 {
       if(ipy < npy - 1)
@@ -10316,7 +10303,7 @@ for (iz=1; iz<nz-1;iz++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+ny+nx*ny+1+nx]
@@ -10331,7 +10318,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*(nz-2)]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*(nz-2)+1]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*(nz-1)]
@@ -10346,7 +10333,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny-2]
 -xv[nlocal+0+ny-1]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny-2]
@@ -10370,7 +10357,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*(nz-1)-2]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*(nz-1)-1]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz-2]
@@ -10394,7 +10381,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx-2]
 -xv[nlocal+0+ny+nx-1]
 -xv[nlocal+0+ny+2*nx-2]
@@ -10403,7 +10390,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx-2]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx-1]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+2*nx-2]
@@ -10412,7 +10399,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*(ny-1)-2]
 -xv[nlocal+0+ny+nx*(ny-1)-1]
 -xv[nlocal+0+ny+nx*ny-2]
@@ -10427,7 +10414,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*(ny-1)-2]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*(ny-1)-1]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz+ny+nx*ny-2]
@@ -10737,7 +10724,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+ny+nx*ny+1+nx]
@@ -10752,7 +10739,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*(nz-2)]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*(nz-2)+1]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*(nz-1)]
@@ -10761,7 +10748,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny-2]
 -xv[nlocal+0+ny-1]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny-2]
@@ -10785,7 +10772,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*(nz-1)-2]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*(nz-1)-1]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz-2]
@@ -10800,7 +10787,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx-2]
 -xv[nlocal+0+ny+nx-1]
 -xv[nlocal+0+ny+2*nx-2]
@@ -10809,7 +10796,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*(ny-1)-2]
 -xv[nlocal+0+ny+nx*(ny-1)-1]
 -xv[nlocal+0+ny+nx*ny-2]
@@ -10824,7 +10811,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*(nz-1)-2]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*(nz-1)-1]
 -xv[nlocal+0+ny+nx*ny+1+nx+ny*nz+nz+nx*nz-2]
@@ -11044,7 +11031,7 @@ for (iy=1; iy<ny-1;iy++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
+          }//ipz > 0 
         else
 {
             if(ipz < npz - 1)
@@ -11052,7 +11039,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+ny]
@@ -11061,7 +11048,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*(nz-2)]
 -xv[nlocal+0+ny*(nz-2)+1]
 -xv[nlocal+0+ny*(nz-1)]
@@ -11076,7 +11063,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny-2]
 -xv[nlocal+0+ny-1]
 -xv[nlocal+0+2*ny-2]
@@ -11091,7 +11078,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*(nz-1)-2]
 -xv[nlocal+0+ny*(nz-1)-1]
 -xv[nlocal+0+ny*nz-2]
@@ -11115,7 +11102,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx-2]
 -xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx-1]
 -xv[nlocal+0+ny*nz+nz+nx*nz+ny+2*nx-2]
@@ -11124,7 +11111,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+nz+nx-2]
 -xv[nlocal+0+ny*nz+nz+nx-1]
 -xv[nlocal+0+ny*nz+nz+2*nx-2]
@@ -11133,7 +11120,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*(ny-1)-2]
 -xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*(ny-1)-1]
 -xv[nlocal+0+ny*nz+nz+nx*nz+ny+nx*ny-2]
@@ -11364,7 +11351,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+ny]
@@ -11373,7 +11360,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*(nz-2)]
 -xv[nlocal+0+ny*(nz-2)+1]
 -xv[nlocal+0+ny*(nz-1)]
@@ -11382,7 +11369,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny-2]
 -xv[nlocal+0+ny-1]
 -xv[nlocal+0+2*ny-2]
@@ -11397,7 +11384,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*(nz-1)-2]
 -xv[nlocal+0+ny*(nz-1)-1]
 -xv[nlocal+0+ny*nz-2]
@@ -11412,7 +11399,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+nz+nx-2]
 -xv[nlocal+0+ny*nz+nz+nx-1]
 -xv[nlocal+0+ny*nz+nz+2*nx-2]
@@ -11421,7 +11408,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+nz+nx*(nz-1)-2]
 -xv[nlocal+0+ny*nz+nz+nx*(nz-1)-1]
 -xv[nlocal+0+ny*nz+nz+nx*nz-2]
@@ -11562,8 +11549,8 @@ for (iz=1; iz<nz-1;iz++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
-        }//ipy < npy - 1
+          }//ipz > 0 
+        }//ipy < npy - 1 
       else
 {
         if(ipz > 0)
@@ -11573,7 +11560,7 @@ for (iz=1; iz<nz-1;iz++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+ny+nx*ny]
@@ -11588,7 +11575,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+ny*(nz-2)]
 -xv[nlocal+0+ny+nx*ny+ny*(nz-2)+1]
 -xv[nlocal+0+ny+nx*ny+ny*(nz-1)]
@@ -11603,7 +11590,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny-2]
 -xv[nlocal+0+ny-1]
 -xv[nlocal+0+ny+nx*ny+ny-2]
@@ -11618,7 +11605,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+ny*(nz-1)-2]
 -xv[nlocal+0+ny+nx*ny+ny*(nz-1)-1]
 -xv[nlocal+0+ny+nx*ny+ny*nz-2]
@@ -11633,7 +11620,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx-2]
 -xv[nlocal+0+ny+nx-1]
 -xv[nlocal+0+ny+2*nx-2]
@@ -11642,7 +11629,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+ny*nz+ny+nx-2]
 -xv[nlocal+0+ny+nx*ny+ny*nz+ny+nx-1]
 -xv[nlocal+0+ny+nx*ny+ny*nz+ny+2*nx-2]
@@ -11651,7 +11638,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*(ny-1)-2]
 -xv[nlocal+0+ny+nx*(ny-1)-1]
 -xv[nlocal+0+ny+nx*ny-2]
@@ -11660,7 +11647,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+ny*nz+ny+nx*(ny-1)-2]
 -xv[nlocal+0+ny+nx*ny+ny*nz+ny+nx*(ny-1)-1]
 -xv[nlocal+0+ny+nx*ny+ny*nz+ny+nx*ny-2]
@@ -11876,7 +11863,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+ny+nx*ny]
@@ -11891,7 +11878,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+ny*(nz-2)]
 -xv[nlocal+0+ny+nx*ny+ny*(nz-2)+1]
 -xv[nlocal+0+ny+nx*ny+ny*(nz-1)]
@@ -11900,7 +11887,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny-2]
 -xv[nlocal+0+ny-1]
 -xv[nlocal+0+ny+nx*ny+ny-2]
@@ -11915,7 +11902,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*ny+ny*(nz-1)-2]
 -xv[nlocal+0+ny+nx*ny+ny*(nz-1)-1]
 -xv[nlocal+0+ny+nx*ny+ny*nz-2]
@@ -11924,7 +11911,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx-2]
 -xv[nlocal+0+ny+nx-1]
 -xv[nlocal+0+ny+2*nx-2]
@@ -11933,7 +11920,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny+nx*(ny-1)-2]
 -xv[nlocal+0+ny+nx*(ny-1)-1]
 -xv[nlocal+0+ny+nx*ny-2]
@@ -12074,7 +12061,7 @@ for (iy=1; iy<ny-1;iy++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
+          }//ipz > 0 
         else
 {
             if(ipz < npz - 1)
@@ -12082,7 +12069,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+ny]
@@ -12091,7 +12078,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*(nz-2)]
 -xv[nlocal+0+ny*(nz-2)+1]
 -xv[nlocal+0+ny*(nz-1)]
@@ -12106,7 +12093,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny-2]
 -xv[nlocal+0+ny-1]
 -xv[nlocal+0+2*ny-2]
@@ -12115,7 +12102,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*(nz-1)-2]
 -xv[nlocal+0+ny*(nz-1)-1]
 -xv[nlocal+0+ny*nz-2]
@@ -12130,7 +12117,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+ny+nx-2]
 -xv[nlocal+0+ny*nz+ny+nx-1]
 -xv[nlocal+0+ny*nz+ny+2*nx-2]
@@ -12139,7 +12126,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+ny+nx*(ny-1)-2]
 -xv[nlocal+0+ny*nz+ny+nx*(ny-1)-1]
 -xv[nlocal+0+ny*nz+ny+nx*ny-2]
@@ -12285,7 +12272,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+ny]
@@ -12294,7 +12281,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*(nz-2)]
 -xv[nlocal+0+ny*(nz-2)+1]
 -xv[nlocal+0+ny*(nz-1)]
@@ -12303,7 +12290,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny-2]
 -xv[nlocal+0+ny-1]
 -xv[nlocal+0+2*ny-2]
@@ -12312,7 +12299,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*(nz-1)-2]
 -xv[nlocal+0+ny*(nz-1)-1]
 -xv[nlocal+0+ny*nz-2]
@@ -12383,11 +12370,11 @@ for (iz=1; iz<nz-1;iz++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
-        }//ipy < npy - 1
-      }//ipy > 0
-    }//ipx < npx - 1
- }//ipx > 0
+          }//ipz > 0 
+        }//ipy < npy - 1 
+      }//ipy > 0 
+    }//ipx < npx - 1 
+ }//ipx > 0 
 else
 {
   if(ipx < npx - 1)
@@ -12403,7 +12390,7 @@ else
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1]
@@ -12418,7 +12405,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*(nz-2)]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*(nz-2)+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*(nz-1)]
@@ -12433,7 +12420,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*(ny-2)]
 -xv[nlocal+0+nx+1+nx*(ny-2)+1]
 -xv[nlocal+0+nx+1+nx*(ny-1)]
@@ -12448,7 +12435,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*(ny-2)]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*(ny-2)+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*(ny-1)]
@@ -12463,7 +12450,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx-2]
@@ -12487,7 +12474,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*(nz-1)-2]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*(nz-1)-1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz-2]
@@ -12511,7 +12498,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*(ny-1)-2]
 -xv[nlocal+0+nx+1+nx*(ny-1)-1]
 -xv[nlocal+0+nx+1+nx*ny-2]
@@ -12535,7 +12522,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*(ny-1)-2]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*(ny-1)-1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny-2]
@@ -12942,7 +12929,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1]
@@ -12957,7 +12944,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*(nz-2)]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*(nz-2)+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*(nz-1)]
@@ -12966,7 +12953,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*(ny-2)]
 -xv[nlocal+0+nx+1+nx*(ny-2)+1]
 -xv[nlocal+0+nx+1+nx*(ny-1)]
@@ -12981,7 +12968,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*(nz-2)]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*(nz-2)+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*(nz-1)]
@@ -12990,7 +12977,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx-2]
@@ -13014,7 +13001,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*(nz-1)-2]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*(nz-1)-1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz-2]
@@ -13029,7 +13016,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*(ny-1)-2]
 -xv[nlocal+0+nx+1+nx*(ny-1)-1]
 -xv[nlocal+0+nx+1+nx*ny-2]
@@ -13053,7 +13040,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*(nz-1)-2]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*(nz-1)-1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx+1+nx*nz+nz+ny*nz+nx*nz-2]
@@ -13358,7 +13345,7 @@ for (iy=1; iy<ny-1;iy++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
+          }//ipz > 0 
         else
 {
             if(ipz < npz - 1)
@@ -13366,7 +13353,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx]
@@ -13375,7 +13362,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(nz-2)]
 -xv[nlocal+0+nx*(nz-2)+1]
 -xv[nlocal+0+nx*(nz-1)]
@@ -13390,7 +13377,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nz+ny*nz]
 -xv[nlocal+0+nx*nz+nz+ny*nz+1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx]
@@ -13399,7 +13386,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*(ny-2)]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*(ny-2)+1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*(ny-1)]
@@ -13414,7 +13401,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+2*nx-2]
@@ -13429,7 +13416,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(nz-1)-2]
 -xv[nlocal+0+nx*(nz-1)-1]
 -xv[nlocal+0+nx*nz-2]
@@ -13453,7 +13440,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx-2]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx-1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+2*nx-2]
@@ -13468,7 +13455,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*(ny-1)-2]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*(ny-1)-1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz+nz+nx+1+nx*ny-2]
@@ -13787,7 +13774,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx]
@@ -13796,7 +13783,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(nz-2)]
 -xv[nlocal+0+nx*(nz-2)+1]
 -xv[nlocal+0+nx*(nz-1)]
@@ -13805,7 +13792,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nz+ny*nz]
 -xv[nlocal+0+nx*nz+nz+ny*nz+1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx]
@@ -13814,7 +13801,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*(nz-2)]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*(nz-2)+1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*(nz-1)]
@@ -13823,7 +13810,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+2*nx-2]
@@ -13838,7 +13825,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(nz-1)-2]
 -xv[nlocal+0+nx*(nz-1)-1]
 -xv[nlocal+0+nx*nz-2]
@@ -13853,7 +13840,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx-2]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx-1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+2*nx-2]
@@ -13868,7 +13855,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*(nz-1)-2]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*(nz-1)-1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx*nz-2]
@@ -14085,8 +14072,8 @@ for (iz=1; iz<nz-1;iz++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
-        }//ipy < npy - 1
+          }//ipz > 0 
+        }//ipy < npy - 1 
       else
 {
         if(ipz > 0)
@@ -14096,7 +14083,7 @@ for (iz=1; iz<nz-1;iz++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx+1+nx*ny+ny]
@@ -14111,7 +14098,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*(nz-2)]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*(nz-2)+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*(nz-1)]
@@ -14126,7 +14113,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*(ny-2)]
 -xv[nlocal+0+nx+1+nx*(ny-2)+1]
 -xv[nlocal+0+nx+1+nx*(ny-1)]
@@ -14135,7 +14122,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*(ny-2)]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*(ny-2)+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*(ny-1)]
@@ -14144,7 +14131,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx-2]
@@ -14168,7 +14155,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*(nz-1)-2]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*(nz-1)-1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz-2]
@@ -14192,7 +14179,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*(ny-1)-2]
 -xv[nlocal+0+nx+1+nx*(ny-1)-1]
 -xv[nlocal+0+nx+1+nx*ny-2]
@@ -14207,7 +14194,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*(ny-1)-2]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*(ny-1)-1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz+nx+1+nx*ny-2]
@@ -14517,7 +14504,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx+1+nx*ny+ny]
@@ -14532,7 +14519,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*(nz-2)]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*(nz-2)+1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*(nz-1)]
@@ -14541,7 +14528,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*(ny-2)]
 -xv[nlocal+0+nx+1+nx*(ny-2)+1]
 -xv[nlocal+0+nx+1+nx*(ny-1)]
@@ -14550,7 +14537,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx-2]
@@ -14574,7 +14561,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*(nz-1)-2]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*(nz-1)-1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz-2]
@@ -14589,7 +14576,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*(ny-1)-2]
 -xv[nlocal+0+nx+1+nx*(ny-1)-1]
 -xv[nlocal+0+nx+1+nx*ny-2]
@@ -14604,7 +14591,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*(nz-1)-2]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*(nz-1)-1]
 -xv[nlocal+0+nx+1+nx*ny+ny+nx*nz+nz+ny*nz-2]
@@ -14824,7 +14811,7 @@ for (iy=1; iy<ny-1;iy++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
+          }//ipz > 0 
         else
 {
             if(ipz < npz - 1)
@@ -14832,7 +14819,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx]
@@ -14841,7 +14828,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(nz-2)]
 -xv[nlocal+0+nx*(nz-2)+1]
 -xv[nlocal+0+nx*(nz-1)]
@@ -14856,7 +14843,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*(ny-2)]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*(ny-2)+1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*(ny-1)]
@@ -14865,7 +14852,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+2*nx-2]
@@ -14880,7 +14867,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(nz-1)-2]
 -xv[nlocal+0+nx*(nz-1)-1]
 -xv[nlocal+0+nx*nz-2]
@@ -14904,7 +14891,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nz+ny-2]
 -xv[nlocal+0+nx*nz+nz+ny-1]
 -xv[nlocal+0+nx*nz+nz+2*ny-2]
@@ -14913,7 +14900,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*(ny-1)-2]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*(ny-1)-1]
 -xv[nlocal+0+nx*nz+nz+ny*nz+nx+1+nx*ny-2]
@@ -15144,7 +15131,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx]
@@ -15153,7 +15140,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(nz-2)]
 -xv[nlocal+0+nx*(nz-2)+1]
 -xv[nlocal+0+nx*(nz-1)]
@@ -15162,7 +15149,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+2*nx-2]
@@ -15177,7 +15164,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(nz-1)-2]
 -xv[nlocal+0+nx*(nz-1)-1]
 -xv[nlocal+0+nx*nz-2]
@@ -15192,7 +15179,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nz+ny-2]
 -xv[nlocal+0+nx*nz+nz+ny-1]
 -xv[nlocal+0+nx*nz+nz+2*ny-2]
@@ -15201,7 +15188,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nz+ny*(nz-1)-2]
 -xv[nlocal+0+nx*nz+nz+ny*(nz-1)-1]
 -xv[nlocal+0+nx*nz+nz+ny*nz-2]
@@ -15342,9 +15329,9 @@ for (iz=1; iz<nz-1;iz++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
-        }//ipy < npy - 1
-      }//ipy > 0
+          }//ipz > 0 
+        }//ipy < npy - 1 
+      }//ipy > 0 
     else
 {
       if(ipy < npy - 1)
@@ -15356,7 +15343,7 @@ for (iz=1; iz<nz-1;iz++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx]
@@ -15365,7 +15352,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+1]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx]
@@ -15374,7 +15361,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(ny-2)]
 -xv[nlocal+0+nx*(ny-2)+1]
 -xv[nlocal+0+nx*(ny-1)]
@@ -15389,7 +15376,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*(ny-2)]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*(ny-2)+1]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*(ny-1)]
@@ -15404,7 +15391,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+2*nx-2]
@@ -15419,7 +15406,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx-2]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx-1]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+2*nx-2]
@@ -15434,7 +15421,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(ny-1)-2]
 -xv[nlocal+0+nx*(ny-1)-1]
 -xv[nlocal+0+nx*ny-2]
@@ -15458,7 +15445,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*(ny-1)-2]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*(ny-1)-1]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz+nz+nx*ny-2]
@@ -15777,7 +15764,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx]
@@ -15786,7 +15773,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(ny-2)]
 -xv[nlocal+0+nx*(ny-2)+1]
 -xv[nlocal+0+nx*(ny-1)]
@@ -15801,7 +15788,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*(nz-2)]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*(nz-2)+1]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*(nz-1)]
@@ -15810,7 +15797,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+2*nx-2]
@@ -15825,7 +15812,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*(nz-2)]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*(nz-2)+1]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*(nz-1)]
@@ -15834,7 +15821,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(ny-1)-2]
 -xv[nlocal+0+nx*(ny-1)-1]
 -xv[nlocal+0+nx*ny-2]
@@ -15858,7 +15845,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*(nz-1)-2]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*(nz-1)-1]
 -xv[nlocal+0+nx*ny+ny+nx+1+ny*nz+nx*nz-2]
@@ -16084,7 +16071,7 @@ for (iy=1; iy<ny-1;iy++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
+          }//ipz > 0 
         else
 {
             if(ipz < npz - 1)
@@ -16092,7 +16079,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+nx*nz+nz]
 -xv[nlocal+0+ny*nz+nx*nz+nz+1]
 -xv[nlocal+0+ny*nz+nx*nz+nz+nx]
@@ -16101,7 +16088,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz]
 -xv[nlocal+0+ny*nz+1]
 -xv[nlocal+0+ny*nz+nx]
@@ -16110,7 +16097,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+nx*nz+nz+nx*(ny-2)]
 -xv[nlocal+0+ny*nz+nx*nz+nz+nx*(ny-2)+1]
 -xv[nlocal+0+ny*nz+nx*nz+nz+nx*(ny-1)]
@@ -16125,7 +16112,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+ny]
@@ -16134,7 +16121,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+nx*nz+nz+nx-2]
 -xv[nlocal+0+ny*nz+nx*nz+nz+nx-1]
 -xv[nlocal+0+ny*nz+nx*nz+nz+2*nx-2]
@@ -16149,7 +16136,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+nx-2]
 -xv[nlocal+0+ny*nz+nx-1]
 -xv[nlocal+0+ny*nz+2*nx-2]
@@ -16164,7 +16151,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+nx*nz+nz+nx*(ny-1)-2]
 -xv[nlocal+0+ny*nz+nx*nz+nz+nx*(ny-1)-1]
 -xv[nlocal+0+ny*nz+nx*nz+nz+nx*ny-2]
@@ -16404,7 +16391,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz]
 -xv[nlocal+0+ny*nz+1]
 -xv[nlocal+0+ny*nz+nx]
@@ -16413,7 +16400,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+nx*(nz-2)]
 -xv[nlocal+0+ny*nz+nx*(nz-2)+1]
 -xv[nlocal+0+ny*nz+nx*(nz-1)]
@@ -16422,7 +16409,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+ny]
@@ -16431,7 +16418,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*(nz-2)]
 -xv[nlocal+0+ny*(nz-2)+1]
 -xv[nlocal+0+ny*(nz-1)]
@@ -16440,7 +16427,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+nx-2]
 -xv[nlocal+0+ny*nz+nx-1]
 -xv[nlocal+0+ny*nz+2*nx-2]
@@ -16455,7 +16442,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+nx*(nz-1)-2]
 -xv[nlocal+0+ny*nz+nx*(nz-1)-1]
 -xv[nlocal+0+ny*nz+nx*nz-2]
@@ -16602,8 +16589,8 @@ for (iz=1; iz<nz-1;iz++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
-        }//ipy < npy - 1
+          }//ipz > 0 
+        }//ipy < npy - 1 
       else
 {
         if(ipz > 0)
@@ -16613,7 +16600,7 @@ for (iz=1; iz<nz-1;iz++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx]
@@ -16622,7 +16609,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny+ny+ny*nz]
 -xv[nlocal+0+nx*ny+ny+ny*nz+1]
 -xv[nlocal+0+nx*ny+ny+ny*nz+nx]
@@ -16631,7 +16618,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(ny-2)]
 -xv[nlocal+0+nx*(ny-2)+1]
 -xv[nlocal+0+nx*(ny-1)]
@@ -16640,7 +16627,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny+ny+ny*nz+nx*(ny-2)]
 -xv[nlocal+0+nx*ny+ny+ny*nz+nx*(ny-2)+1]
 -xv[nlocal+0+nx*ny+ny+ny*nz+nx*(ny-1)]
@@ -16649,7 +16636,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+2*nx-2]
@@ -16664,7 +16651,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny+ny+ny*nz+nx-2]
 -xv[nlocal+0+nx*ny+ny+ny*nz+nx-1]
 -xv[nlocal+0+nx*ny+ny+ny*nz+2*nx-2]
@@ -16679,7 +16666,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(ny-1)-2]
 -xv[nlocal+0+nx*(ny-1)-1]
 -xv[nlocal+0+nx*ny-2]
@@ -16694,7 +16681,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny+ny+ny*nz+nx*(ny-1)-2]
 -xv[nlocal+0+nx*ny+ny+ny*nz+nx*(ny-1)-1]
 -xv[nlocal+0+nx*ny+ny+ny*nz+nx*ny-2]
@@ -16916,7 +16903,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx]
@@ -16925,7 +16912,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(ny-2)]
 -xv[nlocal+0+nx*(ny-2)+1]
 -xv[nlocal+0+nx*(ny-1)]
@@ -16934,7 +16921,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+2*nx-2]
@@ -16949,7 +16936,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny+ny+ny*(nz-2)]
 -xv[nlocal+0+nx*ny+ny+ny*(nz-2)+1]
 -xv[nlocal+0+nx*ny+ny+ny*(nz-1)]
@@ -16958,7 +16945,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(ny-1)-2]
 -xv[nlocal+0+nx*(ny-1)-1]
 -xv[nlocal+0+nx*ny-2]
@@ -16973,7 +16960,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny+ny+ny*(nz-1)-2]
 -xv[nlocal+0+nx*ny+ny+ny*(nz-1)-1]
 -xv[nlocal+0+nx*ny+ny+ny*nz-2]
@@ -17114,7 +17101,7 @@ for (iy=1; iy<ny-1;iy++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
+          }//ipz > 0 
         else
 {
             if(ipz < npz - 1)
@@ -17122,7 +17109,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz]
 -xv[nlocal+0+ny*nz+1]
 -xv[nlocal+0+ny*nz+nx]
@@ -17131,7 +17118,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+nx*(ny-2)]
 -xv[nlocal+0+ny*nz+nx*(ny-2)+1]
 -xv[nlocal+0+ny*nz+nx*(ny-1)]
@@ -17140,7 +17127,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+ny]
@@ -17149,7 +17136,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+nx-2]
 -xv[nlocal+0+ny*nz+nx-1]
 -xv[nlocal+0+ny*nz+2*nx-2]
@@ -17164,7 +17151,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny-2]
 -xv[nlocal+0+ny-1]
 -xv[nlocal+0+2*ny-2]
@@ -17173,7 +17160,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*nz+nx*(ny-1)-2]
 -xv[nlocal+0+ny*nz+nx*(ny-1)-1]
 -xv[nlocal+0+ny*nz+nx*ny-2]
@@ -17325,7 +17312,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+ny]
@@ -17334,7 +17321,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*(nz-2)]
 -xv[nlocal+0+ny*(nz-2)+1]
 -xv[nlocal+0+ny*(nz-1)]
@@ -17343,7 +17330,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny-2]
 -xv[nlocal+0+ny-1]
 -xv[nlocal+0+2*ny-2]
@@ -17352,7 +17339,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+ny*(nz-1)-2]
 -xv[nlocal+0+ny*(nz-1)-1]
 -xv[nlocal+0+ny*nz-2]
@@ -17423,10 +17410,10 @@ for (iz=1; iz<nz-1;iz++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
-        }//ipy < npy - 1
-      }//ipy > 0
-    }//ipx < npx - 1
+          }//ipz > 0 
+        }//ipy < npy - 1 
+      }//ipy > 0 
+    }//ipx < npx - 1 
   else
 {
     if(ipy > 0)
@@ -17440,7 +17427,7 @@ for (iz=1; iz<nz-1;iz++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx+nx*ny+nx]
@@ -17455,7 +17442,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+nx*ny+nx+nx*(nz-2)]
 -xv[nlocal+0+nx+nx*ny+nx+nx*(nz-2)+1]
 -xv[nlocal+0+nx+nx*ny+nx+nx*(nz-1)]
@@ -17470,7 +17457,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+nx*(ny-2)]
 -xv[nlocal+0+nx+nx*(ny-2)+1]
 -xv[nlocal+0+nx+nx*(ny-1)]
@@ -17485,7 +17472,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*(ny-2)]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*(ny-2)+1]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*(ny-1)]
@@ -17500,7 +17487,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+nx+nx*ny+nx+nx-2]
@@ -17515,7 +17502,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+nx*ny+nx+nx*(nz-1)-2]
 -xv[nlocal+0+nx+nx*ny+nx+nx*(nz-1)-1]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz-2]
@@ -17530,7 +17517,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+nx*(ny-1)-2]
 -xv[nlocal+0+nx+nx*(ny-1)-1]
 -xv[nlocal+0+nx+nx*ny-2]
@@ -17545,7 +17532,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*(ny-1)-2]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*(ny-1)-1]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz+nx+nx*ny-2]
@@ -17846,7 +17833,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx+nx*ny+nx]
@@ -17861,7 +17848,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+nx*ny+nx+nx*(nz-2)]
 -xv[nlocal+0+nx+nx*ny+nx+nx*(nz-2)+1]
 -xv[nlocal+0+nx+nx*ny+nx+nx*(nz-1)]
@@ -17870,7 +17857,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+nx*(ny-2)]
 -xv[nlocal+0+nx+nx*(ny-2)+1]
 -xv[nlocal+0+nx+nx*(ny-1)]
@@ -17885,7 +17872,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*(nz-2)]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*(nz-2)+1]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*(nz-1)]
@@ -17894,7 +17881,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+nx+nx*ny+nx+nx-2]
@@ -17909,7 +17896,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+nx*ny+nx+nx*(nz-1)-2]
 -xv[nlocal+0+nx+nx*ny+nx+nx*(nz-1)-1]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz-2]
@@ -17918,7 +17905,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+nx*(ny-1)-2]
 -xv[nlocal+0+nx+nx*(ny-1)-1]
 -xv[nlocal+0+nx+nx*ny-2]
@@ -17933,7 +17920,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*(nz-1)-2]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*(nz-1)-1]
 -xv[nlocal+0+nx+nx*ny+nx+nx*nz+nx*nz-2]
@@ -18144,7 +18131,7 @@ for (iy=1; iy<ny-1;iy++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
+          }//ipz > 0 
         else
 {
             if(ipz < npz - 1)
@@ -18152,7 +18139,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx]
@@ -18161,7 +18148,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(nz-2)]
 -xv[nlocal+0+nx*(nz-2)+1]
 -xv[nlocal+0+nx*(nz-1)]
@@ -18176,7 +18163,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz]
 -xv[nlocal+0+nx*nz+1]
 -xv[nlocal+0+nx*nz+nx]
@@ -18185,7 +18172,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nx*nz+nx+nx*(ny-2)]
 -xv[nlocal+0+nx*nz+nx*nz+nx+nx*(ny-2)+1]
 -xv[nlocal+0+nx*nz+nx*nz+nx+nx*(ny-1)]
@@ -18200,7 +18187,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+2*nx-2]
@@ -18209,7 +18196,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(nz-1)-2]
 -xv[nlocal+0+nx*(nz-1)-1]
 -xv[nlocal+0+nx*nz-2]
@@ -18224,7 +18211,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nx-2]
 -xv[nlocal+0+nx*nz+nx-1]
 -xv[nlocal+0+nx*nz+2*nx-2]
@@ -18233,7 +18220,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nx*nz+nx+nx*(ny-1)-2]
 -xv[nlocal+0+nx*nz+nx*nz+nx+nx*(ny-1)-1]
 -xv[nlocal+0+nx*nz+nx*nz+nx+nx*ny-2]
@@ -18455,7 +18442,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx]
@@ -18464,7 +18451,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(nz-2)]
 -xv[nlocal+0+nx*(nz-2)+1]
 -xv[nlocal+0+nx*(nz-1)]
@@ -18473,7 +18460,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz]
 -xv[nlocal+0+nx*nz+1]
 -xv[nlocal+0+nx*nz+nx]
@@ -18482,7 +18469,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nx*(nz-2)]
 -xv[nlocal+0+nx*nz+nx*(nz-2)+1]
 -xv[nlocal+0+nx*nz+nx*(nz-1)]
@@ -18491,7 +18478,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+2*nx-2]
@@ -18500,7 +18487,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(nz-1)-2]
 -xv[nlocal+0+nx*(nz-1)-1]
 -xv[nlocal+0+nx*nz-2]
@@ -18509,7 +18496,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nx-2]
 -xv[nlocal+0+nx*nz+nx-1]
 -xv[nlocal+0+nx*nz+2*nx-2]
@@ -18518,7 +18505,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nx*(nz-1)-2]
 -xv[nlocal+0+nx*nz+nx*(nz-1)-1]
 -xv[nlocal+0+nx*nz+nx*nz-2]
@@ -18650,8 +18637,8 @@ for (iz=1; iz<nz-1;iz++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
-        }//ipy < npy - 1
+          }//ipz > 0 
+        }//ipy < npy - 1 
       else
 {
         if(ipz > 0)
@@ -18661,7 +18648,7 @@ for (iz=1; iz<nz-1;iz++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx+nx*ny]
@@ -18676,7 +18663,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+nx*ny+nx*(nz-2)]
 -xv[nlocal+0+nx+nx*ny+nx*(nz-2)+1]
 -xv[nlocal+0+nx+nx*ny+nx*(nz-1)]
@@ -18691,7 +18678,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+nx*(ny-2)]
 -xv[nlocal+0+nx+nx*(ny-2)+1]
 -xv[nlocal+0+nx+nx*(ny-1)]
@@ -18700,7 +18687,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+nx*ny+nx*nz+nx+nx*(ny-2)]
 -xv[nlocal+0+nx+nx*ny+nx*nz+nx+nx*(ny-2)+1]
 -xv[nlocal+0+nx+nx*ny+nx*nz+nx+nx*(ny-1)]
@@ -18709,7 +18696,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+nx+nx*ny+nx-2]
@@ -18724,7 +18711,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+nx*ny+nx*(nz-1)-2]
 -xv[nlocal+0+nx+nx*ny+nx*(nz-1)-1]
 -xv[nlocal+0+nx+nx*ny+nx*nz-2]
@@ -18739,7 +18726,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+nx*(ny-1)-2]
 -xv[nlocal+0+nx+nx*(ny-1)-1]
 -xv[nlocal+0+nx+nx*ny-2]
@@ -18748,7 +18735,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+nx*ny+nx*nz+nx+nx*(ny-1)-2]
 -xv[nlocal+0+nx+nx*ny+nx*nz+nx+nx*(ny-1)-1]
 -xv[nlocal+0+nx+nx*ny+nx*nz+nx+nx*ny-2]
@@ -18964,7 +18951,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx+nx*ny]
@@ -18979,7 +18966,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+nx*ny+nx*(nz-2)]
 -xv[nlocal+0+nx+nx*ny+nx*(nz-2)+1]
 -xv[nlocal+0+nx+nx*ny+nx*(nz-1)]
@@ -18988,7 +18975,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+nx*(ny-2)]
 -xv[nlocal+0+nx+nx*(ny-2)+1]
 -xv[nlocal+0+nx+nx*(ny-1)]
@@ -18997,7 +18984,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+nx+nx*ny+nx-2]
@@ -19012,7 +18999,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+nx*ny+nx*(nz-1)-2]
 -xv[nlocal+0+nx+nx*ny+nx*(nz-1)-1]
 -xv[nlocal+0+nx+nx*ny+nx*nz-2]
@@ -19021,7 +19008,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx+nx*(ny-1)-2]
 -xv[nlocal+0+nx+nx*(ny-1)-1]
 -xv[nlocal+0+nx+nx*ny-2]
@@ -19162,7 +19149,7 @@ for (iy=1; iy<ny-1;iy++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
+          }//ipz > 0 
         else
 {
             if(ipz < npz - 1)
@@ -19170,7 +19157,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx]
@@ -19179,7 +19166,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(nz-2)]
 -xv[nlocal+0+nx*(nz-2)+1]
 -xv[nlocal+0+nx*(nz-1)]
@@ -19194,7 +19181,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nx+nx*(ny-2)]
 -xv[nlocal+0+nx*nz+nx+nx*(ny-2)+1]
 -xv[nlocal+0+nx*nz+nx+nx*(ny-1)]
@@ -19203,7 +19190,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+2*nx-2]
@@ -19212,7 +19199,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(nz-1)-2]
 -xv[nlocal+0+nx*(nz-1)-1]
 -xv[nlocal+0+nx*nz-2]
@@ -19227,7 +19214,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nx+nx*(ny-1)-2]
 -xv[nlocal+0+nx*nz+nx+nx*(ny-1)-1]
 -xv[nlocal+0+nx*nz+nx+nx*ny-2]
@@ -19373,7 +19360,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx]
@@ -19382,7 +19369,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(nz-2)]
 -xv[nlocal+0+nx*(nz-2)+1]
 -xv[nlocal+0+nx*(nz-1)]
@@ -19391,7 +19378,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+2*nx-2]
@@ -19400,7 +19387,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(nz-1)-2]
 -xv[nlocal+0+nx*(nz-1)-1]
 -xv[nlocal+0+nx*nz-2]
@@ -19471,9 +19458,9 @@ for (iz=1; iz<nz-1;iz++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
-        }//ipy < npy - 1
-      }//ipy > 0
+          }//ipz > 0 
+        }//ipy < npy - 1 
+      }//ipy > 0 
     else
 {
       if(ipy < npy - 1)
@@ -19485,7 +19472,7 @@ for (iz=1; iz<nz-1;iz++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx]
@@ -19494,7 +19481,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny+nx+nx*nz]
 -xv[nlocal+0+nx*ny+nx+nx*nz+1]
 -xv[nlocal+0+nx*ny+nx+nx*nz+nx]
@@ -19503,7 +19490,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(ny-2)]
 -xv[nlocal+0+nx*(ny-2)+1]
 -xv[nlocal+0+nx*(ny-1)]
@@ -19518,7 +19505,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny+nx+nx*nz+nx*(ny-2)]
 -xv[nlocal+0+nx*ny+nx+nx*nz+nx*(ny-2)+1]
 -xv[nlocal+0+nx*ny+nx+nx*nz+nx*(ny-1)]
@@ -19533,7 +19520,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+2*nx-2]
@@ -19542,7 +19529,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny+nx+nx*nz+nx-2]
 -xv[nlocal+0+nx*ny+nx+nx*nz+nx-1]
 -xv[nlocal+0+nx*ny+nx+nx*nz+2*nx-2]
@@ -19551,7 +19538,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(ny-1)-2]
 -xv[nlocal+0+nx*(ny-1)-1]
 -xv[nlocal+0+nx*ny-2]
@@ -19566,7 +19553,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny+nx+nx*nz+nx*(ny-1)-2]
 -xv[nlocal+0+nx*ny+nx+nx*nz+nx*(ny-1)-1]
 -xv[nlocal+0+nx*ny+nx+nx*nz+nx*ny-2]
@@ -19788,7 +19775,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx]
@@ -19797,7 +19784,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(ny-2)]
 -xv[nlocal+0+nx*(ny-2)+1]
 -xv[nlocal+0+nx*(ny-1)]
@@ -19812,7 +19799,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny+nx+nx*(nz-2)]
 -xv[nlocal+0+nx*ny+nx+nx*(nz-2)+1]
 -xv[nlocal+0+nx*ny+nx+nx*(nz-1)]
@@ -19821,7 +19808,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+2*nx-2]
@@ -19830,7 +19817,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(ny-1)-2]
 -xv[nlocal+0+nx*(ny-1)-1]
 -xv[nlocal+0+nx*ny-2]
@@ -19845,7 +19832,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny+nx+nx*(nz-1)-2]
 -xv[nlocal+0+nx*ny+nx+nx*(nz-1)-1]
 -xv[nlocal+0+nx*ny+nx+nx*nz-2]
@@ -19986,7 +19973,7 @@ for (iy=1; iy<ny-1;iy++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
+          }//ipz > 0 
         else
 {
             if(ipz < npz - 1)
@@ -19994,7 +19981,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz]
 -xv[nlocal+0+nx*nz+1]
 -xv[nlocal+0+nx*nz+nx]
@@ -20003,7 +19990,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx]
@@ -20012,7 +19999,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nx*(ny-2)]
 -xv[nlocal+0+nx*nz+nx*(ny-2)+1]
 -xv[nlocal+0+nx*nz+nx*(ny-1)]
@@ -20027,7 +20014,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nx-2]
 -xv[nlocal+0+nx*nz+nx-1]
 -xv[nlocal+0+nx*nz+2*nx-2]
@@ -20036,7 +20023,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+2*nx-2]
@@ -20045,7 +20032,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*nz+nx*(ny-1)-2]
 -xv[nlocal+0+nx*nz+nx*(ny-1)-1]
 -xv[nlocal+0+nx*nz+nx*ny-2]
@@ -20197,7 +20184,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx]
@@ -20206,7 +20193,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(nz-2)]
 -xv[nlocal+0+nx*(nz-2)+1]
 -xv[nlocal+0+nx*(nz-1)]
@@ -20215,7 +20202,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+2*nx-2]
@@ -20224,7 +20211,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(nz-1)-2]
 -xv[nlocal+0+nx*(nz-1)-1]
 -xv[nlocal+0+nx*nz-2]
@@ -20295,8 +20282,8 @@ for (iz=1; iz<nz-1;iz++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
-        }//ipy < npy - 1
+          }//ipz > 0 
+        }//ipy < npy - 1 
       else
 {
         if(ipz > 0)
@@ -20306,7 +20293,7 @@ for (iz=1; iz<nz-1;iz++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx]
@@ -20315,7 +20302,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny]
 -xv[nlocal+0+nx*ny+1]
 -xv[nlocal+0+nx*ny+nx]
@@ -20324,7 +20311,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(ny-2)]
 -xv[nlocal+0+nx*(ny-2)+1]
 -xv[nlocal+0+nx*(ny-1)]
@@ -20333,7 +20320,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny+nx*(ny-2)]
 -xv[nlocal+0+nx*ny+nx*(ny-2)+1]
 -xv[nlocal+0+nx*ny+nx*(ny-1)]
@@ -20342,7 +20329,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+2*nx-2]
@@ -20351,7 +20338,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny+nx-2]
 -xv[nlocal+0+nx*ny+nx-1]
 -xv[nlocal+0+nx*ny+2*nx-2]
@@ -20360,7 +20347,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(ny-1)-2]
 -xv[nlocal+0+nx*(ny-1)-1]
 -xv[nlocal+0+nx*ny-2]
@@ -20369,7 +20356,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*ny+nx*(ny-1)-2]
 -xv[nlocal+0+nx*ny+nx*(ny-1)-1]
 -xv[nlocal+0+nx*ny+nx*ny-2]
@@ -20506,7 +20493,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx]
@@ -20515,7 +20502,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(ny-2)]
 -xv[nlocal+0+nx*(ny-2)+1]
 -xv[nlocal+0+nx*(ny-1)]
@@ -20524,7 +20511,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+2*nx-2]
@@ -20533,7 +20520,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = 0;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(ny-1)-2]
 -xv[nlocal+0+nx*(ny-1)-1]
 -xv[nlocal+0+nx*ny-2]
@@ -20604,7 +20591,7 @@ for (iy=1; iy<ny-1;iy++)
 ;}
 }
 }//ipz < npz - 1
-          }//ipz > 0
+          }//ipz > 0 
         else
 {
             if(ipz < npz - 1)
@@ -20612,7 +20599,7 @@ for (iy=1; iy<ny-1;iy++)
 ix = 0;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0]
 -xv[nlocal+0+1]
 -xv[nlocal+0+nx]
@@ -20621,7 +20608,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = 0;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(ny-2)]
 -xv[nlocal+0+nx*(ny-2)+1]
 -xv[nlocal+0+nx*(ny-1)]
@@ -20630,7 +20617,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = 0;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx-2]
 -xv[nlocal+0+nx-1]
 -xv[nlocal+0+2*nx-2]
@@ -20639,7 +20626,7 @@ yv[ix+iy*nx+iz*ny*nx] +=
 ix = nx-1;
 iy = ny-1;
 iz = nz-1;
-yv[ix+iy*nx+iz*ny*nx] +=
+yv[ix+iy*nx+iz*ny*nx] += 
 -xv[nlocal+0+nx*(ny-1)-2]
 -xv[nlocal+0+nx*(ny-1)-1]
 -xv[nlocal+0+nx*ny-2]
@@ -20716,9 +20703,10 @@ for (iy=1; iy<ny-1;iy++)
 ;
 ;
 }//ipz < npz - 1
-          }//ipz > 0
-        }//ipy < npy - 1
-      }//ipy > 0
-    }//ipx < npx - 1
- }//ipx > 0
+          }//ipz > 0 
+        }//ipy < npy - 1 
+      }//ipy > 0 
+    }//ipx < npx - 1 
+ }//ipx > 0 
+
 return 0;}
